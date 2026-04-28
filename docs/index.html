@@ -7,7 +7,6 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Integra Tech Consulting | Soluciones Web Profesionales</title>
     <link rel="stylesheet" href="styles.css?v=9">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,10 +21,9 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="suite.html">Gestor</a></li>
+                    <li><a href="#operaciones">Operaciones</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="erp/login.html" class="btn-nav">Acceso</a></li>
+                    <li><a href="#contacto" class="btn-nav">Contacto</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger" role="button" aria-label="Abrir menú de navegación" aria-expanded="false" tabindex="0">
                     <span></span>
@@ -47,7 +45,6 @@
                 <div class="hero-buttons">
                     <a href="#contacto" class="btn btn-primary">Iniciar Proyecto</a>
                     <a href="#servicios" class="btn btn-secondary">Explorar Servicios</a>
-                    <a href="suite.html" class="btn btn-secondary">Abrir Gestor Empresarial</a>
                 </div>
 
                 <div class="hero-metrics">
@@ -63,6 +60,36 @@
                         <span class="metric-value">24/7</span>
                         <span class="metric-label">Soporte Ingeniero</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operations Hub -->
+    <section id="operaciones" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Centro Operativo</h2>
+                <p class="section-subtitle">Acceso directo a la documentación de ejecución y control diario</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Índice Maestro</h3>
+                    <p>Navegación completa del roadmap 2026–2027, planes por horizonte, semanas 1–52 y cierre de ciclo.</p>
+                    <a href="INDICE_MAESTRO_ROADMAP_2026_2027.md" class="btn btn-secondary">Abrir Índice Maestro</a>
+                </div>
+                <div class="service-card featured">
+                    <div class="featured-badge">Diario</div>
+                    <h3>Índice Operativo Rápido</h3>
+                    <p>Vista de uso diario con checklist semanal, enlaces críticos y seguimiento en issues de cadencia.</p>
+                    <a href="INDICE_OPERATIVO_RAPIDO.md" class="btn btn-primary">Abrir Índice Rápido</a>
+                </div>
+                <div class="service-card" id="activeWeekCard">
+                    <h3>Semana Activa</h3>
+                    <p id="activeWeekDescription">Detectando último plan semanal publicado...</p>
+                    <a href="reviews/" class="btn btn-secondary" id="activeWeekLink">Abrir Semanas</a>
+                    <p id="previousWeekDescription">Buscando semana anterior...</p>
+                    <a href="reviews/" class="btn btn-secondary" id="previousWeekLink">Abrir Semana Anterior</a>
                 </div>
             </div>
         </div>
@@ -91,7 +118,7 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></div>
+                    <div class="service-icon">⚡</div>
                     <h3>Frontend Performance</h3>
                     <p>Interfaces reactivas que cargan instantáneamente. Optimizadas para Core Web Vitals y conversión.</p>
                     <ul class="service-features">
@@ -102,7 +129,7 @@
                 </div>
                 <div class="service-card featured">
                     <div class="featured-badge">Core</div>
-                    <div class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+                    <div class="service-icon">🛠️</div>
                     <h3>Sistemas Integrados</h3>
                     <p>El corazón operativo de tu negocio. Gestión de reservas, inventario y clientes en un solo lugar.</p>
                     <ul class="service-features">
@@ -112,7 +139,7 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="bi bi-shield-lock" aria-hidden="true"></i></div>
+                    <div class="service-icon">🔒</div>
                     <h3>Infraestructura Segura</h3>
                     <p>Despliegues automatizados, copias de seguridad y protección contra ataques DDoS.</p>
                     <ul class="service-features">
@@ -192,21 +219,21 @@
                 </div>
                 <div class="about-features">
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="bi bi-rulers" aria-hidden="true"></i></div>
+                        <div class="feature-icon">📐</div>
                         <div>
                             <h4>Arquitectura Limpia</h4>
                             <p>Código mantenible y documentado bajo estándares de la industria.</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="bi bi-lightning-charge" aria-hidden="true"></i></div>
+                        <div class="feature-icon">⚡</div>
                         <div>
                             <h4>Performance First</h4>
                             <p>Cada milisegundo cuenta. Optimizamos cada recurso.</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <div class="feature-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+                        <div class="feature-icon">🛡️</div>
                         <div>
                             <h4>Seguridad por Diseño</h4>
                             <p>Protección de datos y cumplimiento normativo desde el día 1.</p>
@@ -271,17 +298,17 @@
                 </form>
                 <div class="contact-info">
                     <div class="contact-card">
-                        <div class="contact-icon"><i class="bi bi-envelope" aria-hidden="true"></i></div>
+                        <div class="contact-icon">📧</div>
                         <h4>Contacto Directo</h4>
                         <p>hello@integratech.consulting</p>
                     </div>
                     <div class="contact-card">
-                        <div class="contact-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
+                        <div class="contact-icon">📍</div>
                         <h4>Oficinas</h4>
                         <p>Madrid Tech Hub, España</p>
                     </div>
                     <div class="contact-card">
-                        <div class="contact-icon"><i class="bi bi-clock-history" aria-hidden="true"></i></div>
+                        <div class="contact-icon">⚡</div>
                         <h4>Respuesta</h4>
                         <p>&lt; 24 horas laborables</p>
                     </div>
@@ -343,7 +370,7 @@
                         <ul>
                             <li><a href="#nosotros">Sobre Nosotros</a></li>
                             <li><a href="#contacto">Contacto</a></li>
-                            <li><a href="erp/login.html" style="opacity: 0.9; font-size: 0.9rem;">Acceso</a></li>
+                            <li><a href="/erp/index.html" style="opacity: 0.9; font-size: 0.85rem;">Dashboard ERP</a></li>
                         </ul>
                     </div>
                 </div>

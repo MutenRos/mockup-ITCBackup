@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gestor Empresarial Web Integrado - Integra Tech Consulting + Omni ERP">
+    <title>Gestor Empresarial | Integra Tech Consulting</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css?v=9">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .suite-main {
+            padding: 140px 0 80px;
+        }
+
+        .suite-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .suite-header p {
+            color: var(--text-muted);
+            max-width: 760px;
+            margin: 12px auto 0;
+        }
+
+        .suite-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .suite-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.25s ease;
+        }
+
+        .suite-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            background: var(--bg-card-hover);
+        }
+
+        .suite-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+
+        .suite-card p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .suite-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .suite-links a {
+            text-decoration: none;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+        }
+
+        .suite-links a:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">Integra Tech</span>
+                    <span class="logo-consulting">Gestor Empresarial</span>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Web Principal</a></li>
+                    <li><a href="erp/index.html">ERP</a></li>
+                    <li><a href="erp/index.html" class="btn-nav">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="suite-main">
+        <div class="container">
+            <div class="suite-header">
+                <h1 class="hero-title" style="font-size: 2.8rem;">Gestor Empresarial Web Definitivo</h1>
+                <p>Plataforma unificada que integra la capa comercial de Integra Tech Consulting con los módulos operativos de Omni ERP para gestionar ventas, inventario, clientes y operación diaria desde una sola base web.</p>
+            </div>
+
+            <section>
+                <div class="section-header" style="margin-bottom: 20px;">
+                    <h2 class="section-title">Operación ERP</h2>
+                    <p class="section-subtitle">Módulos base integrados desde Omni ERP</p>
+                </div>
+                <div class="suite-grid">
+                    <article class="suite-card">
+                        <h3>Panel ERP</h3>
+                        <p>Vista general operativa con métricas y acceso a módulos.</p>
+                        <div class="suite-links">
+                            <a href="erp/index.html">Abrir ERP</a>
+                        </div>
+                    </article>
+                    <article class="suite-card">
+                        <h3>Inventario</h3>
+                        <p>Control de productos, stock mínimo y proveedores.</p>
+                        <div class="suite-links">
+                            <a href="erp/inventario.html">Ir a Inventario</a>
+                        </div>
+                    </article>
+                    <article class="suite-card">
+                        <h3>POS y Ventas</h3>
+                        <p>Punto de venta, aprobación de órdenes e historial comercial.</p>
+                        <div class="suite-links">
+                            <a href="erp/pos.html">Abrir POS</a>
+                            <a href="erp/ventas.html">Ver Ventas</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-header" style="margin-bottom: 20px;">
+                    <h2 class="section-title">Gestión Comercial Integra</h2>
+                    <p class="section-subtitle">Herramientas existentes de tu sitio actual</p>
+                </div>
+                <div class="suite-grid">
+                    <article class="suite-card">
+                        <h3>Dashboard Clientes</h3>
+                        <p>Acceso a operaciones de clientes, agenda y seguimiento.</p>
+                        <div class="suite-links">
+                            <a href="erp/index.html">Dashboard</a>
+                            <a href="clients.html">Clientes</a>
+                            <a href="agenda.html">Agenda</a>
+                        </div>
+                    </article>
+                    <article class="suite-card">
+                        <h3>Proyectos y Presupuesto</h3>
+                        <p>Creación de proyectos y cálculo de presupuestos.</p>
+                        <div class="suite-links">
+                            <a href="new-project.html">Nuevo Proyecto</a>
+                            <a href="erp/index.html">Panel Operativo</a>
+                            <a href="client-details.html">Ficha de Cliente</a>
+                        </div>
+                    </article>
+                    <article class="suite-card">
+                        <h3>Portal Corporativo</h3>
+                        <p>Sitio institucional con servicios, contacto y captación.</p>
+                        <div class="suite-links">
+                            <a href="index.html">Landing Principal</a>
+                            <a href="index.html#contacto">Contacto</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
