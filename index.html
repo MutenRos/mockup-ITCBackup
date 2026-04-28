@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>ITCBackup · ERP + Multi-agent Suite (mockup)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Inter",system-ui,sans-serif}
+body{background:#f4f5fa;color:#1a1d2e;display:grid;grid-template-columns:230px 1fr;height:100vh}
+aside{background:#0c1024;color:#cfd2e8;padding:1rem 0;overflow:auto}
+.brand{padding:0 1rem 1rem;border-bottom:1px solid #1a2040;display:flex;align-items:center;gap:.6rem}
+.brand .l{width:36px;height:36px;background:linear-gradient(135deg,#5a7df0,#8b5cf6);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#fff}
+.brand b{font-size:1rem}
+.brand small{font-size:.7rem;color:#7d83a8;display:block}
+nav{padding:.8rem 0}
+nav .group{font-size:.7rem;color:#7d83a8;padding:.4rem 1rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.5rem}
+nav a{display:flex;align-items:center;gap:.6rem;padding:.6rem 1rem;color:#cfd2e8;text-decoration:none;font-size:.88rem;border-left:3px solid transparent}
+nav a:hover{background:#1a2040}
+nav a.active{background:#1a2040;border-left-color:#5a7df0;color:#fff}
+nav a .ic{width:18px;text-align:center;color:#7d83a8}
+nav a.active .ic{color:#5a7df0}
+nav a .badge{margin-left:auto;background:#ef4444;color:#fff;font-size:.65rem;padding:1px 6px;border-radius:99px}
+main{overflow:auto;padding:0}
+.tbar{background:#fff;border-bottom:1px solid #e4e6f0;padding:.8rem 1.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
+.tbar h1{font-size:1.05rem}
+.tbar .right{display:flex;gap:.6rem;align-items:center;font-size:.85rem}
+.tbar .right input{padding:.4rem .8rem;border:1px solid #e4e6f0;border-radius:6px;font-size:.85rem;width:240px}
+.avatar{width:32px;height:32px;background:linear-gradient(135deg,#5a7df0,#8b5cf6);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:bold}
+.content{padding:1.5rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem}
+.kpi{background:#fff;padding:1.2rem;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.kpi small{color:#7d83a8;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.kpi b{display:block;font-size:1.8rem;font-weight:700;margin:.3rem 0;color:#0c1024}
+.kpi .delta{font-size:.78rem;color:#10b981;font-weight:600}
+.kpi .delta.down{color:#ef4444}
+.kpi .ic{float:right;width:36px;height:36px;border-radius:8px;background:#eef0fb;color:#5a7df0;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.row2{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.card{background:#fff;border-radius:10px;padding:1.2rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.card h2{font-size:.95rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center}
+.card h2 small{color:#7d83a8;font-size:.75rem;font-weight:400}
+svg{width:100%;height:200px}
+.bar{fill:#5a7df0}.bar.alt{fill:#8b5cf6}
+.line{fill:none;stroke:#5a7df0;stroke-width:2.5}
+.dots{fill:#5a7df0}
+.agent{padding:.6rem .8rem;border-radius:8px;background:#f4f5fa;margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem;font-size:.85rem}
+.agent .dot{width:8px;height:8px;border-radius:50%;background:#10b981}
+.agent .dot.busy{background:#f59e0b}
+.agent .role{margin-left:auto;font-size:.7rem;color:#7d83a8}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th{text-align:left;padding:.5rem;color:#7d83a8;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #e4e6f0}
+td{padding:.7rem .5rem;border-bottom:1px solid #f0f1f7}
+.tag{display:inline-block;padding:.15rem .5rem;border-radius:99px;font-size:.7rem;font-weight:600}
+.tag.pago{background:#dcfce7;color:#166534}
+.tag.pdte{background:#fef3c7;color:#92400e}
+.tag.cancel{background:#fee2e2;color:#991b1b}
+</style>
+</head>
+<body>
+<aside>
+  <div class="brand"><div class="l">IT</div><div><b>ITCBackup</b><small>v3.2 · ERP suite</small></div></div>
+  <nav>
+    <div class="group">Operación</div>
+    <a class="active"><span class="ic">▦</span>Dashboard</a>
+    <a><span class="ic">📥</span>Inbox IA<span class="badge">12</span></a>
+    <a><span class="ic">👥</span>Clientes</a>
+    <a><span class="ic">📦</span>Productos</a>
+    <a><span class="ic">🧾</span>Facturas</a>
+    <div class="group">IA &amp; agentes</div>
+    <a><span class="ic">🤖</span>Orchestrator</a>
+    <a><span class="ic">📄</span>Doc → BD</a>
+    <a><span class="ic">🌐</span>Web scraping</a>
+    <div class="group">Sistema</div>
+    <a><span class="ic">⚙</span>Ajustes</a>
+    <a><span class="ic">👤</span>Usuarios</a>
+  </nav>
+</aside>
+<main>
+  <div class="tbar">
+    <h1>Panel de control · marzo 2026</h1>
+    <div class="right">
+      <input placeholder="🔍 Buscar cliente, factura, producto...">
+      <span>🔔</span>
+      <div class="avatar">MR</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="kpis">
+      <div class="kpi"><span class="ic">€</span><small>Ingresos mes</small><b>87.420 €</b><span class="delta">▲ 14.2% vs feb</span></div>
+      <div class="kpi"><span class="ic">📦</span><small>Pedidos</small><b>342</b><span class="delta">▲ 8 hoy</span></div>
+      <div class="kpi"><span class="ic">👥</span><small>Clientes activos</small><b>1.284</b><span class="delta">▲ 23 nuevos</span></div>
+      <div class="kpi"><span class="ic">🤖</span><small>Tareas IA / día</small><b>1.847</b><span class="delta down">▼ 3% (modelo lento)</span></div>
+    </div>
+    <div class="row2">
+      <div class="card">
+        <h2>Ingresos últimos 12 meses <small>en miles de €</small></h2>
+        <svg viewBox="0 0 600 200">
+          <g>
+            <line x1="40" y1="180" x2="600" y2="180" stroke="#e4e6f0"/>
+            <line x1="40" y1="130" x2="600" y2="130" stroke="#f0f1f7"/>
+            <line x1="40" y1="80" x2="600" y2="80" stroke="#f0f1f7"/>
+            <line x1="40" y1="30" x2="600" y2="30" stroke="#f0f1f7"/>
+          </g>
+          <g class="bar">
+            <rect x="55" y="120" width="32" height="60"/>
+            <rect x="100" y="100" width="32" height="80"/>
+            <rect x="145" y="80" width="32" height="100"/>
+            <rect x="190" y="110" width="32" height="70"/>
+            <rect x="235" y="60" width="32" height="120"/>
+            <rect x="280" y="50" width="32" height="130"/>
+            <rect x="325" y="70" width="32" height="110"/>
+            <rect x="370" y="40" width="32" height="140"/>
+            <rect x="415" y="55" width="32" height="125"/>
+            <rect x="460" y="30" width="32" height="150" fill="#8b5cf6"/>
+            <rect x="505" y="45" width="32" height="135"/>
+            <rect x="550" y="20" width="32" height="160" fill="#8b5cf6"/>
+          </g>
+          <g style="font:10px sans-serif;fill:#7d83a8">
+            <text x="55" y="195">Abr</text><text x="100" y="195">May</text><text x="145" y="195">Jun</text>
+            <text x="190" y="195">Jul</text><text x="235" y="195">Ago</text><text x="280" y="195">Sep</text>
+            <text x="325" y="195">Oct</text><text x="370" y="195">Nov</text><text x="415" y="195">Dic</text>
+            <text x="460" y="195">Ene</text><text x="505" y="195">Feb</text><text x="550" y="195">Mar</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card">
+        <h2>Agentes IA · estado <small>orchestrator</small></h2>
+        <div class="agent"><div class="dot"></div>inbox-classifier<span class="role">001</span></div>
+        <div class="agent"><div class="dot"></div>doc2db<span class="role">007</span></div>
+        <div class="agent"><div class="dot busy"></div>pdf-batch<span class="role">022</span></div>
+        <div class="agent"><div class="dot"></div>web-scraper<span class="role">030</span></div>
+        <div class="agent"><div class="dot"></div>multi-llm-orch<span class="role">023</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Últimas facturas <small>3 pendientes de cobro</small></h2>
+      <table>
+        <thead><tr><th>Nº</th><th>Cliente</th><th>Fecha</th><th>Importe</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>F-2026-0481</td><td>Astilleros Murcia S.L.</td><td>28 mar 2026</td><td>4.820 €</td><td><span class="tag pago">Cobrada</span></td></tr>
+          <tr><td>F-2026-0480</td><td>Bodegas Cruz de Plata</td><td>27 mar 2026</td><td>1.240 €</td><td><span class="tag pago">Cobrada</span></td></tr>
+          <tr><td>F-2026-0479</td><td>Constructora Hernández</td><td>26 mar 2026</td><td>12.700 €</td><td><span class="tag pdte">Pendiente</span></td></tr>
+          <tr><td>F-2026-0478</td><td>Talleres Pérez</td><td>25 mar 2026</td><td>680 €</td><td><span class="tag pdte">Pendiente</span></td></tr>
+          <tr><td>F-2026-0477</td><td>Distribuciones Verde</td><td>24 mar 2026</td><td>3.150 €</td><td><span class="tag cancel">Anulada</span></td></tr>
+          <tr><td>F-2026-0476</td><td>Hostelería del Sur</td><td>23 mar 2026</td><td>920 €</td><td><span class="tag pago">Cobrada</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</body></html>
