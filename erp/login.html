@@ -90,9 +90,13 @@
         </form>
 
         <p class="footer">Integra Tech Consulting &copy; 2025</p>
+        <div class="demo-hint" style="display:block;margin-top:1rem">
+            <strong>Demo:</strong> usuario <code>admin</code> · contraseña <code>admin</code>
+        </div>
     </div>
 
     <script>
+    // MODO DEMO — sin backend. Credenciales: admin / admin
     async function doLogin(e) {
         e.preventDefault();
         const errEl = document.getElementById('error');
@@ -104,28 +108,21 @@
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value;
 
-        try {
-            const res = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
-            });
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.detail || data.error || 'Credenciales incorrectas');
-            localStorage.setItem('erp_session', data.token);
-            localStorage.setItem('erp_user', data.user?.username || username);
-            window.location.href = 'index.html';
-        } catch(err) {
-            errEl.textContent = err.message || 'Error de conexión';
+        await new Promise(r => setTimeout(r, 400));
+
+        if (username === 'admin' && password === 'admin') {
+            localStorage.setItem('erp_session', 'demo-token');
+            localStorage.setItem('erp_user', username);
+            window.location.href = '../index.html';
+        } else {
+            errEl.textContent = 'Credenciales incorrectas (demo: admin / admin)';
             errEl.style.display = 'block';
             btn.disabled = false;
             btn.innerHTML = '<i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión';
         }
     }
 
-    if (localStorage.getItem('erp_session')) {
-        window.location.href = 'index.html';
-    }
+    // No autoredirect en demo
     </script>
 </body>
 </html>
