@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Gratis · Genera tu web con IA en 30 segundos | Integra Tech Consulting</title>
+    <meta name="description" content="Crea una web profesional para tu negocio en 30 segundos con IA. Sin registro, sin tarjeta, sin compromiso. Pruébalo ahora gratis.">
+    <meta property="og:title" content="Genera tu web con IA en 30 segundos">
+    <meta property="og:description" content="Demo en vivo de los agentes de IA de Integra Tech Consulting. Describe tu negocio y obtén una landing profesional al instante.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/comercial.css">
+    <style>
+        body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#f8fafc;color:var(--text,#0f172a)}
+        .container{width:min(1200px,calc(100% - 3rem));margin:0 auto}
+        .section{padding:4rem 0}
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.25rem;border-radius:14px;text-decoration:none;font-weight:700;border:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+        .btn:hover{transform:translateY(-1px)}
+        .btn-primary{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;box-shadow:0 10px 24px rgba(102,126,234,.22)}
+        .btn-secondary{background:#fff;color:var(--text,#0f172a);border:1px solid rgba(15,23,42,.12)}
+        .navbar{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(15,23,42,.08)}
+        .nav-inner{width:min(1240px,calc(100% - 2rem));margin:0 auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+        .nav-brand{display:inline-flex;align-items:center;gap:.75rem;color:var(--text,#0f172a);text-decoration:none;font-weight:800}
+        .nav-brand-icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(102,126,234,.22)}
+        .nav-links,.nav-cta{display:flex;align-items:center;gap:1rem}
+        .nav-links a{color:var(--text-secondary,#475569);text-decoration:none;font-weight:600;font-size:.95rem}
+        .nav-links a:hover{color:var(--primary,#667eea)}
+        .nav-toggle{display:none;background:transparent;border:none;font-size:1.6rem;color:var(--text,#0f172a);cursor:pointer}
+        .nav-mobile{display:none;padding:0 1rem 1rem;background:#fff;border-bottom:1px solid rgba(15,23,42,.08)}
+        .nav-mobile.open{display:flex;flex-direction:column;gap:.85rem}
+        .nav-mobile a{color:var(--text,#0f172a);text-decoration:none;font-weight:600}
+        .footer{background:#0f172a;color:#cbd5e1;padding:3rem 1.5rem 2rem}
+        .footer-content{width:min(1200px,100%);margin:0 auto;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:2rem}
+        .footer-brand{font-size:1.1rem;font-weight:800;color:#fff}
+        .footer h5{margin:0 0 .9rem;color:#fff;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+        .footer a{display:block;color:#cbd5e1;text-decoration:none;margin:.45rem 0}
+        .footer a:hover{color:#fff}
+        .footer-bottom{width:min(1200px,100%);margin:2rem auto 0;padding-top:1rem;border-top:1px solid rgba(148,163,184,.2);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.88rem}
+        .demo-hero{padding:calc(var(--nav-height) + 4rem) 0 3rem;background:linear-gradient(135deg,#667eea08 0%,#764ba208 100%);position:relative;overflow:hidden}
+        .demo-hero::before{content:"";position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(102,126,234,.15) 0%,transparent 70%);border-radius:50%}
+        .demo-hero::after{content:"";position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(236,72,153,.1) 0%,transparent 70%);border-radius:50%}
+        .demo-hero .container{position:relative;z-index:1;text-align:center}
+        .demo-hero .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1rem;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border:1.5px solid rgba(102,126,234,.25);border-radius:30px;font-size:.82rem;font-weight:600;color:var(--primary);margin-bottom:1.5rem;box-shadow:0 4px 15px rgba(102,126,234,.1)}
+        .demo-hero .hero-badge .pulse{width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.2)}}
+        .demo-hero h1{font-size:clamp(2.25rem,5vw,3.5rem);font-weight:900;margin-bottom:1rem;line-height:1.1;letter-spacing:-.02em}
+        .demo-hero h1 .gradient-text{background:linear-gradient(135deg,#667eea 0%,#ec4899 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+        .demo-hero .hero-sub{color:var(--text-secondary);max-width:620px;margin:0 auto 2rem;font-size:1.1rem;line-height:1.65}
+        .demo-hero .hero-stats{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+        .hero-stat{text-align:center}
+        .hero-stat .n{font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+        .hero-stat .l{font-size:.8rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem}
+        .trust-bar{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.5rem;border-top:1px dashed rgba(0,0,0,.08);font-size:.82rem;color:var(--text-secondary)}
+        .trust-bar span{display:inline-flex;align-items:center;gap:.35rem}
+        .trust-bar .bi{color:#10b981;font-size:1rem}
+
+        .demo-layout{display:grid;grid-template-columns:420px 1fr;gap:2.5rem;align-items:start;max-width:1280px;margin:0 auto;padding:0 1.5rem 4rem}
+        .demo-form-card{background:var(--white);border:1.5px solid #e5e7eb;border-radius:var(--radius-xl);padding:2rem;box-shadow:0 8px 30px rgba(0,0,0,.06);position:sticky;top:calc(var(--nav-height) + 1.5rem)}
+        .demo-form-card h3{font-size:1.1rem;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem;font-weight:700}
+        .demo-form-card>p{color:var(--text-secondary);font-size:.85rem;margin-bottom:1.5rem}
+        .step-indicator{display:flex;gap:.4rem;margin-bottom:1.25rem}
+        .step-dot{flex:1;height:3px;background:#e5e7eb;border-radius:2px;transition:all .3s}
+        .step-dot.active{background:var(--primary)}
+        .fg{margin-bottom:1.1rem}
+        .fg label{display:block;font-size:.82rem;font-weight:600;margin-bottom:.4rem;color:var(--text)}
+        .fg input,.fg select,.fg textarea{width:100%;padding:.7rem .9rem;border:1.5px solid #d1d5db;border-radius:var(--radius);font-family:inherit;font-size:.9rem;transition:border-color .2s,box-shadow .2s;background:var(--white);box-sizing:border-box}
+        .fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(102,126,234,.12)}
+        .fg textarea{resize:vertical;min-height:90px}
+        .fg-hint{font-size:.72rem;color:var(--text-light);margin-top:.25rem}
+        .color-opts{display:flex;gap:.5rem;flex-wrap:wrap}
+        .color-opt{width:36px;height:36px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .2s;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+        .color-opt:hover{transform:scale(1.15)}
+        .color-opt.active{border-color:#fff;box-shadow:0 0 0 2px var(--text),0 4px 10px rgba(0,0,0,.2);transform:scale(1.1)}
+        .generate-btn{width:100%;padding:1rem;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:all .2s;box-shadow:0 4px 15px rgba(102,126,234,.3)}
+        .generate-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(102,126,234,.4)}
+        .generate-btn:active{transform:translateY(0)}
+        .generate-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+        .generate-btn .spinner{display:none;width:18px;height:18px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+        .generate-btn.loading .spinner{display:block}
+        .generate-btn.loading .btn-label{display:none}
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        .preview-area{background:var(--white);border:1.5px solid #e5e7eb;border-radius:var(--radius-xl);min-height:640px;overflow:hidden;position:relative;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+        .preview-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:640px;color:var(--text-light);text-align:center;padding:3rem}
+        .preview-placeholder .illus{width:180px;height:180px;background:linear-gradient(135deg,rgba(102,126,234,.12),rgba(236,72,153,.08));border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;position:relative}
+        .preview-placeholder .illus i{font-size:5rem;color:var(--primary);opacity:.8}
+        .preview-placeholder h4{font-size:1.15rem;margin-bottom:.5rem;color:var(--text);font-weight:700}
+        .preview-placeholder p{font-size:.95rem;max-width:380px;line-height:1.6}
+        .preview-toolbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;background:#f8f9fa;border-bottom:1px solid #e5e7eb}
+        .preview-toolbar .url-bar{flex:1;margin:0 1rem;padding:.4rem .85rem;background:var(--white);border:1px solid #d1d5db;border-radius:20px;font-size:.78rem;color:var(--text-secondary);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .preview-toolbar .dots{display:flex;gap:6px}
+        .preview-toolbar .dot{width:11px;height:11px;border-radius:50%}
+        .preview-toolbar .dot.r{background:#ff5f57}.preview-toolbar .dot.y{background:#febc2e}.preview-toolbar .dot.g{background:#28c840}
+        .preview-toolbar .tb-actions{display:flex;gap:.5rem}
+        .tb-btn{padding:.35rem .75rem;border:1px solid #d1d5db;background:var(--white);border-radius:6px;font-size:.75rem;cursor:pointer;color:var(--text-secondary);display:flex;align-items:center;gap:.3rem;transition:all .15s;font-family:inherit}
+        .tb-btn:hover{border-color:var(--primary);color:var(--primary)}
+        .preview-frame{width:100%;border:none;min-height:600px;display:block}
+        .tip-bar{margin-top:.75rem;padding:.7rem .9rem;background:rgba(102,126,234,.05);border:1px solid rgba(102,126,234,.15);border-radius:var(--radius);font-size:.8rem;color:var(--text-secondary);display:flex;align-items:center;gap:.5rem}
+        .tip-bar i{color:var(--primary);font-size:.95rem;flex-shrink:0}
+
+        .examples-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.25rem}
+        .example-chip{padding:.4rem .8rem;background:rgba(102,126,234,.06);border:1px solid rgba(102,126,234,.18);border-radius:20px;font-size:.75rem;color:var(--primary);cursor:pointer;transition:all .15s;font-weight:500;white-space:nowrap;display:inline-flex;align-items:center;gap:.3rem}
+        .example-chip:hover{background:rgba(102,126,234,.12);border-color:var(--primary);transform:translateY(-1px)}
+
+        /* Conversion CTA modal */
+        .publish-panel{margin-top:1.25rem;background:linear-gradient(135deg,#10b98110,#05966910);border:2px solid rgba(16,185,129,.3);border-radius:var(--radius-xl);padding:1.5rem;display:none}
+        .publish-panel.show{display:block;animation:slideIn .4s ease}
+        @keyframes slideIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .publish-panel h4{color:#047857;font-size:1.05rem;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+        .publish-panel p{color:#065f46;font-size:.85rem;margin-bottom:1rem}
+        .publish-panel .fg input{border-color:rgba(16,185,129,.3)}
+        .publish-btn{width:100%;padding:.8rem;background:#10b981;color:#fff;border:none;border-radius:var(--radius);font-size:.92rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.4rem;transition:all .2s}
+        .publish-btn:hover{background:#059669}
+        .publish-success{text-align:center;padding:1rem;color:#047857}
+        .publish-success i{font-size:3rem;display:block;margin-bottom:.5rem}
+
+        /* Benefits section */
+        .benefits{background:var(--bg);padding:4rem 0;margin-top:3rem}
+        .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+        .benefit{background:var(--white);padding:2rem 1.5rem;border-radius:var(--radius-xl);border:1px solid #e5e7eb;transition:all .25s}
+        .benefit:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+        .benefit-icon{width:52px;height:52px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
+        .benefit h4{font-size:1.1rem;margin-bottom:.5rem;font-weight:700}
+        .benefit p{color:var(--text-secondary);font-size:.92rem;line-height:1.6}
+
+        /* Final CTA */
+        .final-cta{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:5rem 1.5rem;text-align:center;margin-top:0}
+        .final-cta h2{font-size:2.25rem;font-weight:800;margin-bottom:1rem}
+        .final-cta p{font-size:1.1rem;opacity:.95;max-width:600px;margin:0 auto 2rem;line-height:1.65}
+        .final-cta .btn{padding:1rem 2.5rem;font-size:1.05rem;background:#fff;color:var(--primary);box-shadow:0 8px 25px rgba(0,0,0,.15)}
+        .final-cta .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+
+        @media(max-width:1100px){
+            .nav-links,.nav-cta{display:none}
+            .nav-toggle{display:block}
+            .preview-toolbar{flex-wrap:wrap;gap:.75rem}
+            .preview-toolbar .url-bar{order:3;flex:1 0 100%;margin:0}
+            .preview-toolbar .tb-actions{flex-wrap:wrap;justify-content:flex-end}
+            .footer-content{grid-template-columns:1fr 1fr}
+        }
+
+        @media(max-width:900px){
+            .demo-layout{grid-template-columns:1fr;padding:0 1rem 3rem}
+            .demo-form-card{position:static}
+            .demo-hero .hero-stats{gap:1.25rem}
+            .hero-stat .n{font-size:1.35rem}
+        }
+
+        @media(max-width:640px){
+            .container{width:min(100%,calc(100% - 1.25rem))}
+            .demo-form-card{padding:1.25rem}
+            .preview-placeholder{padding:2rem 1.25rem}
+            .preview-toolbar{padding:.85rem}
+            .preview-toolbar .tb-actions{width:100%;justify-content:space-between}
+            .tb-btn{flex:1;min-width:0;padding:.55rem .6rem;font-size:.72rem}
+            .footer-content{grid-template-columns:1fr}
+            .footer-bottom{flex-direction:column}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+            <span>Integra Tech Consulting</span>
+        </a>
+        <div class="nav-links">
+            <a href="funcionalidades.html">Funcionalidades</a>
+            <a href="precios.html">Precios</a>
+            <a href="presupuesto.html">Presupuesto</a>
+            <a href="chat.html">Habla con el equipo</a>
+            <a href="agente-gratis.html">Agente IA</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="nav-cta">
+            <a href="erp/login.html" class="btn btn-secondary">Iniciar sesión</a>
+            <a href="prueba-gratis.html" class="btn btn-primary">Prueba gratis</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú"><i class="bi bi-list"></i></button>
+    </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="presupuesto.html">Presupuesto</a>
+    <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="erp/login.html">Iniciar sesión</a>
+    <a href="prueba-gratis.html" style="color:var(--primary);font-weight:600">Prueba gratis →</a>
+</div>
+
+
+<!-- Hero -->
+<section class="demo-hero">
+    <div class="container">
+        <div class="hero-badge">
+            <span class="pulse"></span>
+            <span>Demo en vivo · IA funcionando ahora mismo</span>
+        </div>
+        <h1>Tu web profesional en <span class="gradient-text">30 segundos</span></h1>
+        <p class="hero-sub">
+            Describe tu negocio y nuestros agentes de IA crearán una landing completa al instante:
+            textos, diseño, servicios, testimonios. <strong>Sin registro. Sin tarjeta. Sin trucos.</strong>
+        </p>
+        <div class="hero-stats">
+            <div class="hero-stat"><div class="n">30s</div><div class="l">Tiempo de generación</div></div>
+            <div class="hero-stat"><div class="n">100%</div><div class="l">Personalizada</div></div>
+            <div class="hero-stat"><div class="n">0€</div><div class="l">Coste de la demo</div></div>
+            <div class="hero-stat"><div class="n">IA real</div><div class="l">No plantillas</div></div>
+        </div>
+        <div class="trust-bar">
+            <span><i class="bi bi-shield-check"></i> RGPD compliant</span>
+            <span><i class="bi bi-lightning-charge-fill"></i> Sin espera</span>
+            <span><i class="bi bi-download"></i> Descargable</span>
+            <span><i class="bi bi-code-slash"></i> HTML limpio</span>
+        </div>
+    </div>
+</section>
+
+<!-- Main layout -->
+<section class="section" style="padding-top:0">
+<div class="demo-layout">
+    <!-- Form -->
+    <div class="demo-form-card">
+        <div class="step-indicator">
+            <div class="step-dot active" id="dot1"></div>
+            <div class="step-dot" id="dot2"></div>
+            <div class="step-dot" id="dot3"></div>
+        </div>
+        <h3><i class="bi bi-magic" style="color:var(--primary)"></i> Cuéntanos sobre tu negocio</h3>
+        <p>Rellena los campos y pulsa generar. El agente de IA creará una web completa.</p>
+
+        <div class="examples-bar">
+            <span class="example-chip" data-name="Café Luna" data-sector="hosteleria" data-city="Madrid" data-desc="Cafetería artesanal con brunch los fines de semana y repostería casera. Ambiente acogedor y producto local."><i class="bi bi-cup-hot"></i> Cafetería</span>
+            <span class="example-chip" data-name="FitZone Gym" data-sector="deporte" data-city="Valencia" data-desc="Gimnasio con clases dirigidas, entrenamiento personal y zona de CrossFit. Equipamiento de última generación."><i class="bi bi-activity"></i> Gimnasio</span>
+            <span class="example-chip" data-name="Studio Pixel" data-sector="tecnologia" data-city="Barcelona" data-desc="Estudio de diseño web y branding para startups y PYMEs. Creamos identidades únicas que enamoran."><i class="bi bi-palette"></i> Diseño</span>
+            <span class="example-chip" data-name="Clínica Dental Sonríe" data-sector="salud" data-city="Sevilla" data-desc="Clínica dental familiar con ortodoncia invisible, implantes y blanqueamiento. Financiación a medida."><i class="bi bi-heart-pulse"></i> Clínica</span>
+        </div>
+
+        <form id="demoForm" autocomplete="off">
+            <div class="fg">
+                <label for="bizName"><i class="bi bi-building"></i> Nombre del negocio *</label>
+                <input type="text" id="bizName" placeholder="Ej: Café Luna" maxlength="80" required>
+            </div>
+            <div class="fg">
+                <label for="bizSector"><i class="bi bi-briefcase"></i> Sector</label>
+                <select id="bizSector">
+                    <option value="hosteleria">Hostelería / Restauración</option>
+                    <option value="tecnologia">Tecnología / Software</option>
+                    <option value="salud">Salud / Clínica</option>
+                    <option value="deporte">Deporte / Fitness</option>
+                    <option value="educacion">Educación / Formación</option>
+                    <option value="comercio">Comercio / Tienda</option>
+                    <option value="construccion">Construcción / Reformas</option>
+                    <option value="consultoria">Consultoría / Servicios</option>
+                    <option value="creativos">Diseño / Creativos</option>
+                    <option value="automocion">Automoción / Taller</option>
+                    <option value="inmobiliaria">Inmobiliaria</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+            <div class="fg">
+                <label for="bizCity"><i class="bi bi-geo-alt"></i> Ciudad</label>
+                <input type="text" id="bizCity" placeholder="Ej: Valencia" maxlength="50">
+            </div>
+            <div class="fg">
+                <label for="bizDesc"><i class="bi bi-chat-left-text"></i> Descripción breve *</label>
+                <textarea id="bizDesc" placeholder="Describe tu negocio en 1-2 frases: qué ofreces, a quién te diriges, qué te diferencia..." maxlength="400" required></textarea>
+                <div class="fg-hint">Cuanto más detalle, mejor resultado · <span id="charCount">0</span>/400</div>
+            </div>
+            <div class="fg">
+                <label><i class="bi bi-palette"></i> Color principal</label>
+                <div class="color-opts">
+                    <div class="color-opt active" data-color="#667eea" style="background:#667eea" title="Azul"></div>
+                    <div class="color-opt" data-color="#10b981" style="background:#10b981" title="Verde"></div>
+                    <div class="color-opt" data-color="#ef4444" style="background:#ef4444" title="Rojo"></div>
+                    <div class="color-opt" data-color="#f59e0b" style="background:#f59e0b" title="Naranja"></div>
+                    <div class="color-opt" data-color="#8b5cf6" style="background:#8b5cf6" title="Violeta"></div>
+                    <div class="color-opt" data-color="#ec4899" style="background:#ec4899" title="Rosa"></div>
+                    <div class="color-opt" data-color="#14b8a6" style="background:#14b8a6" title="Teal"></div>
+                    <div class="color-opt" data-color="#1e293b" style="background:#1e293b" title="Oscuro"></div>
+                </div>
+            </div>
+            <button type="submit" class="generate-btn" id="generateBtn">
+                <span class="btn-label"><i class="bi bi-stars"></i> Generar mi web con IA</span>
+                <span class="spinner"></span>
+            </button>
+        </form>
+        <div class="tip-bar">
+            <i class="bi bi-lightbulb-fill"></i>
+            <span>La IA tarda entre 10 y 30 segundos. Puedes generar varias versiones hasta dar con la ideal.</span>
+        </div>
+
+        <!-- Conversion CTA (hidden until preview generated) -->
+        <div class="publish-panel" id="publishPanel">
+            <h4><i class="bi bi-rocket-takeoff-fill"></i> ¿Te gusta? La publicamos por ti</h4>
+            <p>Déjanos tus datos y en 24 h tendrás esta web funcionando en tu propio dominio, con hosting, SSL, email profesional y formulario de contacto real. <strong>Desde 49 €/mes.</strong></p>
+            <form id="publishForm" autocomplete="off">
+                <div class="fg" style="margin-bottom:.75rem">
+                    <input type="email" id="pubEmail" placeholder="tu@email.com" required>
+                </div>
+                <div class="fg" style="margin-bottom:.75rem">
+                    <input type="tel" id="pubPhone" placeholder="Teléfono (opcional)">
+                </div>
+                <button type="submit" class="publish-btn">
+                    <i class="bi bi-envelope-paper-fill"></i> Quiero publicarla
+                </button>
+            </form>
+            <p style="text-align:center;margin:.75rem 0 0;font-size:.72rem;color:#065f46">
+                Sin compromiso · Primera consulta gratis · Cancela cuando quieras
+            </p>
+        </div>
+        <div class="publish-panel" id="publishSuccess" style="background:#10b98115;border-color:#10b981">
+            <div class="publish-success">
+                <i class="bi bi-check-circle-fill"></i>
+                <h4 style="color:#047857;margin:0 0 .25rem">¡Mensaje recibido!</h4>
+                <p style="color:#065f46;margin:0">Nos pondremos en contacto contigo en menos de 24 horas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview -->
+    <div>
+        <div class="preview-area" id="previewArea">
+            <div class="preview-placeholder" id="previewPlaceholder">
+                <div class="illus"><i class="bi bi-globe2"></i></div>
+                <h4>Tu web aparecerá aquí</h4>
+                <p>Rellena el formulario de la izquierda y pulsa <strong>"Generar mi web con IA"</strong>. En segundos tendrás una página profesional lista para ver, descargar o publicar.</p>
+            </div>
+            <div id="previewContent" style="display:none">
+                <div class="preview-toolbar">
+                    <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+                    <div class="url-bar" id="urlBar">mi-negocio.integratechconsulting.es</div>
+                    <div class="tb-actions">
+                        <button type="button" class="tb-btn" id="btnRegenerate" title="Regenerar con otros textos"><i class="bi bi-arrow-clockwise"></i> Regenerar</button>
+                        <button type="button" class="tb-btn" id="btnNewTab" title="Abrir en pestaña nueva"><i class="bi bi-box-arrow-up-right"></i> Abrir</button>
+                        <button type="button" class="tb-btn" id="btnDownload" title="Descargar HTML"><i class="bi bi-download"></i> HTML</button>
+                    </div>
+                </div>
+                <iframe class="preview-frame" id="previewFrame" sandbox="allow-same-origin allow-scripts"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Benefits -->
+<section class="benefits">
+    <div class="container" style="text-align:center;margin-bottom:3rem">
+        <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;margin-bottom:.75rem">¿Por qué esto no es otro creador de webs?</h2>
+        <p style="color:var(--text-secondary);max-width:620px;margin:0 auto;font-size:1.05rem">
+            No eliges plantilla. La IA entiende tu negocio y genera <strong>contenido original</strong>, <strong>diseño personalizado</strong> y código limpio que puedes usar donde quieras.
+        </p>
+    </div>
+    <div class="benefits-grid">
+        <div class="benefit">
+            <div class="benefit-icon"><i class="bi bi-robot"></i></div>
+            <h4>IA real, no plantillas</h4>
+            <p>Cada web es única. Los agentes redactan textos, eligen iconos y adaptan el diseño a tu sector.</p>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+            <h4>Listo en 30 segundos</h4>
+            <p>Olvídate de diseñadores caros y plazos eternos. Tu landing lista antes de terminar el café.</p>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="bi bi-download"></i></div>
+            <h4>Descarga el código</h4>
+            <p>El HTML es tuyo. Súbelo a tu hosting, personalízalo o llévatelo al proveedor que prefieras.</p>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="bi bi-phone"></i></div>
+            <h4>100% responsive</h4>
+            <p>Se ve perfecta en móvil, tablet y escritorio. Optimizada para Google y para convertir.</p>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="bi bi-translate"></i></div>
+            <h4>En tu idioma</h4>
+            <p>Textos en español natural, no traducciones robóticas. Personalizados al tono de tu negocio.</p>
+        </div>
+        <div class="benefit">
+            <div class="benefit-icon"><i class="bi bi-rocket-takeoff-fill"></i></div>
+            <h4>Publicación opcional</h4>
+            <p>¿Quieres hacerla realidad? Te la publicamos con dominio, SSL y hosting desde 49 €/mes.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <h2>Esto es solo una demo. Tu ERP completo te espera.</h2>
+    <p>
+        La generación web es solo el aperitivo. Integra Tech Consulting automatiza toda tu empresa:
+        CRM, facturación, RRHH, análisis de ventas, chatbot 24/7, OCR de documentos y mucho más — con IA de verdad.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="funcionalidades.html" class="btn btn-primary"><i class="bi bi-list-check"></i> Ver todas las funcionalidades</a>
+        <a href="precios.html" class="btn btn-secondary" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)"><i class="bi bi-tag"></i> Ver precios</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div>
+            <div class="footer-brand">Integra Tech Consulting</div>
+            <p style="color:var(--text-light);font-size:.9rem;margin-top:.5rem">
+                Digitalización total con IA para autónomos y PYMEs.
+            </p>
+        </div>
+        <div>
+            <h5>Producto</h5>
+            <a href="funcionalidades.html">Funcionalidades</a>
+            <a href="precios.html">Precios</a>
+            <a href="prueba-gratis.html">Demo gratis</a>
+        </div>
+        <div>
+            <h5>Empresa</h5>
+            <a href="contacto.html">Contacto</a>
+            <a href="chat.html">Habla con nosotros</a>
+            <a href="aviso-legal.html">Aviso legal</a>
+        </div>
+        <div>
+            <h5>Contacto</h5>
+            <a href="https://web.integratechconsulting.es/cdn-cgi/l/email-protection#2a43444c456a43445e4f4d584b5e4f4942494544595f465e43444d044f59"><span class="__cf_email__" data-cfemail="660f080009260f0812030114071203050e05090815130a120f0801480315">[email&#160;protected]</span></a>
+            <a href="https://web.integratechconsulting.es/cdn-cgi/l/email-protection#91f2feffe5f0f2e5fed1f8ffe5f4f6e3f0e5f4f2f9f2feffe2e4fde5f8fff6bff4e2"><span class="__cf_email__" data-cfemail="fd9e9293899c9e8992bd949389989a8f9c89989e959e92938e88918994939ad3988e">[email&#160;protected]</span></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Integra Tech Consulting</span>
+        <span>Generado 100% por agentes de IA</span>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Navbar scroll
+window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navMobile').classList.toggle('open');
+});
+
+// Color picker
+let selectedColor = '#667eea';
+document.querySelectorAll('.color-opt').forEach(el => {
+    el.addEventListener('click', () => {
+        document.querySelectorAll('.color-opt').forEach(c => c.classList.remove('active'));
+        el.classList.add('active');
+        selectedColor = el.dataset.color;
+        updateSteps();
+    });
+});
+
+// Char count
+const descField = document.getElementById('bizDesc');
+const charCount = document.getElementById('charCount');
+descField.addEventListener('input', () => { charCount.textContent = descField.value.length; });
+
+// Step indicator
+const nameField = document.getElementById('bizName');
+function updateSteps() {
+    document.getElementById('dot1').classList.toggle('active', nameField.value.trim().length > 0);
+    document.getElementById('dot2').classList.toggle('active', descField.value.trim().length > 10);
+    document.getElementById('dot3').classList.toggle('active', selectedColor !== '#667eea' || descField.value.trim().length > 30);
+}
+nameField.addEventListener('input', updateSteps);
+descField.addEventListener('input', updateSteps);
+document.querySelectorAll('.color-opt').forEach(el => el.addEventListener('click', updateSteps));
+
+// Example chips
+document.querySelectorAll('.example-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+        document.getElementById('bizName').value = chip.dataset.name;
+        document.getElementById('bizSector').value = chip.dataset.sector;
+        document.getElementById('bizCity').value = chip.dataset.city;
+        document.getElementById('bizDesc').value = chip.dataset.desc;
+        charCount.textContent = chip.dataset.desc.length;
+        updateSteps();
+    });
+});
+
+// Generate
+let generatedHtml = '';
+let lastPayload = null;
+async function generateWeb() {
+    const btn = document.getElementById('generateBtn');
+    const name = document.getElementById('bizName').value.trim();
+    const sector = document.getElementById('bizSector').value;
+    const city = document.getElementById('bizCity').value.trim();
+    const desc = document.getElementById('bizDesc').value.trim();
+    if (!name || desc.length < 10) {
+        alert('Por favor, escribe el nombre y una descripción de al menos 10 caracteres.');
+        return;
+    }
+    btn.disabled = true;
+    btn.classList.add('loading');
+    document.getElementById('previewPlaceholder').innerHTML = `
+        <div style="width:56px;height:56px;border:3.5px solid #e5e7eb;border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:1.5rem"></div>
+        <h4 style="color:var(--text)">Nuestro agente de IA está trabajando</h4>
+        <p>Redactando textos, eligiendo iconos, diseñando tu landing. Esto tarda entre 10 y 30 segundos.</p>
+    `;
+    document.getElementById('previewPlaceholder').style.display = 'flex';
+    document.getElementById('previewContent').style.display = 'none';
+    document.getElementById('publishPanel').classList.remove('show');
+    document.getElementById('publishSuccess').classList.remove('show');
+    const sectorMap = {hosteleria:'Hostelería/Restauración',tecnologia:'Tecnología/Software',salud:'Salud/Clínica',deporte:'Deporte/Fitness',educacion:'Educación/Formación',comercio:'Comercio/Tienda',construccion:'Construcción/Reformas',consultoria:'Consultoría/Servicios',creativos:'Diseño/Creativos',automocion:'Automoción/Taller',inmobiliaria:'Inmobiliaria',otro:'Otro'};
+    lastPayload = {name, sector: sectorMap[sector] || sector, city: city || 'España', description: desc, color: selectedColor};
+    try {
+        const resp = await fetch('/api/demo-web', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(lastPayload)
+        });
+        if (!resp.ok) {
+            const err = await resp.json().catch(() => ({}));
+            throw new Error(err.detail || 'Error del servidor');
+        }
+        const data = await resp.json();
+        generatedHtml = data.html;
+        document.getElementById('previewPlaceholder').style.display = 'none';
+        document.getElementById('previewContent').style.display = 'block';
+        const slug = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        document.getElementById('urlBar').textContent = (slug || 'mi-negocio') + '.integratechconsulting.es';
+        const frame = document.getElementById('previewFrame');
+        frame.onload = () => {
+            try {
+                const h = frame.contentDocument.documentElement.scrollHeight;
+                frame.style.height = Math.min(Math.max(h, 500), 2400) + 'px';
+            } catch(e) {}
+        };
+        frame.srcdoc = generatedHtml;
+        frame.style.height = '640px';
+        // Show publish panel after a brief pause
+        setTimeout(() => document.getElementById('publishPanel').classList.add('show'), 800);
+    } catch (err) {
+        document.getElementById('previewPlaceholder').innerHTML = `
+            <i class="bi bi-exclamation-triangle" style="font-size:3rem;color:#ef4444;opacity:.7;margin-bottom:1rem"></i>
+            <h4 style="color:#ef4444">No se pudo generar</h4>
+            <p>${(err.message || '').replace(/</g,'&lt;') || 'Inténtalo de nuevo en unos segundos.'}</p>
+            <button onclick="generateWeb()" class="btn btn-primary" style="margin-top:1rem;padding:.7rem 1.5rem">Reintentar</button>
+        `;
+        document.getElementById('previewPlaceholder').style.display = 'flex';
+    } finally {
+        btn.disabled = false;
+        btn.classList.remove('loading');
+    }
+}
+document.getElementById('demoForm').addEventListener('submit', (e) => { e.preventDefault(); generateWeb(); });
+
+// Toolbar actions
+document.getElementById('btnRegenerate').addEventListener('click', generateWeb);
+document.getElementById('btnNewTab').addEventListener('click', () => {
+    if (!generatedHtml) return;
+    const w = window.open('', '_blank');
+    w.document.write(generatedHtml);
+    w.document.close();
+});
+document.getElementById('btnDownload').addEventListener('click', () => {
+    if (!generatedHtml) return;
+    const name = document.getElementById('bizName').value.trim() || 'mi-web';
+    const slug = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g, '-');
+    const blob = new Blob([generatedHtml], {type: 'text/html;charset=utf-8'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = slug + '.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+});
+
+// Publish form
+document.getElementById('publishForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('pubEmail').value.trim();
+    const phone = document.getElementById('pubPhone').value.trim();
+    if (!email) return;
+    try {
+        const resp = await fetch('/api/demo-publish', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name: lastPayload ? lastPayload.name : '',
+                email, phone,
+                description: lastPayload ? lastPayload.description : '',
+                html: generatedHtml || ''
+            })
+        });
+        if (!resp.ok) throw new Error('No se pudo enviar');
+        document.getElementById('publishPanel').classList.remove('show');
+        document.getElementById('publishSuccess').classList.add('show');
+    } catch (err) {
+        alert('No se pudo enviar: ' + err.message + '\n\nPuedes escribirnos directamente a contacto@integratechconsulting.es');
+    }
+});
+
+updateSteps();
+</script>
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/itc-chat-widget.js"></script>
+</body>
+</html>

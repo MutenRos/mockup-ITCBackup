@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto — Integra Tech Consulting | Habla con nuestro equipo</title>
+    <meta name="description" content="Habla directamente con nuestro equipo comercial. Nuestro agente de ventas te atiende al instante. Solicita información, demos o presupuestos personalizados.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/comercial.css">
+    <style>
+        .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem;align-items:start}
+        .contact-info h2{font-size:2rem;margin-bottom:0.75rem}
+        .contact-info>p{color:var(--text-secondary);line-height:1.75;margin-bottom:2rem}
+        .info-card{
+            display:flex;align-items:flex-start;gap:1rem;
+            padding:1.25rem;border-radius:var(--radius-lg);
+            background:var(--white);border:1px solid #e5e7eb;margin-bottom:1rem;
+        }
+        .info-card-icon{
+            width:44px;height:44px;border-radius:var(--radius);
+            display:flex;align-items:center;justify-content:center;
+            font-size:1.15rem;flex-shrink:0;
+        }
+        .info-card h5{font-size:0.92rem;font-weight:700;margin-bottom:0.2rem}
+        .info-card p{font-size:0.85rem;color:var(--text-secondary);line-height:1.5}
+        .info-card a{color:var(--primary);text-decoration:none;font-weight:500}
+        .info-card a:hover{text-decoration:underline}
+
+        /* Sales Chat Panel */
+        .sales-chat-panel{
+            background:var(--white);border:1.5px solid #e5e7eb;
+            border-radius:var(--radius-xl);overflow:hidden;
+            box-shadow:0 8px 32px rgba(0,0,0,0.08);
+            display:flex;flex-direction:column;min-height:540px;max-height:640px;
+        }
+        .sales-chat-header{
+            background:linear-gradient(135deg,#f97316,#ef4444);
+            color:#fff;padding:1.25rem 1.5rem;
+            display:flex;align-items:center;gap:1rem;
+        }
+        .sales-chat-header .avatar{
+            width:48px;height:48px;border-radius:50%;
+            background:rgba(255,255,255,0.2);
+            display:flex;align-items:center;justify-content:center;
+            font-size:1.5rem;flex-shrink:0;
+        }
+        .sales-chat-header h3{font-size:1.1rem;font-weight:700;margin:0}
+        .sales-chat-header p{font-size:0.82rem;opacity:0.9;margin:0.15rem 0 0}
+        .sales-chat-header .status{
+            display:flex;align-items:center;gap:0.35rem;font-size:0.75rem;opacity:0.85;margin-top:0.15rem;
+        }
+        .sales-chat-header .status-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block}
+        .sales-chat-messages{
+            flex:1;overflow-y:auto;padding:1.25rem;
+            display:flex;flex-direction:column;gap:0.75rem;
+            background:#fafafa;
+        }
+        .sales-msg{max-width:82%;padding:0.8rem 1rem;border-radius:1rem;font-size:0.9rem;line-height:1.55;word-break:break-word}
+        .sales-msg.bot{background:#fff;border:1px solid #e5e7eb;border-bottom-left-radius:4px;align-self:flex-start}
+        .sales-msg.user{background:linear-gradient(135deg,#f97316,#ef4444);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+        .sales-msg.typing{color:var(--text-light);font-style:italic;font-size:0.85rem}
+        .sales-chat-input{
+            display:flex;gap:0.5rem;padding:1rem 1.25rem;
+            border-top:1px solid #e5e7eb;background:#fff;
+        }
+        .sales-chat-input input{
+            flex:1;border:1.5px solid #d1d5db;border-radius:var(--radius);
+            padding:0.7rem 1rem;font-size:0.9rem;font-family:inherit;
+            transition:border-color 0.2s;
+        }
+        .sales-chat-input input:focus{outline:none;border-color:#f97316;box-shadow:0 0 0 3px rgba(249,115,22,0.12)}
+        .sales-chat-input button{
+            background:linear-gradient(135deg,#f97316,#ef4444);color:#fff;
+            border:none;border-radius:var(--radius);padding:0 1.25rem;
+            cursor:pointer;font-size:1.1rem;transition:opacity 0.2s;
+        }
+        .sales-chat-input button:hover{opacity:0.88}
+        .sales-chat-input button:disabled{opacity:0.5;cursor:not-allowed}
+        .lead-badge{
+            display:inline-flex;align-items:center;gap:0.3rem;
+            background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;
+            border-radius:100px;padding:0.2rem 0.7rem;font-size:0.72rem;font-weight:600;
+            margin-top:0.4rem;
+        }
+
+        @media(max-width:768px){
+            .contact-grid{grid-template-columns:1fr}
+            .sales-chat-panel{min-height:480px;max-height:none}
+        }
+
+        /* Budget confirmation card */
+        .budget-card{
+            background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);
+            border:1.5px solid #6ee7b7;border-radius:1rem;
+            padding:1rem 1.15rem;margin-top:0.25rem;
+            max-width:88%;align-self:flex-start;
+        }
+        .budget-card .bc-header{
+            display:flex;align-items:center;gap:0.5rem;
+            font-weight:700;color:#059669;font-size:0.92rem;margin-bottom:0.6rem;
+        }
+        .budget-card .bc-header i{font-size:1.2rem}
+        .budget-card .bc-row{
+            display:flex;justify-content:space-between;align-items:center;
+            padding:0.3rem 0;font-size:0.84rem;color:#374151;
+        }
+        .budget-card .bc-row.bc-total{
+            border-top:1.5px solid #a7f3d0;margin-top:0.3rem;padding-top:0.5rem;
+            font-weight:700;font-size:0.95rem;color:#065f46;
+        }
+        .budget-card .bc-email{
+            margin-top:0.6rem;padding:0.5rem 0.75rem;
+            background:rgba(255,255,255,0.7);border-radius:0.5rem;
+            font-size:0.82rem;color:#047857;
+            display:flex;align-items:center;gap:0.4rem;
+        }
+        .budget-badge{
+            display:inline-flex;align-items:center;gap:0.3rem;
+            background:#ecfdf5;color:#059669;border:1px solid #6ee7b7;
+            border-radius:100px;padding:0.25rem 0.8rem;font-size:0.75rem;font-weight:600;
+            margin-top:0.4rem;animation:budgetPulse 2s ease-in-out;
+        }
+        @keyframes budgetPulse{
+            0%{transform:scale(0.9);opacity:0}
+            50%{transform:scale(1.05)}
+            100%{transform:scale(1);opacity:1}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+            <span>Integra Tech Consulting</span>
+        </a>
+        <div class="nav-links">
+            <a href="funcionalidades.html">Funcionalidades</a>
+            <a href="precios.html">Precios</a>
+            <a href="presupuesto.html">Presupuesto</a>
+            <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+            <a href="contacto.html" class="active">Contacto</a>
+        </div>
+        <div class="nav-cta">
+            <a href="erp/login.html" class="btn btn-secondary">Iniciar sesión</a>
+            <a href="prueba-gratis.html" class="btn btn-primary">Prueba gratis</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú"><i class="bi bi-list"></i></button>
+    </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="presupuesto.html">Presupuesto</a>
+    <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+    <a href="contacto.html" class="active">Contacto</a>
+    <a href="erp/login.html">Iniciar sesión</a>
+    <a href="prueba-gratis.html" style="color:var(--primary);font-weight:600">Prueba gratis →</a>
+</div>
+
+
+<!-- Contact section -->
+<section class="section" style="padding-top:calc(var(--nav-height) + 4rem);background:var(--bg)">
+    <div class="container">
+        <div class="contact-grid">
+
+            <!-- Info column -->
+            <div class="contact-info">
+                <div class="tag tag-primary" style="margin-bottom:1.25rem"><i class="bi bi-chat-dots-fill"></i> Contacto</div>
+                <h2>Habla con nuestro equipo</h2>
+                <p>Nuestro agente comercial te atiende al instante. Pregúntale lo que necesites sobre nuestros servicios, planes o solicita un presupuesto personalizado.</p>
+
+                <div class="info-card">
+                    <div class="info-card-icon" style="background:rgba(249,115,22,0.08);color:#f97316"><i class="bi bi-robot"></i></div>
+                    <div>
+                        <h5>Chat en vivo</h5>
+                        <p>Nuestro agente comercial te responde al instante, 24/7</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon" style="background:rgba(102,126,234,0.08);color:var(--primary)"><i class="bi bi-envelope-fill"></i></div>
+                    <div>
+                        <h5>Email</h5>
+                        <p><a href="https://web.integratechconsulting.es/cdn-cgi/l/email-protection#761519180217150219361f1802131104170213151e15191805031a021f1811581305"><span class="__cf_email__" data-cfemail="04676b6a706567706b446d6a70616376657061676c676b6a777168706d6a632a6177">[email&#160;protected]</span></a></p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon" style="background:rgba(16,185,129,0.08);color:var(--success)"><i class="bi bi-envelope-check-fill"></i></div>
+                    <div>
+                        <h5>Follow-up automático</h5>
+                        <p>Al dejarnos tu email, recibirás información personalizada en tu bandeja de entrada</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon" style="background:rgba(118,75,162,0.08);color:var(--secondary)"><i class="bi bi-shield-check"></i></div>
+                    <div>
+                        <h5>Sin compromiso</h5>
+                        <p>Consulta gratis. Presupuesto personalizado por chat, sin formularios</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Chat Panel -->
+            <div class="sales-chat-panel" id="salesChat">
+                <div class="sales-chat-header">
+                    <div class="avatar"><i class="bi bi-headset"></i></div>
+                    <div>
+                        <h3>Agente Comercial</h3>
+                        <p>IntegraTech Consulting</p>
+                        <div class="status"><span class="status-dot"></span> En línea</div>
+                    </div>
+                </div>
+                <div class="sales-chat-messages" id="salesMessages">
+                    <div class="sales-msg bot">
+                        ¡Hola! 👋 Soy tu asesor comercial en IntegraTech. Cuéntame, ¿qué tipo de negocio tienes o qué proyecto necesitas? Te preparo un presupuesto a medida sin que tengas que rellenar ningún formulario.
+                    </div>
+                </div>
+                <div id="leadBadgeArea" style="padding:0 1.25rem;display:none">
+                    <div class="lead-badge"><i class="bi bi-check-circle-fill"></i> Email registrado — te hemos enviado información</div>
+                </div>
+                <div id="budgetBadgeArea" style="padding:0 1.25rem;display:none">
+                    <div class="budget-badge"><i class="bi bi-file-earmark-check-fill"></i> Presupuesto enviado a tu email</div>
+                </div>
+                <div class="sales-chat-input">
+                    <input type="text" id="salesInput" placeholder="Escribe tu mensaje..." maxlength="2000" autocomplete="off">
+                    <button id="salesSend" title="Enviar"><i class="bi bi-send-fill"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--bg)">
+    <div class="container" style="max-width:800px">
+        <div class="section-header">
+            <h2>Preguntas frecuentes</h2>
+            <p>Las respuestas que buscas antes de contactar</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Qué incluye la prueba gratuita?
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="faq-answer">14 días de acceso completo al plan PYME, con todos los módulos activados y hasta 5 usuarios. Sin tarjeta de crédito. Sin compromiso — si no te convence, simplemente dejas de usarlo.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cuánto tardáis en responder?
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="faq-answer">El chat te responde al instante. Para consultas por email, respondemos en menos de 24 horas en días laborables.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Ofrecéis demos personalizadas?
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Sí. Agendamos una videollamada de 30 minutos donde te mostramos Integra Tech Consulting con datos reales de ejemplo adaptados a tu sector. Sin coste ni compromiso.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Ayudáis con la migración de datos?
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Sí. En los planes PYME y Empresa incluimos asistencia de migración para importar tus datos actuales (clientes, facturas, productos) desde Excel, CSV u otros sistemas.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Puedo cambiar de plan en cualquier momento?
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <div class="faq-answer">Por supuesto. Puedes subir o bajar de plan cuando quieras. El cambio se aplica en tu siguiente ciclo de facturación y el ajuste es proporcional.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <h2>¿Prefieres probarlo directamente?</h2>
+    <p>Empieza tu prueba gratuita ahora — 14 días, todos los módulos, sin compromiso.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="prueba-gratis.html" class="btn btn-white btn-lg"><i class="bi bi-rocket-takeoff"></i> Empezar gratis</a>
+        <a href="funcionalidades.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.3)"><i class="bi bi-grid-3x3-gap-fill"></i> Ver funcionalidades</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">
+                <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+                Integra Tech Consulting
+            </div>
+            <p class="footer-desc">Software de gestión empresarial pensado para autónomos y PYMEs. Simple, completo y asequible.</p>
+            <div class="footer-social">
+                <a href="contacto.html#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="contacto.html#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="contacto.html#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h5>Producto</h5>
+            <ul>
+                <li><a href="funcionalidades.html">Funcionalidades</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="erp/login.html">Acceder al ERP</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Empresa</h5>
+            <ul>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="agente-gratis.html">Agente IA</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Legal</h5>
+            <ul>
+                <li><a href="aviso-legal.html">Aviso legal</a></li>
+                <li><a href="privacidad.html">Política de privacidad</a></li>
+                <li><a href="terminos.html">Términos de uso</a></li>
+                <li><a href="cookies.html">Política de cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Integra Tech Consulting S.L. — CIF: B-67890123 — <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" style="color:var(--text-light)">Resolución de litigios en línea (ODR)</a></span>
+        <span>Hecho con <i class="bi bi-heart-fill" style="color:var(--danger);font-size:0.7rem"></i> en España</span>
+    </div>
+</footer>
+
+<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── Navbar ── */
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20));
+document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navMobile').classList.toggle('open'));
+function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+}
+
+/* ── Sales Chat ── */
+(function() {
+    const API = 'https://ai.integratechconsulting.es/api/public/chat';
+    const msgs = document.getElementById('salesMessages');
+    const input = document.getElementById('salesInput');
+    const btn = document.getElementById('salesSend');
+    const badgeArea = document.getElementById('leadBadgeArea');
+    const sid = 'sales-' + Math.random().toString(36).slice(2, 10) + '-' + Date.now();
+    let sending = false;
+
+    function fmtMd(t) {
+        var e = document.createElement('div'); e.textContent = t; var s = e.innerHTML;
+        s = s.replace(/\[MSG:[^\]]*\]/g, '');
+        s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        s = s.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        s = s.replace(/`(.*?)`/g, '<code style="background:rgba(0,0,0,0.06);padding:0.1em 0.3em;border-radius:3px;font-size:0.85em">$1</code>');
+        s = s.replace(/\n/g, '<br>');
+        return s;
+    }
+
+
+    function showBudgetCard(budgetNum, total) {
+        var card = document.createElement('div');
+        card.className = 'budget-card';
+        card.id = 'budgetCard';
+        var totalFmt = total ? total.toFixed(2).replace('.', ',') : '—';
+        card.innerHTML = '<div class="bc-header"><i class="bi bi-check-circle-fill"></i> Presupuesto generado</div>'
+            + '<div class="bc-row"><span>Referencia</span><span style="font-weight:600">' + (budgetNum || '—') + '</span></div>'
+            + '<div class="bc-row bc-total"><span>Total (IVA incl.)</span><span>' + totalFmt + ' €</span></div>'
+            + '<div class="bc-email"><i class="bi bi-envelope-fill"></i> Enviado a tu email con PDF y enlace de pago</div>';
+        msgs.appendChild(card);
+        msgs.scrollTop = msgs.scrollHeight;
+        var ba = document.getElementById('budgetBadgeArea');
+        if (ba) ba.style.display = 'block';
+    }
+
+    function addMsg(text, isUser) {
+        const d = document.createElement('div');
+        d.className = 'sales-msg ' + (isUser ? 'user' : 'bot');
+        if (isUser) { d.textContent = text; } else { d.innerHTML = fmtMd(text); }
+        msgs.appendChild(d);
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function showTyping() {
+        const d = document.createElement('div');
+        d.className = 'sales-msg bot typing';
+        d.id = 'typingIndicator';
+        d.textContent = 'Escribiendo...';
+        msgs.appendChild(d);
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function removeTyping() {
+        const el = document.getElementById('typingIndicator');
+        if (el) el.remove();
+    }
+
+    async function send() {
+        const text = input.value.trim();
+        if (!text || sending) return;
+        sending = true;
+        btn.disabled = true;
+        addMsg(text, true);
+        input.value = '';
+        showTyping();
+
+        try {
+            const ctrl = new AbortController();
+            const tid = setTimeout(() => ctrl.abort(), 60000);
+            const res = await fetch(API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: text, session_id: sid, role: 'ventas' }),
+                signal: ctrl.signal
+            });
+            clearTimeout(tid);
+            removeTyping();
+            if (res.ok) {
+                const data = await res.json();
+                addMsg(data.reply || 'Disculpa, no he podido procesar tu mensaje.', false);
+                if (data.budget_submitted && !document.getElementById('budgetCard')) {
+                    showBudgetCard(data.budget_number, data.budget_total);
+                }
+                if (data.lead_captured && badgeArea.style.display === 'none') {
+                    badgeArea.style.display = 'block';
+                }
+            } else {
+                addMsg('Disculpa, ha ocurrido un error. Puedes escribirnos a contacto@integratechconsulting.es', false);
+            }
+        } catch (e) {
+            removeTyping();
+            addMsg('Error de conexión. Intenta de nuevo o escríbenos a contacto@integratechconsulting.es', false);
+        }
+        sending = false;
+        btn.disabled = false;
+        input.focus();
+    }
+
+    btn.addEventListener('click', send);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+    input.focus();
+})();
+</script>
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/itc-chat-widget.js"></script>
+</body>
+</html>

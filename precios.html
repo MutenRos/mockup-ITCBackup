@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios — Integra Tech Consulting | Planes para Autónomos y PYMEs</title>
+    <meta name="description" content="Planes desde 29€/mes para autónomos. Sin permanencia, sin costes ocultos. Elige el plan que se adapta a tu negocio y empieza gratis.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/comercial.css">
+    <style>
+        .pricing-toggle{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3rem}
+        .pricing-toggle span{font-size:0.95rem;font-weight:500;color:var(--text-secondary)}
+        .pricing-toggle span.active{color:var(--text);font-weight:700}
+        .toggle-switch{
+            width:52px;height:28px;border-radius:14px;background:#d1d5db;
+            position:relative;cursor:pointer;transition:background .3s;
+        }
+        .toggle-switch.on{background:var(--primary)}
+        .toggle-switch::after{
+            content:'';position:absolute;top:3px;left:3px;
+            width:22px;height:22px;border-radius:50%;background:#fff;
+            transition:transform .3s;box-shadow:0 1px 3px rgba(0,0,0,.15);
+        }
+        .toggle-switch.on::after{transform:translateX(24px)}
+        .save-badge{
+            background:rgba(16,185,129,0.1);color:var(--success);
+            font-size:0.78rem;font-weight:700;padding:0.2rem 0.6rem;
+            border-radius:var(--radius-full);
+        }
+        .compare-table{width:100%;border-collapse:collapse;margin-top:2rem}
+        .compare-table th,.compare-table td{
+            padding:0.85rem 1rem;text-align:left;border-bottom:1px solid #e5e7eb;
+            font-size:0.9rem;
+        }
+        .compare-table th{font-weight:700;color:var(--text);background:var(--bg)}
+        .compare-table td:first-child{font-weight:500;color:var(--text-secondary)}
+        .compare-table td .bi-check-lg{color:var(--success);font-size:1.1rem}
+        .compare-table td .bi-x-lg{color:var(--text-light);font-size:0.7rem}
+        .compare-table thead th:not(:first-child){text-align:center;min-width:140px}
+        .compare-table tbody td:not(:first-child){text-align:center}
+        .compare-table .plan-head{font-size:0.95rem;font-weight:800}
+        .compare-table .th-featured{background:rgba(102,126,234,0.06);border-top:3px solid var(--primary)}
+    </style>
+</head>
+<body>
+
+<!-- ═══════ Navbar ═══════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+            <span>Integra Tech Consulting</span>
+        </a>
+        <div class="nav-links">
+            <a href="funcionalidades.html">Funcionalidades</a>
+            <a href="precios.html" class="active">Precios</a>
+            <a href="presupuesto.html">Presupuesto</a>
+            <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="nav-cta">
+            <a href="erp/login.html" class="btn btn-secondary">Iniciar sesión</a>
+            <a href="prueba-gratis.html" class="btn btn-primary">Prueba gratis</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú"><i class="bi bi-list"></i></button>
+    </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html" class="active">Precios</a>
+    <a href="presupuesto.html">Presupuesto</a>
+    <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="erp/login.html">Iniciar sesión</a>
+    <a href="prueba-gratis.html" style="color:var(--primary);font-weight:600">Prueba gratis →</a>
+</div>
+
+
+<!-- ═══════ Hero ═══════ -->
+<section class="section" style="padding-top:calc(var(--nav-height) + 4rem);background:linear-gradient(160deg,#f8f9ff 0%,#ede9fe 100%)">
+    <div class="container" style="text-align:center">
+        <div class="tag tag-primary" style="margin-bottom:1.25rem"><i class="bi bi-tag-fill"></i> Precios transparentes</div>
+        <h1>Un plan para cada negocio</h1>
+        <p style="color:var(--text-secondary);font-size:1.15rem;max-width:550px;margin:1rem auto 0">
+            Sin permanencia, sin letra pequeña. 14 días gratis en todos los planes. Pagas solo cuando estés listo.
+        </p>
+    </div>
+</section>
+
+<!-- ═══════ Pricing Toggle + Cards ═══════ -->
+<section class="section" style="background:var(--white);padding-top:3rem">
+    <div class="container">
+        <div class="pricing-toggle">
+            <span id="lblMonthly" class="active">Mensual</span>
+            <div class="toggle-switch" id="billingToggle" onclick="toggleBilling()"></div>
+            <span id="lblAnnual">Anual</span>
+            <span class="save-badge">Ahorra 20%</span>
+        </div>
+
+        <div class="grid-3" id="pricingCards">
+            <!-- Plan Autónomo -->
+            <div class="pricing-card">
+                <div class="pricing-name">Autónomo</div>
+                <div class="pricing-desc">Para profesionales independientes que quieren orden</div>
+                <div class="pricing-price">
+                    <span class="currency">€</span><span class="amount" data-m="29" data-a="23">29</span><span class="period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg"></i> 1 usuario incluido</li>
+                    <li><i class="bi bi-check-lg"></i> Clientes y CRM</li>
+                    <li><i class="bi bi-check-lg"></i> Facturación y cobros</li>
+                    <li><i class="bi bi-check-lg"></i> Proyectos y tareas</li>
+                    <li><i class="bi bi-check-lg"></i> Agenda y calendario</li>
+                    <li><i class="bi bi-check-lg"></i> Documentos</li>
+                    <li><i class="bi bi-check-lg"></i> Dashboard y analítica básica</li>
+                    <li><i class="bi bi-check-lg"></i> Soporte por email (48h)</li>
+                    <li><i class="bi bi-x-lg"></i> Almacén y producción</li>
+                    <li><i class="bi bi-x-lg"></i> Logística y envíos</li>
+                    <li><i class="bi bi-x-lg"></i> API / integraciones</li>
+                </ul>
+                <a href="contacto.html" class="btn btn-secondary btn-lg">Empezar gratis</a>
+            </div>
+
+            <!-- Plan PYME -->
+            <div class="pricing-card featured">
+                <div class="pricing-badge"><i class="bi bi-star-fill"></i> Más popular</div>
+                <div class="pricing-name">PYME</div>
+                <div class="pricing-desc">Para equipos que necesitan control completo</div>
+                <div class="pricing-price">
+                    <span class="currency">€</span><span class="amount" data-m="79" data-a="63">79</span><span class="period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg"></i> Hasta 10 usuarios</li>
+                    <li><i class="bi bi-check-lg"></i> <strong>Los 20 módulos completos</strong></li>
+                    <li><i class="bi bi-check-lg"></i> Almacén y movimientos</li>
+                    <li><i class="bi bi-check-lg"></i> Producción y órdenes</li>
+                    <li><i class="bi bi-check-lg"></i> Compras y proveedores</li>
+                    <li><i class="bi bi-check-lg"></i> marketing y campañas</li>
+                    <li><i class="bi bi-check-lg"></i> Field Service</li>
+                    <li><i class="bi bi-check-lg"></i> Oficina Técnica</li>
+                    <li><i class="bi bi-check-lg"></i> Soporte prioritario (24h)</li>
+                    <li><i class="bi bi-check-lg"></i> Migración de datos asistida</li>
+                    <li><i class="bi bi-x-lg"></i> API / integraciones avanzadas</li>
+                </ul>
+                <a href="contacto.html" class="btn btn-primary btn-lg">Empezar gratis</a>
+            </div>
+
+            <!-- Plan Empresa -->
+            <div class="pricing-card">
+                <div class="pricing-name">Empresa</div>
+                <div class="pricing-desc">Para operaciones complejas y multi-ubicación</div>
+                <div class="pricing-price">
+                    <span class="currency">€</span><span class="amount" data-m="149" data-a="119">149</span><span class="period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg"></i> <strong>Usuarios ilimitados</strong></li>
+                    <li><i class="bi bi-check-lg"></i> Los 20 módulos completos</li>
+                    <li><i class="bi bi-check-lg"></i> Multi-almacén</li>
+                    <li><i class="bi bi-check-lg"></i> Logística avanzada y tracking</li>
+                    <li><i class="bi bi-check-lg"></i> API REST completa</li>
+                    <li><i class="bi bi-check-lg"></i> Webhooks e integraciones</li>
+                    <li><i class="bi bi-check-lg"></i> Personalización de campos</li>
+                    <li><i class="bi bi-check-lg"></i> Informes avanzados</li>
+                    <li><i class="bi bi-check-lg"></i> Soporte dedicado (mismo día)</li>
+                    <li><i class="bi bi-check-lg"></i> Migración completa</li>
+                    <li><i class="bi bi-check-lg"></i> Onboarding personalizado</li>
+                </ul>
+                <a href="contacto.html" class="btn btn-secondary btn-lg">Contactar ventas</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Comparison Table ═══════ -->
+<section class="section" style="background:var(--bg)">
+    <div class="container">
+        <div class="section-header">
+            <h2>Comparativa detallada</h2>
+            <p>Todas las funcionalidades de cada plan, sin sorpresas</p>
+        </div>
+        <div style="overflow-x:auto;border-radius:var(--radius-lg);background:var(--white);border:1px solid #e5e7eb">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="min-width:220px">Funcionalidad</th>
+                        <th>Autónomo</th>
+                        <th class="th-featured">PYME</th>
+                        <th>Empresa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Usuarios</td><td>1</td><td>Hasta 10</td><td>Ilimitados</td></tr>
+                    <tr><td>Clientes y CRM</td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Facturación</td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Proyectos</td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Agenda y calendario</td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Documentos</td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Dashboard y KPIs</td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Productos / catálogo</td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Empleados / RRHH</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Almacén</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Producción</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Compras y proveedores</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Marketing y campañas</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Soporte / tickets</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Logística y envíos</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Field Service</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Oficina Técnica</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Mensajería interna</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Multi-almacén</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>API REST</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Webhooks</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Personalización de campos</td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-x-lg"></i></td><td><i class="bi bi-check-lg"></i></td></tr>
+                    <tr><td>Migración de datos</td><td>Autoservicio</td><td>Asistida</td><td>Completa</td></tr>
+                    <tr><td>Soporte</td><td>Email (48h)</td><td>Prioritario (24h)</td><td>Dedicado (mismo día)</td></tr>
+                    <tr><td>Almacenamiento</td><td>1 GB</td><td>10 GB</td><td>Ilimitado</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Guarantee ═══════ -->
+<section class="section" style="background:var(--white)">
+    <div class="container" style="max-width:800px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(16,185,129,0.08);color:var(--success);display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.25rem">
+            <i class="bi bi-shield-check"></i>
+        </div>
+        <h2>Garantía de satisfacción</h2>
+        <p style="color:var(--text-secondary);font-size:1.1rem;line-height:1.75;margin-top:0.75rem;max-width:600px;margin-left:auto;margin-right:auto">
+            Prueba Integra Tech Consulting durante 14 días sin compromiso. Si no es lo que buscas, cancela sin pagar nada. 
+            Sin permanencia, sin penalizaciones. Tus datos siempre son tuyos y puedes exportarlos en cualquier momento.
+        </p>
+    </div>
+</section>
+
+<!-- ═══════ Servicios adicionales ═══════ -->
+<section class="section" style="background:var(--bg)">
+    <div class="container">
+        <div class="section-header">
+            <div class="tag tag-primary"><i class="bi bi-briefcase-fill"></i> Servicios adicionales</div>
+            <h2>Completa tu plan con servicios profesionales</h2>
+            <p>Todo lo que necesitas para digitalizar tu negocio por completo — configúralo a tu medida en el presupuesto</p>
+        </div>
+        <div style="overflow-x:auto;border-radius:var(--radius-lg);background:var(--white);border:1px solid #e5e7eb">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="min-width:220px">Servicio</th>
+                        <th>Desde</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><i class="bi bi-cloud-fill" style="color:var(--info)"></i> Servidores Cloud (IONOS)</td><td>18€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-hdd-fill" style="color:var(--info)"></i> Bases de datos gestionadas</td><td>19€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-cloud-arrow-up-fill" style="color:var(--info)"></i> Almacenamiento en la nube</td><td>3€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-shield-fill" style="color:var(--info)"></i> Copias de seguridad cloud</td><td>8€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-globe" style="color:var(--primary)"></i> Dominio .es / .com / .eu</td><td>9,90€/año</td><td>Anual</td></tr>
+                    <tr><td><i class="bi bi-envelope-fill" style="color:var(--primary)"></i> Email profesional</td><td>5€/mes/buzón</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-lock-fill" style="color:var(--primary)"></i> Certificado SSL</td><td>Incluido</td><td>—</td></tr>
+                    <tr><td><i class="bi bi-microsoft" style="color:var(--secondary)"></i> Microsoft 365</td><td>72€/año/usuario</td><td>Anual</td></tr>
+                    <tr><td><i class="bi bi-google" style="color:var(--secondary)"></i> Google Workspace</td><td>84€/año/usuario</td><td>Anual</td></tr>
+                    <tr><td><i class="bi bi-kanban" style="color:var(--secondary)"></i> Jira / Confluence</td><td>6,05€/mes/usuario</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-credit-card-fill" style="color:var(--success)"></i> Stripe / Redsys (cobros)</td><td>29€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-bank" style="color:var(--success)"></i> Conexión SII / VeriFactu</td><td>25€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-link-45deg" style="color:var(--success)"></i> Zapier (+5000 apps)</td><td>19€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-truck" style="color:var(--success)"></i> Correos / MRW / SEUR</td><td>19€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-globe2" style="color:var(--warning)"></i> Landing page</td><td>600€</td><td>Proyecto</td></tr>
+                    <tr><td><i class="bi bi-globe2" style="color:var(--warning)"></i> Web corporativa</td><td>1.500€</td><td>Proyecto</td></tr>
+                    <tr><td><i class="bi bi-cart4" style="color:var(--warning)"></i> Tienda online</td><td>4.500€</td><td>Proyecto</td></tr>
+                    <tr><td><i class="bi bi-wrench" style="color:var(--warning)"></i> Mantenimiento web</td><td>89€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-lightbulb-fill" style="color:var(--danger)"></i> Consultoría (por hora)</td><td>120€/hora</td><td>Hora</td></tr>
+                    <tr><td><i class="bi bi-shield-lock-fill" style="color:var(--danger)"></i> Auditoría de seguridad</td><td>2.500€</td><td>Servicio</td></tr>
+                    <tr><td><i class="bi bi-file-earmark-text-fill" style="color:var(--danger)"></i> Adaptación RGPD</td><td>1.500€</td><td>Servicio</td></tr>
+                    <tr><td><i class="bi bi-rocket-takeoff-fill" style="color:var(--info)"></i> Puesta en marcha básica</td><td>500€</td><td>Servicio</td></tr>
+                    <tr><td><i class="bi bi-rocket-takeoff-fill" style="color:var(--info)"></i> Puesta en marcha profesional</td><td>3.500€</td><td>Proyecto</td></tr>
+                    <tr><td><i class="bi bi-database-fill-gear" style="color:var(--info)"></i> Migración de datos</td><td>400€</td><td>Servicio</td></tr>
+                    <tr><td><i class="bi bi-mortarboard-fill" style="color:var(--secondary)"></i> Formación individual</td><td>150€/sesión</td><td>Sesión</td></tr>
+                    <tr><td><i class="bi bi-people-fill" style="color:var(--secondary)"></i> Formación en grupo</td><td>350€/sesión</td><td>Sesión</td></tr>
+                    <tr><td><i class="bi bi-camera-video-fill" style="color:var(--secondary)"></i> Vídeos tutoriales a medida</td><td>800€/pack</td><td>Pack</td></tr>
+                    <tr><td><i class="bi bi-palette-fill" style="color:var(--success)"></i> Campos personalizados</td><td>12€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-file-richtext-fill" style="color:var(--success)"></i> Plantilla factura personalizada</td><td>180€</td><td>Unidad</td></tr>
+                    <tr><td><i class="bi bi-brush-fill" style="color:var(--success)"></i> Marca blanca (tu logo en el ERP)</td><td>199€</td><td>Servicio</td></tr>
+                    <tr><td><i class="bi bi-code-slash" style="color:var(--danger)"></i> Desarrollo a medida</td><td>95€/hora</td><td>Hora</td></tr>
+                    <tr><td><i class="bi bi-headset" style="color:var(--danger)"></i> Soporte prioritario</td><td>199€/mes</td><td>Mensual</td></tr>
+                    <tr><td><i class="bi bi-headset" style="color:var(--danger)"></i> Soporte urgente 24/7</td><td>449€/mes</td><td>Mensual</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="text-align:center;margin-top:2rem">
+            <p style="color:var(--text-light);font-size:0.88rem;margin-bottom:1rem">Todos los precios sin IVA. Configura exactamente lo que necesitas en el presupuesto.</p>
+            <a href="presupuesto.html" class="btn btn-primary btn-lg"><i class="bi bi-calculator"></i> Crear presupuesto personalizado</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="section" style="background:var(--bg)">
+    <div class="container" style="max-width:750px">
+        <div class="section-header">
+            <h2>Preguntas sobre precios</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>¿Los precios incluyen IVA?</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer"><p>No, los precios mostrados son sin IVA. El IVA (21%) se aplica en la factura según la legislación vigente.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>¿Puedo cambiar de plan en cualquier momento?</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer"><p>Sí. Puedes subir o bajar de plan cuando quieras. El cambio se aplica al siguiente ciclo de facturación. Si subes de plan, la diferencia se prorratea.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>¿Qué métodos de pago aceptáis?</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer"><p>Aceptamos tarjeta de crédito/débito (Visa, Mastercard) y domiciliación bancaria SEPA. Para el plan Empresa también ofrecemos facturación por transferencia.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>¿Necesito dar mi tarjeta para la prueba gratis?</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer"><p>No. Los 14 días de prueba son completamente gratis y sin necesidad de tarjeta de crédito. Después podrás elegir tu plan.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>¿Hacéis descuentos para ONGs o startups?</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer"><p>Sí. Ofrecemos un 30% de descuento permanente para ONGs y organizaciones sin ánimo de lucro. Para startups de menos de 2 años, ofrecemos 3 meses gratis adicionales. Contacta con nosotros para más información.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section">
+    <h2>Empieza hoy — gratis durante 14 días</h2>
+    <p>Sin tarjeta de crédito, sin permanencia. Cancela en cualquier momento.</p>
+    <a href="contacto.html" class="btn btn-white btn-lg"><i class="bi bi-rocket-takeoff"></i> Comenzar prueba gratuita</a>
+</section>
+
+<!-- ═══════ Footer ═══════ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">
+                <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+                Integra Tech Consulting
+            </div>
+            <p class="footer-desc">Software de gestión empresarial pensado para autónomos y PYMEs. Simple, completo y asequible.</p>
+            <div class="footer-social">
+                <a href="precios.html#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="precios.html#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="precios.html#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h5>Producto</h5>
+            <ul>
+                <li><a href="funcionalidades.html">Funcionalidades</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="erp/login.html">Acceder al ERP</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Empresa</h5>
+            <ul>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="agente-gratis.html">Agente IA</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Legal</h5>
+            <ul>
+                <li><a href="aviso-legal.html">Aviso legal</a></li>
+                <li><a href="privacidad.html">Política de privacidad</a></li>
+                <li><a href="terminos.html">Términos de uso</a></li>
+                <li><a href="cookies.html">Política de cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Integra Tech Consulting S.L. — CIF: B-67890123 — <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" style="color:var(--text-light)">Resolución de litigios en línea (ODR)</a></span>
+        <span>Hecho con <i class="bi bi-heart-fill" style="color:var(--danger);font-size:0.7rem"></i> en España</span>
+    </div>
+</footer>
+
+<script>
+// ── Navbar ──
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20));
+document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navMobile').classList.toggle('open'));
+
+// ── Billing toggle ──
+let annual = false;
+function toggleBilling() {
+    annual = !annual;
+    document.getElementById('billingToggle').classList.toggle('on', annual);
+    document.getElementById('lblMonthly').classList.toggle('active', !annual);
+    document.getElementById('lblAnnual').classList.toggle('active', annual);
+    document.querySelectorAll('.amount[data-m]').forEach(el => {
+        el.textContent = annual ? el.dataset.a : el.dataset.m;
+    });
+    document.querySelectorAll('.period').forEach(el => {
+        el.textContent = annual ? '/mes (facturado anual)' : '/mes';
+    });
+}
+
+// ── FAQ ──
+function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+}
+</script>
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/itc-chat-widget.js"></script>
+</body>
+</html>

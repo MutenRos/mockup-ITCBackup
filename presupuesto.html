@@ -1,0 +1,2153 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Presupuesto — Integra Tech Consulting</title>
+    <meta name="description" content="Elige lo que necesitas para tu negocio y recibe un presupuesto claro al momento. Gestión, servidores, integraciones, soporte y más.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/comercial.css">
+    <style>
+        /* ═══════ AAA PREMIUM AESTHETIC ═══════ */
+
+        /* ── Hero ── */
+        .presup-hero{
+            position:relative;overflow:hidden;
+            padding:calc(var(--nav-height) + 4rem) 2rem 3rem;
+            background:linear-gradient(160deg,#0f0c29 0%,#1a1440 35%,#302b63 65%,#24243e 100%);
+            min-height:340px;
+        }
+        .presup-hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.35;animation:orbFloat 12s ease-in-out infinite}
+        .presup-hero-orb--1{width:500px;height:500px;background:radial-gradient(circle,#667eea,transparent 70%);top:-20%;right:-5%;animation-delay:0s}
+        .presup-hero-orb--2{width:400px;height:400px;background:radial-gradient(circle,#764ba2,transparent 70%);bottom:-25%;left:-5%;animation-delay:-4s}
+        .presup-hero-orb--3{width:300px;height:300px;background:radial-gradient(circle,#f093fb,transparent 70%);top:30%;left:40%;animation-delay:-8s;opacity:0.18}
+        @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(0.95)}}
+        .presup-hero-badge{
+            display:inline-flex;align-items:center;gap:0.5rem;
+            background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);
+            padding:0.45rem 1.25rem;border-radius:var(--radius-full);
+            font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);
+            margin-bottom:1.5rem;
+        }
+        .presup-hero-badge i{color:var(--accent)}
+        .presup-hero-title{color:#fff;font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:1rem;line-height:1.15;letter-spacing:-0.02em}
+        .presup-hero-title .gradient-text{background:linear-gradient(135deg,#a78bfa 0%,#f093fb 50%,#667eea 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+        .presup-hero-sub{color:rgba(255,255,255,0.65);font-size:1.05rem;max-width:580px;margin:0 auto 1.75rem;line-height:1.7}
+        .presup-hero-chips{display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap}
+        .presup-hero-chips span{display:inline-flex;align-items:center;gap:0.4rem;padding:0.4rem 1rem;border-radius:var(--radius-full);font-size:0.78rem;font-weight:600;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.08)}
+        .presup-hero-chips span i{color:var(--primary-light);font-size:0.85rem}
+
+        /* ── Wizard bar upgrade ── */
+        .wizard-steps{
+            display:flex;justify-content:center;gap:0;margin-bottom:3rem;position:relative;
+            background:var(--white);border-radius:var(--radius-xl);padding:1rem 2rem;
+            box-shadow:0 2px 20px rgba(0,0,0,0.04);border:1px solid #f0f0f5;
+        }
+        .wizard-steps::before{content:'';position:absolute;top:50%;left:12%;right:12%;height:2px;background:#eef0f6;z-index:0;transform:translateY(-50%)}
+        .wz-step{display:flex;flex-direction:column;align-items:center;gap:0.5rem;position:relative;z-index:1;cursor:pointer;min-width:100px;padding:0.5rem;transition:all .3s}
+        .wz-num{
+            width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+            font-weight:800;font-size:0.95rem;background:#eef0f6;color:var(--text-light);
+            transition:all .4s cubic-bezier(.4,0,.2,1);border:3px solid transparent;
+        }
+        .wz-step.active .wz-num{background:var(--gradient);color:#fff;box-shadow:0 6px 24px rgba(102,126,234,0.4);border-color:rgba(102,126,234,0.2);transform:scale(1.1)}
+        .wz-step.done .wz-num{background:var(--success);color:#fff;border-color:rgba(16,185,129,0.2)}
+        .wz-label{font-size:0.72rem;font-weight:700;color:var(--text-light);transition:all .3s;text-align:center;letter-spacing:0.01em}
+        .wz-step.active .wz-label{color:var(--primary);font-weight:800}
+        .wz-step.done .wz-label{color:var(--success)}
+
+        /* ── Step 0 cards — glass effect ── */
+        .biz-type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:0.85rem;margin-bottom:2.5rem}
+        .biz-type-card{
+            display:flex;flex-direction:column;align-items:center;gap:0.6rem;
+            padding:1.5rem 0.85rem 1.25rem;border:1.5px solid #eef0f6;border-radius:18px;
+            background:var(--white);cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);text-align:center;
+            user-select:none;position:relative;box-shadow:0 1px 3px rgba(0,0,0,0.02);
+        }
+        .biz-type-card:hover{border-color:rgba(102,126,234,0.25);transform:translateY(-4px);box-shadow:0 8px 30px rgba(102,126,234,0.1)}
+        .biz-type-card.selected{
+            border-color:var(--primary);background:linear-gradient(180deg,rgba(102,126,234,0.04) 0%,rgba(118,75,162,0.02) 100%);
+            box-shadow:0 0 0 3px rgba(102,126,234,0.12),0 8px 30px rgba(102,126,234,0.12);transform:translateY(-4px);
+        }
+        .biz-type-card.selected::after{content:'\F272';font-family:'bootstrap-icons';position:absolute;top:10px;right:10px;font-size:0.85rem;color:#fff;background:var(--gradient);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;box-shadow:0 2px 8px rgba(102,126,234,0.3)}
+        .biz-type-icon{
+            font-size:1.6rem;width:60px;height:60px;border-radius:16px;
+            display:flex;align-items:center;justify-content:center;
+            background:linear-gradient(135deg,rgba(102,126,234,0.08) 0%,rgba(118,75,162,0.08) 100%);
+            color:var(--primary);transition:all .3s;
+        }
+        .biz-type-card:hover .biz-type-icon{background:linear-gradient(135deg,rgba(102,126,234,0.14) 0%,rgba(118,75,162,0.14) 100%);transform:scale(1.05)}
+        .biz-type-card.selected .biz-type-icon{background:var(--gradient);color:#fff;box-shadow:0 4px 16px rgba(102,126,234,0.25)}
+        .biz-type-name{font-weight:800;font-size:0.85rem;line-height:1.25;color:var(--text)}
+        .biz-type-sub{font-size:0.7rem;color:var(--text-light);line-height:1.35}
+
+        /* ── Preset cards — premium ── */
+        .preset-section{display:none;animation:fadeUp .5s ease}
+        .preset-section.visible{display:block}
+        .preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-bottom:1.75rem}
+        .preset-card{
+            border:1.5px solid #eef0f6;border-radius:20px;padding:1.75rem;
+            background:var(--white);cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;
+            box-shadow:0 1px 4px rgba(0,0,0,0.02);overflow:hidden;
+        }
+        .preset-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:opacity .3s}
+        .preset-card:hover{border-color:rgba(102,126,234,0.3);box-shadow:0 12px 40px rgba(102,126,234,0.08);transform:translateY(-6px)}
+        .preset-card:hover::before{opacity:1}
+        .preset-card.selected{
+            border-color:var(--primary);
+            background:linear-gradient(180deg,rgba(102,126,234,0.03) 0%,var(--white) 100%);
+            box-shadow:0 0 0 3px rgba(102,126,234,0.1),0 12px 40px rgba(102,126,234,0.1);
+            transform:translateY(-6px);
+        }
+        .preset-card.selected::before{opacity:1;height:4px;background:linear-gradient(90deg,#667eea,#764ba2,#f093fb)}
+        .preset-card.selected::after{content:'\F272';font-family:'bootstrap-icons';position:absolute;top:16px;right:16px;font-size:0.8rem;color:#fff;background:var(--gradient);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(102,126,234,0.3)}
+        .preset-badge{display:inline-block;padding:0.25rem 0.85rem;border-radius:var(--radius-full);font-size:0.7rem;font-weight:800;margin-bottom:0.85rem;text-transform:uppercase;letter-spacing:0.05em}
+        .preset-badge.popular{background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(251,191,36,0.08));color:#92400e;border:1px solid rgba(245,158,11,0.15)}
+        .preset-badge.recomendado{background:linear-gradient(135deg,rgba(16,185,129,0.12),rgba(52,211,153,0.08));color:#065f46;border:1px solid rgba(16,185,129,0.15)}
+        .preset-badge.completo{background:linear-gradient(135deg,rgba(102,126,234,0.12),rgba(118,75,162,0.08));color:#4338ca;border:1px solid rgba(102,126,234,0.15)}
+        .preset-name{font-size:1.1rem;font-weight:800;margin-bottom:0.4rem;letter-spacing:-0.01em}
+        .preset-desc{font-size:0.82rem;color:var(--text-secondary);margin-bottom:1rem;line-height:1.55}
+        .preset-includes{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.25rem;padding:0}
+        .preset-includes li{font-size:0.76rem;color:var(--text-secondary);list-style:none;display:flex;align-items:flex-start;gap:0.5rem;line-height:1.4}
+        .preset-includes li::before{content:'\F272';font-family:'bootstrap-icons';color:var(--success);font-size:0.65rem;flex-shrink:0;margin-top:3px}
+        .preset-price{font-size:0.95rem;font-weight:800;color:var(--primary);letter-spacing:-0.01em}
+        .preset-price-note{font-size:0.72rem;color:var(--text-light);font-weight:600;margin-top:0.25rem}
+        .preset-skip{text-align:center;margin-top:1.5rem}
+        .preset-skip a{color:var(--text-light);font-size:0.85rem;cursor:pointer;text-decoration:none;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1.25rem;border-radius:var(--radius-full);border:1.5px solid #eef0f6}
+        .preset-skip a:hover{color:var(--primary);border-color:var(--primary);background:rgba(102,126,234,0.04)}
+
+        /* ── Product rows — refined ── */
+        .prod-row{
+            display:flex;align-items:center;gap:0.85rem;
+            padding:0.85rem 1rem;border:1.5px solid #eef0f6;border-radius:14px;
+            background:var(--white);transition:all .25s;
+        }
+        .prod-row:hover{border-color:rgba(102,126,234,0.2);box-shadow:0 4px 16px rgba(0,0,0,0.03);transform:translateX(2px)}
+        .prod-row.selected{border-color:var(--primary);background:linear-gradient(90deg,rgba(102,126,234,0.03),var(--white));box-shadow:0 0 0 2px rgba(102,126,234,0.08)}
+        .prod-name{font-weight:700;font-size:0.88rem}
+        .prod-toggle button{
+            padding:0.45rem 1.15rem;border-radius:var(--radius-full);font-size:0.78rem;font-weight:700;
+            cursor:pointer;transition:all .25s;border:1.5px solid var(--primary);
+            background:var(--white);color:var(--primary);
+        }
+        .prod-toggle button:hover{background:rgba(102,126,234,0.06);transform:translateY(-1px)}
+        .prod-toggle button.active{background:var(--gradient);color:white;border-color:transparent;box-shadow:0 4px 12px rgba(102,126,234,0.25)}
+
+        /* ── Summary card — glass ── */
+        .summary-card{
+            position:sticky;top:calc(var(--nav-height) + 2rem);
+            background:var(--white);border:1.5px solid #eef0f6;border-radius:20px;
+            padding:1.75rem;box-shadow:0 4px 24px rgba(0,0,0,0.04);
+        }
+        .summary-card h3{font-size:1.05rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;letter-spacing:-0.01em}
+        .summary-total{display:flex;justify-content:space-between;padding:0.85rem 0;font-weight:800;font-size:1.15rem;border-top:2px solid var(--text);background:linear-gradient(90deg,rgba(102,126,234,0.03),transparent);margin:0 -1.75rem;padding:0.85rem 1.75rem;border-radius:0 0 20px 20px}
+
+        /* ── Category stepper — premium sidebar ── */
+        .cat-stepper-layout{display:grid;grid-template-columns:260px 1fr;gap:2rem;align-items:start}
+        .cat-step{
+            display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;border-radius:12px;
+            cursor:pointer;transition:all .25s;border:1.5px solid transparent;user-select:none;position:relative;
+        }
+        .cat-step:hover{background:rgba(102,126,234,0.03)}
+        .cat-step.active{background:rgba(102,126,234,0.05);border-color:rgba(102,126,234,0.15);box-shadow:0 2px 12px rgba(102,126,234,0.06)}
+        .cat-step-icon{
+            width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+            font-size:1rem;background:#f5f5fa;color:var(--text-light);flex-shrink:0;transition:all .25s;
+        }
+        .cat-step.active .cat-step-icon{background:var(--gradient);color:#fff;box-shadow:0 4px 12px rgba(102,126,234,0.2)}
+        .cat-content-header{display:flex;align-items:center;gap:0.85rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid #f0f0f5}
+        .cat-content-header i{font-size:1.5rem;color:var(--primary);background:linear-gradient(135deg,rgba(102,126,234,0.1),rgba(118,75,162,0.1));width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+        .cat-nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.25rem;border-top:1.5px solid #f0f0f5;gap:1rem}
+
+        /* ── Contact form — elevated ── */
+        .contact-form-box{
+            max-width:640px;margin:0 auto;background:var(--white);
+            border:1.5px solid #eef0f6;border-radius:24px;padding:2.75rem;
+            box-shadow:0 8px 40px rgba(0,0,0,0.04);
+        }
+        .contact-form-box h3{margin-bottom:0.5rem;font-size:1.3rem;letter-spacing:-0.02em}
+        .contact-form-box>p{color:var(--text-secondary);font-size:0.9rem;margin-bottom:2rem;line-height:1.6}
+
+        /* ── Step navigation ── */
+        .step-nav{display:flex;justify-content:space-between;margin-top:2.5rem;gap:1rem}
+        .step-nav .btn-primary{box-shadow:0 6px 24px rgba(102,126,234,0.25)}
+        .step-nav .btn-primary:hover{box-shadow:0 10px 32px rgba(102,126,234,0.35)}
+
+        /* ── Budget document — print quality ── */
+        .budget-doc{
+            background:var(--white);border:1px solid #eef0f6;border-radius:24px;
+            padding:3.5rem;box-shadow:0 8px 40px rgba(0,0,0,0.04);
+        }
+        .doc-tabs{display:flex;gap:0;margin-bottom:2.5rem;border-bottom:2px solid #eef0f6;padding:0 0.5rem}
+        .doc-tab{
+            padding:0.9rem 1.75rem;font-size:0.92rem;font-weight:700;cursor:pointer;border:none;background:none;
+            color:var(--text-light);position:relative;display:flex;align-items:center;gap:0.5rem;transition:all .25s;
+            border-radius:var(--radius) var(--radius) 0 0;
+        }
+        .doc-tab:hover{color:var(--text);background:rgba(102,126,234,0.03)}
+        .doc-tab.active{color:var(--primary)}
+        .doc-tab.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--gradient);border-radius:3px 3px 0 0}
+
+        /* ── CTA section ── */
+        .cta-section{position:relative;overflow:hidden}
+        .cta-section::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(240,147,251,0.15),transparent 60%);pointer-events:none}
+
+        /* ── Budget result actions ── */
+        .budget-actions{display:flex;gap:1rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
+        .budget-actions .btn{border-radius:var(--radius-full);padding:0.9rem 2.5rem}
+
+        /* ── Subtle animations ── */
+        @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+        .step-panel.active{animation:fadeUp .45s cubic-bezier(.4,0,.2,1)}
+
+        /* ── Micro-interactions for form inputs ── */
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+            border-color:var(--primary);outline:none;
+            box-shadow:0 0 0 4px rgba(102,126,234,0.08);
+        }
+        .form-group label{font-weight:600;font-size:0.85rem;color:var(--text);margin-bottom:0.4rem;display:block}
+
+        /* ── Color options — larger, more tactile ── */
+        .color-opt{width:44px;height:44px;border-radius:12px;cursor:pointer;border:3px solid transparent;transition:all .25s cubic-bezier(.4,0,.2,1);position:relative}
+        .color-opt:hover{transform:scale(1.15);box-shadow:0 4px 16px rgba(0,0,0,0.12)}
+        .color-opt.selected{border-color:var(--text);box-shadow:0 0 0 2px var(--white),0 0 0 4px var(--primary),0 4px 16px rgba(0,0,0,0.1);transform:scale(1.1)}
+
+        /* ── Style chips — pill shaped, elevated ── */
+        .style-chip{padding:0.5rem 1.1rem;border-radius:var(--radius-full);font-size:0.82rem;font-weight:600;border:1.5px solid #e5e7eb;background:var(--white);cursor:pointer;transition:all .25s;user-select:none}
+        .style-chip:hover{border-color:var(--primary);background:rgba(102,126,234,0.03);transform:translateY(-2px)}
+        .style-chip.selected{border-color:transparent;background:var(--gradient);color:#fff;box-shadow:0 4px 12px rgba(102,126,234,0.25);transform:translateY(-2px)}
+
+        /* ── Responsive refinements ── */
+        @media(max-width:768px){
+            .presup-hero{padding:calc(var(--nav-height) + 2.5rem) 1.5rem 2rem;min-height:auto}
+            .presup-hero-title{font-size:clamp(1.6rem,6vw,2.4rem)}
+            .presup-hero-chips{flex-direction:column;align-items:center}
+            .preset-grid{grid-template-columns:1fr}
+            .biz-type-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+            .wizard-steps{padding:0.75rem 1rem;border-radius:var(--radius-lg);gap:0;flex-wrap:wrap}
+            .wizard-steps::before{display:none}
+            .wz-step{min-width:65px;padding:0.25rem}
+            .wz-num{width:38px;height:38px;font-size:0.85rem}
+            .contact-form-box{padding:1.75rem;border-radius:20px}
+            .budget-doc{padding:1.75rem;border-radius:20px}
+        }
+
+        /* ── Step panels ── */
+        .step-panel{display:none}
+        .step-panel.active{display:block;animation:fadeUp .45s cubic-bezier(.4,0,.2,1)}
+
+        /* ── Category sections ── */
+        .cat-section{margin-bottom:2.5rem}
+        .cat-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;cursor:pointer;user-select:none}
+        .cat-header i.cat-icon{font-size:1.3rem;color:var(--primary)}
+        .cat-header h4{font-size:1rem;font-weight:700;flex:1}
+        .cat-header .cat-count{font-size:0.8rem;color:var(--text-light);font-weight:500}
+        .cat-header i.toggle{font-size:0.7rem;color:var(--text-light);transition:transform .3s}
+        .cat-section.collapsed .cat-body{display:none}
+        .cat-section.collapsed .cat-header i.toggle{transform:rotate(-90deg)}
+
+        /* ── Product rows ── */
+        .prod-grid{display:flex;flex-direction:column;gap:0.7rem;width:100%}
+        /* prod-row: see premium CSS above */
+        .prod-info{flex:1;min-width:0}
+        .prod-name{font-weight:600;font-size:0.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .prod-desc{font-size:0.72rem;color:var(--text-light);line-height:1.3;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .prod-price-col{text-align:right;flex-shrink:0;min-width:70px}
+        .prod-price{font-weight:700;color:var(--primary);font-size:0.9rem;white-space:nowrap}
+        .prod-unit{font-size:0.68rem;color:var(--text-light);white-space:nowrap}
+        .prod-qty{display:flex;align-items:center;gap:0;flex-shrink:0}
+        .prod-qty button{
+            width:28px;height:28px;border:1.5px solid #d1d5db;background:var(--white);
+            cursor:pointer;font-size:0.9rem;color:var(--text);transition:all .15s;display:flex;align-items:center;justify-content:center;
+        }
+        .prod-qty button:first-child{border-radius:6px 0 0 6px}
+        .prod-qty button:last-child{border-radius:0 6px 6px 0}
+        .prod-qty button:hover{background:var(--bg);border-color:var(--primary);color:var(--primary)}
+        .prod-qty input{
+            width:36px;height:28px;border:1.5px solid #d1d5db;border-left:0;border-right:0;text-align:center;
+            font-size:0.85rem;font-weight:600;-moz-appearance:textfield;
+        }
+        .prod-qty input::-webkit-inner-spin-button,.prod-qty input::-webkit-outer-spin-button{-webkit-appearance:none}
+        .prod-subtotal{font-weight:700;font-size:0.82rem;text-align:right;min-width:65px;flex-shrink:0;white-space:nowrap}
+        .prod-toggle{flex-shrink:0}
+        /* prod-toggle button: see premium CSS */
+        /* ── Live sidebar summary ── */
+        .configurator-layout{display:grid;grid-template-columns:1fr 340px;gap:2.5rem;align-items:start}
+        /* summary-card: see premium CSS above */
+        .summary-lines{max-height:320px;overflow-y:auto;margin-bottom:1rem;border-top:1px solid #f3f4f6}
+        .summary-line{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid #f3f4f6;font-size:0.82rem}
+        .summary-line .sl-name{color:var(--text-secondary);flex:1;padding-right:0.5rem}
+        .summary-line .sl-price{font-weight:600;white-space:nowrap}
+        /* summary-total: see premium CSS above */
+        .summary-monthly{display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.85rem;color:var(--text-secondary)}
+        .summary-setup{display:flex;justify-content:space-between;padding:0.35rem 0;font-size:0.85rem;color:var(--text-secondary)}
+        .summary-empty{text-align:center;padding:2rem 0;color:var(--text-light);font-size:0.85rem}
+
+        /* ── Contact info form (step 2) ── */
+        /* contact-form-box: see premium CSS above */
+
+        /* ── Visual style section ── */
+        
+        /* ═══ Tu Negocio Section ═══ */
+        .negocio-section{margin-top:2rem;padding-top:1.5rem;border-top:2px solid #f3f4f6}
+        .negocio-section h4{font-size:0.95rem;font-weight:700;margin-bottom:0.25rem;display:flex;align-items:center;gap:0.5rem}
+        .negocio-section h4 i{color:var(--primary)}
+        .negocio-section>p{color:var(--text-secondary);font-size:0.82rem;margin-bottom:1.25rem}
+        .svc-row{display:flex;gap:0.5rem;margin-bottom:0.5rem;align-items:flex-start}
+        .svc-row input{flex:1;height:38px;padding:0.4rem 0.6rem;border:1.5px solid #d1d5db;border-radius:var(--radius);font-size:0.85rem}
+        .svc-row input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px rgba(102,126,234,0.12)}
+        .svc-row .svc-remove{width:34px;height:38px;border:none;background:#fee2e2;color:#ef4444;border-radius:var(--radius);cursor:pointer;font-size:0.9rem;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+        .svc-row .svc-remove:hover{background:#fecaca}
+        .add-row-btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;border:1.5px dashed #d1d5db;background:none;border-radius:var(--radius);cursor:pointer;font-size:0.82rem;font-weight:600;color:var(--primary);transition:all .2s}
+        .add-row-btn:hover{border-color:var(--primary);background:rgba(102,126,234,0.04)}
+        .optional-badge{display:inline-block;padding:0.1rem 0.5rem;border-radius:10px;font-size:0.7rem;font-weight:600;background:#f0fdf4;color:#166534;margin-left:0.5rem}
+
+        .style-section{margin-top:2rem;padding-top:1.5rem;border-top:2px solid #f3f4f6}
+        .style-section h4{font-size:0.95rem;font-weight:700;margin-bottom:0.25rem;display:flex;align-items:center;gap:0.5rem}
+        .style-section h4 i{color:var(--primary)}
+        .style-section>p{color:var(--text-secondary);font-size:0.82rem;margin-bottom:1.25rem}
+        .color-options{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}
+        /* color-opt: see premium CSS */
+        .color-opt.selected::after{content:'\F272';font-family:'bootstrap-icons';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;text-shadow:0 1px 3px rgba(0,0,0,0.4)}
+        .style-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}
+        /* style-chip: see premium CSS */
+
+        /* ── Validation feedback ── */
+        .form-group.invalid input,
+        .form-group.invalid textarea,
+        .form-group.invalid select{border-color:var(--danger);background:rgba(239,68,68,0.03)}
+        .form-group.invalid label{color:var(--danger)}
+        .validation-msg{color:var(--danger);font-size:0.78rem;font-weight:600;margin-top:0.25rem;display:none}
+        .form-group.invalid .validation-msg{display:block}
+        .style-section.invalid-section>label:first-of-type,.style-section.invalid-section>h4{color:var(--danger)}
+        .style-section.invalid-section .color-options{outline:2px solid var(--danger);outline-offset:4px;border-radius:8px}
+        .style-section.invalid-section .style-chips{outline:2px solid var(--danger);outline-offset:4px;border-radius:8px}
+
+        /* ── Result view (step 3) ── */
+        .budget-result{max-width:900px;margin:0 auto}
+        /* doc-tabs: see premium CSS above */
+        /* doc-tab: see premium CSS above */
+        .doc-panel{display:none}
+        .doc-panel.active{display:block;animation:fadeUp .3s ease}
+        .doc-print-bar{display:flex;gap:0.75rem;justify-content:flex-end;margin-bottom:1.25rem}
+        /* budget-doc: see premium CSS above */
+        .budget-doc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem}
+        .budget-doc-header .brand{display:flex;align-items:center;gap:0.6rem;font-size:1.15rem;font-weight:800}
+        .budget-doc-header .brand .nav-brand-icon{width:36px;height:36px;font-size:0.95rem;border-radius:8px}
+        .budget-doc-header .meta{text-align:right;font-size:0.82rem;color:var(--text-secondary)}
+        .budget-doc-header .meta strong{display:block;font-size:1.2rem;color:var(--text)}
+        .client-box{background:var(--bg);border-radius:var(--radius);padding:1.25rem;margin-bottom:2rem;font-size:0.88rem}
+        .client-box strong{display:block;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-light);margin-bottom:0.4rem}
+        .budget-table{width:100%;border-collapse:collapse;margin-bottom:1.5rem}
+        .budget-table th{text-align:left;padding:0.7rem 0.5rem;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-light);border-bottom:2px solid var(--text)}
+        .budget-table td{padding:0.65rem 0.5rem;font-size:0.88rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+        .budget-table td:nth-child(3),.budget-table td:nth-child(4),.budget-table th:nth-child(3),.budget-table th:nth-child(4){text-align:right}
+        .budget-table .cat-row td{font-weight:700;background:var(--bg);font-size:0.82rem;color:var(--text-secondary);padding:0.5rem}
+        .budget-totals{text-align:right;margin-bottom:2rem}
+        .budget-totals .row{display:flex;justify-content:flex-end;gap:2rem;padding:0.4rem 0;font-size:0.92rem}
+        .budget-totals .row.total{font-weight:800;font-size:1.15rem;border-top:2px solid var(--text);padding-top:0.75rem;margin-top:0.5rem}
+        .budget-totals .label{color:var(--text-secondary);min-width:160px;text-align:right}
+        .budget-totals .val{min-width:120px;text-align:right}
+        .work-order h3{font-size:1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+        .wo-phases{display:flex;flex-direction:column;gap:0.75rem}
+        .wo-phase{display:flex;gap:1rem;padding:1rem;border:1px solid #e5e7eb;border-radius:var(--radius);background:var(--bg)}
+        .wo-phase-num{width:32px;height:32px;border-radius:50%;background:var(--gradient);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0}
+        .wo-phase-info h5{font-size:0.9rem;font-weight:700;margin-bottom:0.2rem}
+        .wo-phase-info p{font-size:0.82rem;color:var(--text-secondary);line-height:1.5}
+        .wo-items-table{width:100%;border-collapse:collapse;margin:1.25rem 0}
+        .wo-items-table th{text-align:left;padding:0.6rem 0.5rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-light);border-bottom:2px solid var(--text)}
+        .wo-items-table td{padding:0.55rem 0.5rem;font-size:0.85rem;border-bottom:1px solid #f3f4f6;vertical-align:top}
+        .wo-items-table .cat-row td{font-weight:700;background:var(--bg);font-size:0.8rem;color:var(--text-secondary);padding:0.45rem 0.5rem}
+        /* budget-actions: see premium CSS */
+        .budget-note{text-align:center;margin-top:1.5rem;font-size:0.8rem;color:var(--text-light)}
+
+        /* ── Nav buttons ── */
+        /* step-nav: see premium CSS above */
+
+        @media print{
+            .navbar,.nav-mobile,.wizard-steps,.step-nav,.budget-actions,.budget-note,footer,.cta-section,.doc-tabs,.doc-print-bar{display:none!important}
+            .doc-panel{display:block!important}
+            .doc-panel:not(.printing){display:none!important}
+            .budget-doc{box-shadow:none;border:none;padding:1rem 0}
+            body{background:#fff}
+        }
+        @media(max-width:900px){
+            .configurator-layout{grid-template-columns:1fr}
+            .summary-card{position:static}
+        .prod-row{flex-wrap:wrap}
+        }
+        @media(max-width:768px){
+            .wizard-steps{gap:0;flex-wrap:wrap}
+            .wizard-steps::before{display:none}
+            .wz-step{min-width:70px}
+            .budget-doc{padding:1.5rem}
+            .budget-doc-header{flex-direction:column}
+            .budget-doc-header .meta{text-align:left}
+        }
+
+        /* ── Category Stepper (one at a time) ── */
+        .cat-stepper-nav{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.5rem}
+        /* cat-step: see premium CSS above */
+        /* cat-step hover: see premium CSS */
+        /* cat-step active: see premium CSS */
+        .cat-step.has-items::after{content:'';position:absolute;right:0.75rem;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:var(--success)}
+        .cat-step.cat-error{border-color:var(--danger);background:rgba(239,68,68,0.04)}
+        .cat-step.cat-error .cat-step-icon{background:#fef2f2;color:var(--danger)}
+        .cat-step.cat-valid .cat-step-icon{background:#ecfdf5;color:var(--success)}
+        /* cat-step-icon: see premium CSS */
+        .cat-step-info{flex:1;min-width:0}
+        .cat-step-name{font-size:0.85rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .cat-step-meta{font-size:0.72rem;color:var(--text-light)}
+        .cat-step-badge{font-size:0.72rem;font-weight:700;color:var(--primary);background:rgba(102,126,234,0.1);padding:0.1rem 0.5rem;border-radius:20px;white-space:nowrap}
+        /* cat-stepper-layout: see premium CSS above */
+        .cat-stepper-sidebar{position:sticky;top:calc(var(--nav-height) + 2rem);max-height:calc(100vh - var(--nav-height) - 4rem);overflow-y:auto}
+        .cat-stepper-content{min-height:300px;overflow:hidden;min-width:0}
+        /* cat-content-header: see premium CSS */
+        .cat-content-header h3{font-size:1.15rem;font-weight:700;flex:1}
+        .cat-content-header .cat-counter{font-size:0.82rem;color:var(--text-light)}
+        /* cat-nav-btns: see premium CSS */
+        .cat-nav-btns .cat-progress{font-size:0.82rem;color:var(--text-light);font-weight:500}
+        @media(max-width:900px){
+            .cat-stepper-layout{grid-template-columns:1fr}
+            .cat-stepper-sidebar{position:static;max-height:none;display:flex;flex-wrap:wrap;gap:0.25rem}
+            .cat-step{padding:0.5rem 0.75rem}
+            .cat-step-meta{display:none}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════ Navbar ═══════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+            <span>Integra Tech Consulting</span>
+        </a>
+        <div class="nav-links">
+            <a href="funcionalidades.html">Funcionalidades</a>
+            <a href="precios.html">Precios</a>
+            <a href="presupuesto.html" class="active">Presupuesto</a>
+            <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="nav-cta">
+            <a href="erp/login.html" class="btn btn-secondary">Iniciar sesión</a>
+            <a href="prueba-gratis.html" class="btn btn-primary">Prueba gratis</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú"><i class="bi bi-list"></i></button>
+    </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="presupuesto.html" class="active">Presupuesto</a>
+    <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="erp/login.html">Iniciar sesión</a>
+    <a href="prueba-gratis.html" style="color:var(--primary);font-weight:600">Prueba gratis →</a>
+</div>
+
+
+<!-- ═══════ Hero ═══════ -->
+<section class="presup-hero">
+    <div class="presup-hero-orb presup-hero-orb--1"></div>
+    <div class="presup-hero-orb presup-hero-orb--2"></div>
+    <div class="presup-hero-orb presup-hero-orb--3"></div>
+    <div class="container" style="position:relative;z-index:1;text-align:center">
+        <div class="presup-hero-badge"><i class="bi bi-stars"></i> Presupuesto inteligente</div>
+        <h1 class="presup-hero-title">Diseña tu proyecto<br><span class="gradient-text">a medida</span></h1>
+        <p class="presup-hero-sub">Selecciona tu sector, elige un pack pensado para ti y personaliza cada detalle.<br>Tu presupuesto, listo en minutos. Sin compromiso.</p>
+        <div class="presup-hero-chips">
+            <span><i class="bi bi-shield-check"></i> Sin compromiso</span>
+            <span><i class="bi bi-lightning-charge-fill"></i> Resultado inmediato</span>
+            <span><i class="bi bi-pencil-square"></i> 100% personalizable</span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Wizard ═══════ -->
+<section class="section" style="padding-top:2.5rem;padding-bottom:4rem;background:linear-gradient(180deg,#f8fafc 0%,#f1f3f8 100%);position:relative">
+    <div class="container">
+        <div class="wizard-steps" id="wizardSteps">
+            <div class="wz-step active" data-step="0" onclick="goStep(0)">
+                <div class="wz-num">1</div>
+                <span class="wz-label">Tu<br>negocio</span>
+            </div>
+            <div class="wz-step" data-step="1" onclick="goStep(1)">
+                <div class="wz-num">2</div>
+                <span class="wz-label">Elige lo<br>que necesitas</span>
+            </div>
+            <div class="wz-step" data-step="2" onclick="goStep(2)">
+                <div class="wz-num">3</div>
+                <span class="wz-label">Tus<br>datos</span>
+            </div>
+            <div class="wz-step" data-step="3" onclick="goStep(3)">
+                <div class="wz-num">4</div>
+                <span class="wz-label">Tu<br>presupuesto</span>
+            </div>
+        </div>
+
+        <!-- ────── STEP 0: Business Type + Presets ────── -->
+        <div class="step-panel active" id="step0">
+            <div style="max-width:900px;margin:0 auto">
+                <div style="text-align:center;margin-bottom:2rem">
+                    <h2 style="font-size:1.6rem;margin-bottom:0.5rem;letter-spacing:-0.02em">¿Qué tipo de negocio tienes?</h2>
+                    <p style="color:var(--text-secondary);font-size:0.95rem">Selecciona tu sector y te propondremos un pack adaptado a lo que suelen necesitar negocios como el tuyo.</p>
+                </div>
+                <div class="biz-type-grid" id="bizTypeGrid">
+                    <div class="biz-type-card" data-biz="restauracion" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-cup-hot-fill"></i></div>
+                        <div class="biz-type-name">Restauración</div>
+                        <div class="biz-type-sub">Restaurante, bar, cafetería, food truck</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="belleza" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-scissors"></i></div>
+                        <div class="biz-type-name">Belleza y Salud</div>
+                        <div class="biz-type-sub">Peluquería, barbería, estética, spa</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="comercio" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-shop"></i></div>
+                        <div class="biz-type-name">Comercio</div>
+                        <div class="biz-type-sub">Tienda, supermercado, floristería</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="profesional" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-briefcase-fill"></i></div>
+                        <div class="biz-type-name">Servicios profesionales</div>
+                        <div class="biz-type-sub">Abogado, asesoría, consultoría, seguros</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="salud" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                        <div class="biz-type-name">Salud y Clínica</div>
+                        <div class="biz-type-sub">Dentista, fisio, psicólogo, veterinaria</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="motor" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-speedometer2"></i></div>
+                        <div class="biz-type-name">Motor</div>
+                        <div class="biz-type-sub">Taller, concesionario, autolavado</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="construccion" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-tools"></i></div>
+                        <div class="biz-type-name">Construcción y Oficios</div>
+                        <div class="biz-type-sub">Reformas, fontanería, electricidad</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="inmobiliaria" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-house-door-fill"></i></div>
+                        <div class="biz-type-name">Inmobiliaria</div>
+                        <div class="biz-type-sub">Inmobiliaria, admin. fincas</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="formacion" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                        <div class="biz-type-name">Formación</div>
+                        <div class="biz-type-sub">Academia, autoescuela, idiomas</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="tecnologia" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-laptop"></i></div>
+                        <div class="biz-type-name">Tecnología</div>
+                        <div class="biz-type-sub">Informática, software, marketing digital</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="hosteleria" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-building"></i></div>
+                        <div class="biz-type-name">Alojamiento</div>
+                        <div class="biz-type-sub">Hotel, hostal, casa rural, camping</div>
+                    </div>
+                    <div class="biz-type-card" data-biz="otro" onclick="selectBizType(this)">
+                        <div class="biz-type-icon"><i class="bi bi-three-dots"></i></div>
+                        <div class="biz-type-name">Otro</div>
+                        <div class="biz-type-sub">No encuentro mi sector</div>
+                    </div>
+                </div>
+                <div class="preset-section" id="presetSection">
+                    <div style="text-align:center;margin-bottom:1.5rem">
+                        <h3 style="font-size:1.2rem;margin-bottom:0.3rem" id="presetTitle">Packs recomendados para tu negocio</h3>
+                        <p style="color:var(--text-secondary);font-size:0.88rem">Elige un pack para empezar con lo esencial. Podrás personalizar todo en el siguiente paso.</p>
+                    </div>
+                    <div class="preset-grid" id="presetGrid"></div>
+                    <div class="preset-skip">
+                        <a onclick="skipPresets()">Prefiero montar mi presupuesto desde cero <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="step-nav" id="step0Nav" style="display:none">
+                    <div></div>
+                    <button class="btn btn-primary btn-lg" onclick="applyPresetAndContinue()" id="btnToStep1" style="border-radius:var(--radius-full);padding:0.9rem 2.5rem;box-shadow:0 6px 24px rgba(102,126,234,0.3)"><i class="bi bi-arrow-right"></i> Continuar con mi selección</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ────── STEP 1: Configurator ────── -->
+        <div class="step-panel" id="step1">
+            <div class="cat-stepper-layout">
+                <div class="cat-stepper-sidebar" id="catSidebar">
+                    <div style="text-align:center;padding:2rem;color:var(--text-light)">Cargando...</div>
+                </div>
+                <div>
+                    <div class="cat-stepper-content" id="catContent">
+                        <div style="text-align:center;padding:3rem"><div class="loading-spinner" style="width:40px;height:40px;border:3px solid #e5e7eb;border-top-color:var(--primary);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto"></div><p style="margin-top:1rem;color:var(--text-light)">Cargando catálogo...</p></div>
+                    </div>
+                    <div class="cat-nav-btns" id="catNavBtns" style="display:none">
+                        <button class="btn btn-secondary" id="btnCatPrev" onclick="prevCategory()"><i class="bi bi-arrow-left"></i> Anterior</button>
+                        <span class="cat-progress" id="catProgress"></span>
+                        <button class="btn btn-primary" id="btnCatNext" onclick="nextCategory()">Siguiente <i class="bi bi-arrow-right"></i></button>
+                    </div>
+                    <div class="summary-card" id="summaryCard" style="position:static;margin-top:1.5rem">
+                        <h3><i class="bi bi-receipt" style="color:var(--primary)"></i> Tu selección</h3>
+                        <div id="summaryLines"><div class="summary-empty"><i class="bi bi-cart3" style="font-size:1.5rem;display:block;margin-bottom:0.5rem"></i>Haz clic en + para añadir lo que necesites</div></div>
+                        <div id="summaryTotals" style="display:none">
+                            <div class="summary-monthly"><span>Pagarás cada mes:</span><span id="sumMonthly">0,00 €</span></div>
+                            <div class="summary-setup"><span>Pago único (una sola vez):</span><span id="sumSetup">0,00 €</span></div>
+                            <div class="summary-total"><span>Total estimado:</span><span id="sumTotal">0,00 €</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="step-nav">
+                <div></div>
+                <button class="btn btn-primary btn-lg" onclick="goStep(2)" id="btnToStep2" disabled><i class="bi bi-arrow-right"></i> Siguiente: tus datos</button>
+            </div>
+        </div>
+
+        <!-- ────── STEP 2: Contact info ────── -->
+        <div class="step-panel" id="step2">
+            <div class="contact-form-box">
+                <h3>¿A quién le preparamos el presupuesto?</h3>
+                <p>Rellena tus datos para que aparezcan en el documento. Así también podremos contactarte si tienes alguna duda.</p>
+                <form id="clientForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre completo *</label>
+                            <input type="text" id="cf-name" required placeholder="Juan García López">
+                        </div>
+                        <div class="form-group">
+                            <label>Cargo *</label>
+                            <input type="text" id="cf-cargo" required placeholder="Director, Gerente, CEO...">
+                            <div class="validation-msg">Indica tu cargo</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="cf-email" required placeholder="juan@miempresa.es">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono *</label>
+                            <input type="tel" id="cf-phone" required placeholder="+34 600 000 000">
+                            <div class="validation-msg">Indica un teléfono de contacto</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:2px solid #f3f4f6">
+                        <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:0.25rem;display:flex;align-items:center;gap:0.5rem"><i class="bi bi-building" style="color:var(--primary)"></i> Datos fiscales</h4>
+                        <p style="color:var(--text-secondary);font-size:0.82rem;margin-bottom:1.25rem">Estos datos aparecerán en tu presupuesto. Si no los tienes ahora, podrás dárnoslos más adelante.</p>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Razón social / Empresa *</label>
+                            <input type="text" id="cf-company" required placeholder="Mi Empresa S.L.">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre comercial *</label>
+                            <input type="text" id="cf-nombre-comercial" required placeholder="Si es diferente a la razón social">
+                            <div class="validation-msg">Indica el nombre comercial</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>NIF / CIF *</label>
+                            <input type="text" id="cf-nif" required placeholder="B12345678">
+                            <div class="validation-msg">Introduce el NIF o CIF</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Sector / Actividad *</label>
+                            <input type="text" id="cf-sector" list="sector-list" required placeholder="Escribe tu sector...">
+                            <datalist id="sector-list">
+                                <option value="Restaurante / Bar">
+                                <option value="Cafetería">
+                                <option value="Pizzería">
+                                <option value="Hamburguesería">
+                                <option value="Heladería">
+                                <option value="Pastelería / Obrador">
+                                <option value="Cervecería / Coctelería">
+                                <option value="Food Truck">
+                                <option value="Sushi / Comida asiática">
+                                <option value="Kebab / Comida rápida">
+                                <option value="Hotel / Hostel">
+                                <option value="Casa rural / Turismo rural">
+                                <option value="Camping">
+                                <option value="Agencia de viajes">
+                                <option value="Peluquería / Barbería">
+                                <option value="Centro de estética / Belleza">
+                                <option value="Spa / Wellness">
+                                <option value="Yoga / Pilates">
+                                <option value="Estudio de tatuajes">
+                                <option value="Gimnasio / Fitness">
+                                <option value="Club deportivo / Pádel">
+                                <option value="Escape Room / Ocio">
+                                <option value="Parque infantil / Ludoteca">
+                                <option value="Clínica médica / Consulta">
+                                <option value="Dentista / Clínica dental">
+                                <option value="Fisioterapia">
+                                <option value="Podólogo / Podología">
+                                <option value="Osteópata / Quiropráctico">
+                                <option value="Psicología">
+                                <option value="Nutrición / Dietista">
+                                <option value="Veterinaria">
+                                <option value="Óptica">
+                                <option value="Farmacia / Parafarmacia">
+                                <option value="Residencia canina / Mascotas">
+                                <option value="Peluquería canina">
+                                <option value="Abogado / Despacho jurídico">
+                                <option value="Asesoría / Gestoría">
+                                <option value="Notaría">
+                                <option value="Consultoría">
+                                <option value="Administración de fincas">
+                                <option value="Inmobiliaria">
+                                <option value="Seguros">
+                                <option value="Tienda / Comercio">
+                                <option value="Librería">
+                                <option value="Joyería / Relojería">
+                                <option value="Mueblería / Decoración">
+                                <option value="Perfumería">
+                                <option value="Floristería">
+                                <option value="Supermercado">
+                                <option value="Frutería / Verdulería">
+                                <option value="Carnicería">
+                                <option value="Pescadería">
+                                <option value="Panadería">
+                                <option value="Ferretería">
+                                <option value="Zapatería">
+                                <option value="Papelería / Copistería">
+                                <option value="Estanco">
+                                <option value="Electrodomésticos">
+                                <option value="Construcción / Reformas">
+                                <option value="Fontanería">
+                                <option value="Electricista">
+                                <option value="Cerrajería">
+                                <option value="Pintor">
+                                <option value="Carpintería">
+                                <option value="Jardinería / Vivero">
+                                <option value="Taller mecánico">
+                                <option value="Concesionario">
+                                <option value="Autolavado">
+                                <option value="Neumáticos">
+                                <option value="Chapa y pintura">
+                                <option value="Piscinas">
+                                <option value="Control de plagas">
+                                <option value="Domótica / Alarmas">
+                                <option value="Toldos / Persianas">
+                                <option value="Mudanzas / Transporte">
+                                <option value="Guardamuebles">
+                                <option value="Limpieza profesional">
+                                <option value="Lavandería / Tintorería">
+                                <option value="Autoescuela">
+                                <option value="Academia / Formación">
+                                <option value="Escuela de idiomas">
+                                <option value="Escuela de música / Danza">
+                                <option value="Guardería / Centro infantil">
+                                <option value="Profesor particular">
+                                <option value="Oposiciones">
+                                <option value="Fotografía / Vídeo">
+                                <option value="Diseño gráfico">
+                                <option value="Arquitectura / Interiorismo">
+                                <option value="Productora audiovisual">
+                                <option value="Estudio de grabación">
+                                <option value="Galería de arte">
+                                <option value="Artesanía / Cerámica">
+                                <option value="Agencia de marketing">
+                                <option value="Informática / Tecnología">
+                                <option value="Reparación de móviles">
+                                <option value="Software / Desarrollo">
+                                <option value="SEO / Marketing digital">
+                                <option value="Coworking">
+                                <option value="Telecomunicaciones">
+                                <option value="Eventos / Bodas">
+                                <option value="Catering">
+                                <option value="Imprenta / Rotulación">
+                                <option value="Modista / Sastrería">
+                                <option value="Traductor / Intérprete">
+                                <option value="Funeraria">
+                                <option value="Residencia de mayores">
+                                <option value="Bodega / Vinoteca">
+                                <option value="Cooperativa agrícola">
+                                <option value="Granja / Ganadería">
+                                <option value="Fábrica / Industria">
+                                <option value="Distribuidor / Mayorista">
+                                <option value="ONG / Asociación">
+                                <option value="Otro">
+                            </datalist>
+                            <div class="validation-msg">Indica el sector de tu negocio</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Dirección fiscal *</label>
+                        <input type="text" id="cf-address" required placeholder="C/ Ejemplo, 10, Local 2">
+                        <div class="validation-msg">Introduce la dirección fiscal</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Código postal *</label>
+                            <input type="text" id="cf-cp" required placeholder="28001">
+                            <div class="validation-msg">Introduce el código postal</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Ciudad *</label>
+                            <input type="text" id="cf-city" required placeholder="Madrid">
+                            <div class="validation-msg">Introduce la ciudad</div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="max-width:calc(50% - 0.5rem)">
+                        <label>Provincia *</label>
+                        <input type="text" id="cf-province" required placeholder="Madrid">
+                        <div class="validation-msg">Introduce la provincia</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Explica tu proyecto con tus palabras *</label>
+                        <textarea id="cf-project-desc" rows="4" required placeholder="Cuéntanos qué hace tu negocio, qué problema quieres resolver o qué quieres conseguir con este proyecto..."></textarea>
+                    </div>
+
+                    <!-- ═══ Tu negocio: Servicios y tarifas ═══ -->
+                    <div class="negocio-section" id="negocioSection">
+                        <h4><i class="bi bi-shop"></i> Los servicios de tu negocio <span class="optional-badge">Opcional</span></h4>
+                        <p>Si tu web va a mostrar servicios o tarifas, cuéntanos cuáles son. Si no los tienes claros ahora, no te preocupes — podrás completarlo más adelante.</p>
+
+                        <label style="font-size:0.85rem;font-weight:600;margin-bottom:0.5rem;display:block">¿Qué servicios ofreces a tus clientes?</label>
+                        <div id="svcList">
+                            <div class="svc-row">
+                                <input type="text" class="svc-name" placeholder="Nombre del servicio (ej: Clases de ruso, Asesoría fiscal...)">
+                                <input type="text" class="svc-desc" placeholder="Breve descripción (opcional)">
+                                <button class="svc-remove" onclick="removeSvcRow(this)" title="Quitar"><i class="bi bi-x-lg"></i></button>
+                            </div>
+                        </div>
+                        <button class="add-row-btn" onclick="addSvcRow()" style="margin-bottom:1.5rem"><i class="bi bi-plus-circle"></i> Añadir otro servicio</button>
+
+                        <label style="font-size:0.85rem;font-weight:600;margin-bottom:0.5rem;display:block">¿Tienes tarifas o precios definidos?</label>
+                        <div id="priceList">
+                            <div class="svc-row">
+                                <input type="text" class="price-name" placeholder="Nombre del plan o tarifa (ej: Plan Básico)">
+                                <input type="text" class="price-amount" placeholder="Precio (ej: 49€/mes)" style="max-width:140px">
+                                <input type="text" class="price-desc" placeholder="Qué incluye (opcional)">
+                                <button class="svc-remove" onclick="removeSvcRow(this)" title="Quitar"><i class="bi bi-x-lg"></i></button>
+                            </div>
+                        </div>
+                        <button class="add-row-btn" onclick="addPriceRow()"><i class="bi bi-plus-circle"></i> Añadir otra tarifa</button>
+                    </div>
+
+                    <div class="style-section">
+                        <h4><i class="bi bi-palette-fill"></i> Estilo visual</h4>
+                        <p>Ayúdanos a entender qué look quieres para tu proyecto. No te preocupes si no estás seguro, te orientaremos.</p>
+
+                        <label>¿Tienes colores de marca? Elige los que más te representen</label>
+                        <div class="color-options" id="colorOptions">
+                            <div class="color-opt" style="background:#667eea" data-color="Azul" title="Azul" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#764ba2" data-color="Morado" title="Morado" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#10b981" data-color="Verde" title="Verde" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#f59e0b" data-color="Amarillo" title="Amarillo" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#ef4444" data-color="Rojo" title="Rojo" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#06b6d4" data-color="Turquesa" title="Turquesa" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#f97316" data-color="Naranja" title="Naranja" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#ec4899" data-color="Rosa" title="Rosa" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#1e293b" data-color="Oscuro" title="Oscuro" onclick="toggleColor(this)"></div>
+                            <div class="color-opt" style="background:#f8fafc;border:1.5px solid #d1d5db" data-color="Claro" title="Claro" onclick="toggleColor(this)"></div>
+                        </div>
+
+                        <label>¿Qué estilo te gusta más?</label>
+                        <div class="style-chips" id="styleChips">
+                            <span class="style-chip" onclick="toggleChip(this)">Moderno</span>
+                            <span class="style-chip" onclick="toggleChip(this)">Minimalista</span>
+                            <span class="style-chip" onclick="toggleChip(this)">Corporativo</span>
+                            <span class="style-chip" onclick="toggleChip(this)">Creativo</span>
+                            <span class="style-chip" onclick="toggleChip(this)">Elegante</span>
+                            <span class="style-chip" onclick="toggleChip(this)">Juvenil</span>
+                            <span class="style-chip" onclick="toggleChip(this)">Clásico</span>
+                            <span class="style-chip" onclick="toggleChip(this)">Tecnológico</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>¿Tienes logo o imagen de marca? *</label>
+                            <select id="cf-has-logo" required>
+                                <option value="">— Elige —</option>
+                                <option value="Sí, tengo logo">Sí, tengo logo</option>
+                                <option value="No, necesito uno">No, necesito uno</option>
+                                <option value="Lo estoy creando">Lo estoy creando</option>
+                            </select>
+                            <div class="validation-msg">Selecciona una opción</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>¿Alguna referencia o web que te guste?</label>
+                            <input type="text" id="cf-style-ref" placeholder="www.ejemplo.com o 'algo parecido a Apple'">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:1.5rem">
+                        <label>¿Algo más que debamos saber?</label>
+                        <textarea id="cf-notes" rows="3" placeholder="Plazos, necesidades especiales, comentarios..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="step-nav">
+                <button class="btn btn-secondary btn-lg" onclick="goStep(1)"><i class="bi bi-arrow-left"></i> Volver</button>
+                <button class="btn btn-primary btn-lg" onclick="generateBudget()" id="btnGenerate"><i class="bi bi-file-earmark-text"></i> Ver mi presupuesto</button>
+            </div>
+        </div>
+
+        <!-- ────── STEP 3: Result ────── -->
+        <div class="step-panel" id="step3">
+            <div class="budget-result">
+                <div class="doc-tabs">
+                    <button class="doc-tab active" onclick="switchDoc('presupuesto')"><i class="bi bi-file-earmark-text"></i> Presupuesto</button>
+                    <button class="doc-tab" onclick="switchDoc('orden')"><i class="bi bi-clipboard-check"></i> Orden de Trabajo</button>
+                </div>
+                <div class="doc-panel active" id="panelPresupuesto"></div>
+                <div class="doc-panel" id="panelOrden"></div>
+            </div>
+            <div class="budget-actions">
+                <button class="btn btn-secondary btn-lg" onclick="goStep(1)"><i class="bi bi-arrow-counterclockwise"></i> Cambiar algo</button>
+                <button class="btn btn-dark btn-lg" onclick="sendBudgetRequest()"><i class="bi bi-send-fill"></i> Enviar y que nos pongan en marcha</button>
+            </div>
+            <p class="budget-note">Este presupuesto es orientativo y sin compromiso. Nuestro equipo te contactará para confirmar los detalles y resolver cualquier duda.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section" style="background:linear-gradient(160deg,#0f0c29 0%,#302b63 60%,#24243e 100%);position:relative;overflow:hidden">
+    <div style="position:absolute;top:-30%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(102,126,234,0.15),transparent 65%);pointer-events:none"></div>
+    <div style="position:absolute;bottom:-20%;left:-5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(240,147,251,0.1),transparent 65%);pointer-events:none"></div>
+    <div style="position:relative;z-index:1">
+        <h2 style="color:#fff">¿Tienes dudas?</h2>
+        <p style="color:rgba(255,255,255,0.7)">Te ayudamos a elegir lo mejor para tu negocio. Sin compromiso, sin letra pequeña.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+            <a href="contacto.html" class="btn btn-white btn-lg" style="border-radius:var(--radius-full)"><i class="bi bi-chat-dots-fill"></i> Contactar</a>
+            <a href="funcionalidades.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.2);border-radius:var(--radius-full)"><i class="bi bi-grid-3x3-gap-fill"></i> Ver funcionalidades</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Footer ═══════ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">
+                <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+                Integra Tech Consulting
+            </div>
+            <p class="footer-desc">Software de gestión empresarial pensado para autónomos y PYMEs. Simple, completo y asequible.</p>
+            <div class="footer-social">
+                <a href="presupuesto.html#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="presupuesto.html#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="presupuesto.html#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h5>Producto</h5>
+            <ul>
+                <li><a href="funcionalidades.html">Funcionalidades</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="erp/login.html">Acceder al ERP</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Empresa</h5>
+            <ul>
+                <li><a href="agente-gratis.html">Agente IA</a>
+            <a href="contacto.html">Contacto</a></li>
+                <li><a href="presupuesto.html#">Sobre nosotros</a></li>
+                <li><a href="presupuesto.html#">Blog</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Legal</h5>
+            <ul>
+                <li><a href="presupuesto.html#">Política de privacidad</a></li>
+                <li><a href="presupuesto.html#">Términos de uso</a></li>
+                <li><a href="presupuesto.html#">Política de cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Integra Tech Consulting S.L. Todos los derechos reservados.</span>
+        <span>Hecho con <i class="bi bi-heart-fill" style="color:var(--danger);font-size:0.7rem"></i> en España</span>
+    </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONFIGURADOR DE PRESUPUESTOS — Integra Tech Consulting
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const API_BASE = '/api';
+let catalog = [];         // all products from API
+let selection = {};       // { productId: quantity }
+let currentStep = 0;
+
+const CAT_ICON = {
+    'Planes ERP':'bi-grid-1x2-fill',
+    'Módulos ERP':'bi-puzzle-fill',
+    'Usuarios y Accesos':'bi-person-badge-fill',
+    'Almacenamiento':'bi-hdd-fill',
+    'Personalización':'bi-palette-fill',
+    'Integraciones':'bi-plug-fill',
+    'Cloud IONOS':'bi-cloud-fill',
+    'Dominios y Email':'bi-envelope-fill',
+    'Licencias Software':'bi-key-fill',
+    'Consultoría':'bi-lightbulb-fill',
+    'Desarrollo':'bi-code-slash',
+    'Implementación':'bi-rocket-takeoff-fill',
+    'Formación':'bi-mortarboard-fill',
+    'Desarrollo Web':'bi-globe2',
+    'Soporte':'bi-headset'
+};
+
+/* ═══ CATEGORY SELECTION RULES ═══ */
+/* "required" = min 1, "single" = exactly 1 (exclusive), "optional" = 0+ */
+const CAT_RULES = {
+    'Planes ERP': 'single',
+    'Módulos ERP': 'required',
+};
+// Everything else defaults to "optional"
+function isQtyProduct(unit) {
+    if (!unit) return false;
+    const u = unit.toLowerCase();
+    return /usuario|buzón|buzon|puesto|dispositivo|hora|página|pagina|licencia/.test(u);
+}
+
+function getCatRule(cat) { return CAT_RULES[cat] || "optional"; }
+
+
+const CAT_ORDER = [
+    'Planes ERP','Módulos ERP','Módulos Web','Desarrollo Web',
+    'Usuarios y Accesos','Almacenamiento','Personalización','Integraciones',
+    'Cloud IONOS','Dominios y Email','Licencias Software',
+    'Soporte','Implementación','Consultoría','Formación'
+];
+
+/* ── Units considered recurring monthly ── */
+const RECURRING_UNITS = ['mes','mes/módulo','mes/usuario','mes/pack','mes/buzón','mes/dispositivo'];
+
+function isRecurring(unit) {
+    if (!unit) return false;
+    const u = unit.toLowerCase();
+    return RECURRING_UNITS.some(r => u.includes('mes'));
+}
+
+function money(v) {
+    return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(v);
+}
+
+/* ── Navbar ── */
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20));
+document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navMobile').classList.toggle('open'));
+
+
+/* ═════ DYNAMIC SERVICE/PRICING ROWS ═════ */
+function addSvcRow() {
+    const row = document.createElement('div');
+    row.className = 'svc-row';
+    row.innerHTML = '<input type="text" class="svc-name" placeholder="Nombre del servicio">'
+        + '<input type="text" class="svc-desc" placeholder="Breve descripción (opcional)">'
+        + '<button class="svc-remove" onclick="removeSvcRow(this)" title="Quitar"><i class="bi bi-x-lg"></i></button>';
+    document.getElementById('svcList').appendChild(row);
+}
+function addPriceRow() {
+    const row = document.createElement('div');
+    row.className = 'svc-row';
+    row.innerHTML = '<input type="text" class="price-name" placeholder="Nombre del plan/tarifa">'
+        + '<input type="text" class="price-amount" placeholder="Precio" style="max-width:140px">'
+        + '<input type="text" class="price-desc" placeholder="Qué incluye (opcional)">'
+        + '<button class="svc-remove" onclick="removeSvcRow(this)" title="Quitar"><i class="bi bi-x-lg"></i></button>';
+    document.getElementById('priceList').appendChild(row);
+}
+function removeSvcRow(btn) {
+    const list = btn.closest('#svcList, #priceList');
+    if (list && list.querySelectorAll('.svc-row').length > 1) {
+        btn.closest('.svc-row').remove();
+    } else {
+        // Don't remove last row, just clear inputs
+        btn.closest('.svc-row').querySelectorAll('input').forEach(i => i.value = '');
+    }
+}
+function collectServices() {
+    const svcs = [];
+    document.querySelectorAll('#svcList .svc-row').forEach(row => {
+        const name = row.querySelector('.svc-name')?.value.trim();
+        const desc = row.querySelector('.svc-desc')?.value.trim();
+        if (name) svcs.push({name, description: desc || ''});
+    });
+    return svcs;
+}
+function collectPricing() {
+    const plans = [];
+    document.querySelectorAll('#priceList .svc-row').forEach(row => {
+        const name = row.querySelector('.price-name')?.value.trim();
+        const amount = row.querySelector('.price-amount')?.value.trim();
+        const desc = row.querySelector('.price-desc')?.value.trim();
+        if (name) plans.push({name, price: amount || '', description: desc || ''});
+    });
+    return plans;
+}
+
+
+/* ═════ STEP 0: BUSINESS TYPE + PRESETS ═════ */
+let selectedBizType = null;
+let selectedPreset = null;
+
+const BIZ_PRESETS = {
+    restauracion: [
+        { name:'Pack Web Restaurante', badge:'Popular', badgeClass:'popular',
+          desc:'Todo lo que necesita tu restaurante online: carta digital, reservas y presencia profesional.',
+          skus:['WEB-BASIC','MOD-MENU','MOD-CITAS','MOD-MAP','MOD-WHATSAPP','MOD-SEO','MOD-GALERIA','DOM-ES','MOD-COOKIE'],
+          note:'Web + carta + reservas' },
+        { name:'Pack Gestión Restaurante', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + ERP para llevar control total: facturación, inventario, proveedores y clientes.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-ALM','MOD-PROV','MOD-CRM','WEB-BASIC','MOD-MENU','MOD-CITAS','MOD-MAP','MOD-WHATSAPP','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Web + ERP completo' },
+        { name:'Pack Delivery / Pedidos', badge:'Completo', badgeClass:'completo',
+          desc:'Para restaurantes con pedidos online: tienda, pasarela de pago y gestión de pedidos.',
+          skus:['WEB-PRO','MOD-MENU','MOD-PEDIDOS','MOD-PAY','MOD-ECOM','INT-STRIPE','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Pedidos + pagos online' }
+    ],
+    belleza: [
+        { name:'Pack Web Peluquería', badge:'Popular', badgeClass:'popular',
+          desc:'Página web con galería de trabajos, citas online y botón de WhatsApp.',
+          skus:['WEB-BASIC','MOD-CITAS','MOD-GALERIA','MOD-WHATSAPP','MOD-MAP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Web + citas online' },
+        { name:'Pack Centro de Belleza', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web profesional + gestión de citas, clientes y facturación todo integrado.',
+          skus:['ERP-AUT-M','MOD-FACT','MOD-CRM','MOD-AGENDA','WEB-BASIC','MOD-CITAS','MOD-GALERIA','MOD-WHATSAPP','MOD-MAP','MOD-REVIEW','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Web + ERP + citas' },
+        { name:'Pack Premium Belleza', badge:'Completo', badgeClass:'completo',
+          desc:'Todo incluido: web, tienda de productos, pagos online, newsletter y reseñas.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-AGENDA','MOD-PROD','WEB-PRO','MOD-CITAS','MOD-GALERIA','MOD-ECOM','MOD-PAY','INT-STRIPE','MOD-REVIEW','MOD-NEWS','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Todo incluido' }
+    ],
+    comercio: [
+        { name:'Pack Presencia Online', badge:'Popular', badgeClass:'popular',
+          desc:'Web de tu tienda con catálogo de productos, mapa y contacto.',
+          skus:['WEB-BASIC','MOD-GALERIA','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Catálogo online' },
+        { name:'Pack Tienda Online', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Vende por internet: tienda, carrito, pagos con tarjeta y gestión de pedidos.',
+          skus:['WEB-PRO','MOD-ECOM','MOD-PAY','INT-STRIPE','MOD-PEDIDOS','MOD-GALERIA','MOD-SEO','MOD-WHATSAPP','DOM-ES','MOD-COOKIE'],
+          note:'Vende online' },
+        { name:'Pack Comercio Completo', badge:'Completo', badgeClass:'completo',
+          desc:'Web + ERP: tienda online, facturación, inventario, proveedores y envíos.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-ALM','MOD-PROD','MOD-PROV','MOD-CRM','WEB-PRO','MOD-ECOM','MOD-PAY','INT-STRIPE','MOD-PEDIDOS','INT-CORREOS','MOD-SEO','MOD-WHATSAPP','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Tienda + gestión completa' }
+    ],
+    profesional: [
+        { name:'Pack Web Profesional', badge:'Popular', badgeClass:'popular',
+          desc:'Tu web de despacho: presentación, servicios, formulario de contacto y SEO.',
+          skus:['WEB-BASIC','MOD-FORM','MOD-SEO','MOD-MAP','MOD-WHATSAPP','DOM-ES','MOD-COOKIE'],
+          note:'Presencia profesional' },
+        { name:'Pack Despacho Profesional', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + gestión de clientes, facturación, documentos y agenda.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-DOC','MOD-AGENDA','WEB-BASIC','MOD-FORM','MOD-SEO','MOD-WHATSAPP','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS','INT-VERIFACTU'],
+          note:'Web + ERP gestión' },
+        { name:'Pack Asesoría / Gestoría', badge:'Completo', badgeClass:'completo',
+          desc:'Para asesorías: portal de clientes, facturación, VeriFactu, Hacienda y documentos.',
+          skus:['ERP-EMP-M','MOD-FACT','MOD-FIN','MOD-CRM','MOD-DOC','MOD-SOP','MOD-AGENDA','MOD-ACCESO','WEB-PRO','MOD-FORM','MOD-SEO','INT-VERIFACTU','INT-AEAT','DOM-ES','MOD-COOKIE','SRV-IMPL-STD'],
+          note:'Gestión fiscal completa' }
+    ],
+    salud: [
+        { name:'Pack Clínica Web', badge:'Popular', badgeClass:'popular',
+          desc:'Web de tu clínica con citas online, servicios, equipo y ubicación.',
+          skus:['WEB-BASIC','MOD-CITAS','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Web + citas' },
+        { name:'Pack Clínica Profesional', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + gestión de pacientes, agenda, facturación y documentos clínicos.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-AGENDA','MOD-DOC','WEB-BASIC','MOD-CITAS','MOD-FORM','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Web + gestión pacientes' },
+        { name:'Pack Clínica Premium', badge:'Completo', badgeClass:'completo',
+          desc:'Portal de pacientes, historia clínica digital, pagos online y newsletter.',
+          skus:['ERP-EMP-M','MOD-FACT','MOD-CRM','MOD-AGENDA','MOD-DOC','MOD-ACCESO','WEB-PRO','MOD-CITAS','MOD-FORM','MOD-PAY','INT-STRIPE','MOD-NEWS','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE','SRV-IMPL-STD'],
+          note:'Todo integrado' }
+    ],
+    motor: [
+        { name:'Pack Web Taller', badge:'Popular', badgeClass:'popular',
+          desc:'Web de tu taller con servicios, galería, WhatsApp y ubicación.',
+          skus:['WEB-BASIC','MOD-GALERIA','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Presencia online' },
+        { name:'Pack Taller Completo', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + ERP: citas, CRM de clientes, facturación e inventario de piezas.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-ALM','MOD-AGENDA','WEB-BASIC','MOD-CITAS','MOD-GALERIA','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Web + gestión taller' },
+        { name:'Pack Concesionario', badge:'Completo', badgeClass:'completo',
+          desc:'Web con catálogo de vehículos, financiación, CRM avanzado y marketing.',
+          skus:['ERP-EMP-M','MOD-FACT','MOD-CRM','MOD-ALM','MOD-PROD','MOD-MKT','WEB-PRO','MOD-GALERIA','MOD-FORM','MOD-SEO','MOD-WHATSAPP','MOD-REVIEW','DOM-ES','MOD-COOKIE','SRV-IMPL-STD'],
+          note:'Venta de vehículos' }
+    ],
+    construccion: [
+        { name:'Pack Web Oficios', badge:'Popular', badgeClass:'popular',
+          desc:'Web de tu negocio con galería de trabajos, servicios y contacto rápido.',
+          skus:['WEB-BASIC','MOD-GALERIA','MOD-MAP','MOD-WHATSAPP','MOD-SEO','MOD-REVIEW','DOM-ES','MOD-COOKIE'],
+          note:'Captar clientes online' },
+        { name:'Pack Reformas / Empresa', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + gestión: presupuestos, proyectos, equipo y facturación.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-PROY','MOD-CRM','MOD-DOC','WEB-BASIC','MOD-GALERIA','MOD-FORM','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Web + gestión proyectos' }
+    ],
+    inmobiliaria: [
+        { name:'Pack Web Inmobiliaria', badge:'Popular', badgeClass:'popular',
+          desc:'Web con listado de propiedades, galería, filtros y contacto.',
+          skus:['WEB-PRO','MOD-GALERIA','MOD-FORM','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Catálogo propiedades' },
+        { name:'Pack Inmobiliaria Pro', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + CRM de propiedades, portal de clientes, documentos y facturación.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-DOC','MOD-ACCESO','WEB-PRO','MOD-GALERIA','MOD-FORM','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Gestión inmobiliaria completa' }
+    ],
+    formacion: [
+        { name:'Pack Web Centro', badge:'Popular', badgeClass:'popular',
+          desc:'Web de tu academia con cursos, horarios, formulario de matrícula.',
+          skus:['WEB-BASIC','MOD-FORM','MOD-CITAS','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Presencia online' },
+        { name:'Pack Academia Completa', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + gestión de alumnos, facturación, agenda y portal del alumno.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-AGENDA','MOD-ACCESO','WEB-PRO','MOD-FORM','MOD-CITAS','MOD-MAP','MOD-WHATSAPP','MOD-SEO','MOD-PAY','INT-STRIPE','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Web + gestión alumnos' }
+    ],
+    tecnologia: [
+        { name:'Pack Web Tech', badge:'Popular', badgeClass:'popular',
+          desc:'Web profesional con portfolio, blog y formulario de contacto.',
+          skus:['WEB-PRO','MOD-BLOG','MOD-FORM','MOD-SEO','MOD-WHATSAPP','MOD-ANALY','DOM-ES','MOD-COOKIE'],
+          note:'Presencia tech' },
+        { name:'Pack Empresa Tech', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + ERP completo: CRM, proyectos, tickets de soporte y facturación.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-PROY','MOD-SOP','MOD-DOC','WEB-PRO','MOD-BLOG','MOD-FORM','MOD-SEO','MOD-ANALY','MOD-WHATSAPP','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Gestión completa tech' }
+    ],
+    hosteleria: [
+        { name:'Pack Web Alojamiento', badge:'Popular', badgeClass:'popular',
+          desc:'Web con fotos, habitaciones, mapa, reseñas y formulario de reserva.',
+          skus:['WEB-PRO','MOD-GALERIA','MOD-CITAS','MOD-MAP','MOD-REVIEW','MOD-WHATSAPP','MOD-SEO','MOD-MULTI','DOM-ES','MOD-COOKIE'],
+          note:'Web + reservas' },
+        { name:'Pack Hotel / Rural', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + gestión de reservas, clientes, facturación y pagos online.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-AGENDA','WEB-PRO','MOD-GALERIA','MOD-CITAS','MOD-PAY','INT-STRIPE','MOD-MAP','MOD-REVIEW','MOD-MULTI','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Gestión hotelera completa' }
+    ],
+    otro: [
+        { name:'Pack Web Esencial', badge:'Popular', badgeClass:'popular',
+          desc:'Una web profesional con lo básico: servicios, contacto y SEO.',
+          skus:['WEB-BASIC','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE'],
+          note:'Lo esencial' },
+        { name:'Pack Web + Gestión', badge:'Recomendado', badgeClass:'recomendado',
+          desc:'Web + ERP con facturación, clientes y lo básico para gestionar tu negocio.',
+          skus:['ERP-AUT-M','MOD-FACT','MOD-CRM','WEB-BASIC','MOD-MAP','MOD-WHATSAPP','MOD-SEO','DOM-ES','MOD-COOKIE','SRV-IMPL-BAS'],
+          note:'Web + ERP básico' },
+        { name:'Pack Empresa Completo', badge:'Completo', badgeClass:'completo',
+          desc:'Web profesional + ERP completo con todos los módulos esenciales.',
+          skus:['ERP-PYM-M','MOD-FACT','MOD-CRM','MOD-ALM','MOD-DOC','MOD-AGENDA','WEB-PRO','MOD-FORM','MOD-SEO','MOD-WHATSAPP','DOM-ES','MOD-COOKIE','SRV-IMPL-STD','INT-VERIFACTU'],
+          note:'Todo incluido' }
+    ]
+};
+
+function selectBizType(card) {
+    document.querySelectorAll('.biz-type-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    selectedBizType = card.dataset.biz;
+    selectedPreset = null;
+    showPresets(selectedBizType);
+}
+
+function showPresets(bizType) {
+    const section = document.getElementById('presetSection');
+    const grid = document.getElementById('presetGrid');
+    const presets = BIZ_PRESETS[bizType] || BIZ_PRESETS['otro'];
+    let html = '';
+    presets.forEach((p, i) => {
+        const monthlyTotal = p.skus.reduce((sum, sku) => {
+            const prod = catalog.find(x => x.sku === sku);
+            return sum + (prod && isRecurring(prod.unit) ? prod.price : 0);
+        }, 0);
+        const setupTotal = p.skus.reduce((sum, sku) => {
+            const prod = catalog.find(x => x.sku === sku);
+            return sum + (prod && !isRecurring(prod.unit) ? prod.price : 0);
+        }, 0);
+        const items = p.skus.map(sku => { const pr = catalog.find(x => x.sku === sku); return pr ? pr.name : null; }).filter(Boolean);
+        html += '<div class="preset-card" data-preset="' + i + '" onclick="selectPreset(this,' + i + ',\'' + bizType + '\')">'
+            + '<span class="preset-badge ' + p.badgeClass + '">' + esc(p.badge) + '</span>'
+            + '<div class="preset-name">' + esc(p.name) + '</div>'
+            + '<div class="preset-desc">' + esc(p.desc) + '</div>'
+            + '<ul class="preset-includes">';
+        items.forEach(item => { html += '<li>' + esc(item) + '</li>'; });
+        html += '</ul><div class="preset-price">';
+        if (monthlyTotal > 0) html += 'Desde ' + money(monthlyTotal) + '/mes';
+        if (setupTotal > 0) html += (monthlyTotal > 0 ? ' + ' : '') + money(setupTotal) + ' de alta';
+        html += '</div><div class="preset-price-note">' + esc(p.note) + ' &middot; Personalizable</div></div>';
+    });
+    grid.innerHTML = html;
+    section.classList.add('visible');
+    document.getElementById('step0Nav').style.display = 'none';
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function selectPreset(card, idx, bizType) {
+    document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    selectedPreset = (BIZ_PRESETS[bizType] || BIZ_PRESETS['otro'])[idx];
+    document.getElementById('step0Nav').style.display = 'flex';
+    document.getElementById('step0Nav').scrollIntoView({ behavior: 'smooth', block: 'end' });
+}
+
+function applyPresetAndContinue() {
+    if (selectedPreset && catalog.length > 0) {
+        selection = {};
+        selectedPreset.skus.forEach(sku => {
+            const prod = catalog.find(x => x.sku === sku);
+            if (prod) selection[prod.id] = 1;
+        });
+        updateSummary();
+        if (typeof renderCatSidebar === 'function') renderCatSidebar();
+        if (typeof renderCatContent === 'function') renderCatContent();
+    }
+    goStep(1);
+}
+
+function skipPresets() {
+    selectedPreset = null;
+    selection = {};
+    goStep(1);
+}
+
+const BIZ_SECTOR_MAP = {
+    restauracion:'Restaurante / Bar', belleza:'Peluquería / Barbería',
+    comercio:'Tienda / Comercio', profesional:'Consultoría',
+    salud:'Clínica médica / Consulta', motor:'Taller mecánico',
+    construccion:'Construcción / Reformas', inmobiliaria:'Inmobiliaria',
+    formacion:'Academia / Formación', tecnologia:'Informática / Tecnología',
+    hosteleria:'Hotel / Hostel', otro:''
+};
+
+
+/* ═════ STEP NAVIGATION ═════ */
+function goStep(n) {
+    if (n === 1 && !selectedBizType && currentStep === 0) {
+        document.querySelector('.biz-type-grid').scrollIntoView({ behavior: 'smooth' });
+        return;
+    }
+    if (n === 2) {
+        /* Determine which top-level categories the user is actually using.
+           If a preset was chosen, only enforce rules on categories that
+           contain at least one selected product — so a web-only preset
+           won't force the user to pick ERP plans/modules. */
+        const activeCats = new Set();
+        for (const [id, qty] of Object.entries(selection)) {
+            if (qty > 0) {
+                const prod = catalog.find(p => p.id === +id || p.id === id);
+                if (prod) activeCats.add(prod.category);
+            }
+        }
+        let errors = [];
+        catList.forEach(cat => {
+            const rule = getCatRule(cat);
+            if (rule === 'optional') return;
+            const prods = catGroups[cat] || [];
+            const selCount = prods.filter(p => selection[p.id] > 0).length;
+            /* Only enforce required/single rules on categories that have
+               at least one product selected (i.e. are "in play"). */
+            if (!activeCats.has(cat)) return;
+            if (rule === 'required' && selCount === 0)
+                errors.push(cat + ': selecciona al menos 1 opción');
+            if (rule === 'single' && selCount !== 1)
+                errors.push(cat + ': debes elegir exactamente 1 opción');
+        });
+        if (errors.length > 0) {
+            const failCat = errors[0].split(':')[0];
+            const failIdx = catList.indexOf(failCat);
+            if (failIdx >= 0) goCategory(failIdx);
+            alert('Revisa tu selección:\n\n• ' + errors.join('\n• '));
+            return;
+        }
+        if (Object.keys(selection).length === 0) return;
+    }
+    // Auto-fill sector from step 0 business type
+    if (n === 2 && selectedBizType) {
+        const sf = document.getElementById('cf-sector');
+        if (sf && !sf.value.trim() && BIZ_SECTOR_MAP[selectedBizType]) sf.value = BIZ_SECTOR_MAP[selectedBizType];
+    }
+    if (n === 3) return;
+    currentStep = n;
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('step' + n).classList.add('active');
+    document.querySelectorAll('.wz-step').forEach(s => {
+        const sn = +s.dataset.step;
+        s.classList.remove('active', 'done');
+        if (sn < n) s.classList.add('done');
+        if (sn === n) s.classList.add('active');
+    });
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+}
+
+function showStep3() {
+    currentStep = 3;
+    document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('step3').classList.add('active');
+    document.querySelectorAll('.wz-step').forEach(s => {
+        const sn = +s.dataset.step;
+        s.classList.remove('active', 'done');
+        if (sn < 3) s.classList.add('done');
+        if (sn === 3) s.classList.add('active');
+    });
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+}
+
+/* ═════ LOAD CATALOG ═════ */
+async function loadCatalog() {
+    try {
+        const res = await fetch(API_BASE + '/catalog');
+        if (!res.ok) throw new Error('Error cargando productos');
+        const data = await res.json();
+        catalog = data.items || [];
+        renderCatalog();
+    } catch (e) {
+        document.getElementById('catContent').innerHTML =
+            '<div style="text-align:center;padding:2rem;color:var(--danger)"><i class="bi bi-exclamation-triangle" style="font-size:2rem;display:block;margin-bottom:0.5rem"></i>' + e.message + '</div>';
+    }
+}
+
+let catGroups = {};
+let catList = [];
+let currentCat = 0;
+
+function renderCatalog() {
+    catGroups = {};
+    catalog.forEach(p => {
+        const cat = p.category || 'Otros';
+        if (!catGroups[cat]) catGroups[cat] = [];
+        catGroups[cat].push(p);
+    });
+
+    catList = [];
+    CAT_ORDER.forEach(cat => { if (catGroups[cat]) catList.push(cat); });
+    Object.keys(catGroups).forEach(cat => { if (!CAT_ORDER.includes(cat)) catList.push(cat); });
+
+    currentCat = 0;
+    renderCatSidebar();
+    renderCatContent();
+    document.getElementById('catNavBtns').style.display = 'flex';
+}
+
+function renderCatSidebar() {
+    let html = '';
+    catList.forEach((cat, i) => {
+        const icon = CAT_ICON[cat] || 'bi-box';
+        const count = catGroups[cat].length;
+        const selected = catGroups[cat].filter(p => selection[p.id] > 0).length;
+        const hasItems = selected > 0;
+        const rule = getCatRule(cat);
+        const isError = (rule==='required' && selected===0) || (rule==='single' && selected!==1);
+        const isValid = (rule==='required' && selected>=1) || (rule==='single' && selected===1);
+        html += '<div class="cat-step' + (i===currentCat?' active':'') + (hasItems?' has-items':'') + (isError?' cat-error':'') + (isValid?' cat-valid':'') + '" onclick="goCategory('+i+')">'
+            + '<div class="cat-step-icon"><i class="bi ' + icon + '"></i></div>'
+            + '<div class="cat-step-info">'
+            + '<div class="cat-step-name">' + esc(cat) + '</div>'
+            + '<div class="cat-step-meta">' + count + ' opciones' + (function(){ var r=getCatRule(cat); return r==='single' ? ' · <em style="color:var(--primary)">elige 1</em>' : r==='required' ? ' · <em style="color:var(--primary)">mín. 1</em>' : ''; })() + (selected ? ' · <strong style="color:var(--success)">' + selected + ' elegido' + (selected>1?'s':'') + '</strong>' : '') + '</div>'
+            + '</div>'
+            + (hasItems ? '<span class="cat-step-badge">' + selected + '</span>' : '')
+            + '</div>';
+    });
+    document.getElementById('catSidebar').innerHTML = html;
+}
+
+function renderCatContent() {
+    if (catList.length === 0) {
+        document.getElementById('catContent').innerHTML = '<div style="text-align:center;padding:2rem;color:var(--text-light)">No hay productos</div>';
+        return;
+    }
+    const cat = catList[currentCat];
+    const items = catGroups[cat] || [];
+    const icon = CAT_ICON[cat] || 'bi-box';
+
+    let html = '<div class="cat-content-header">'
+        + '<i class="bi ' + icon + '"></i>'
+        + '<h3>' + esc(cat) + '</h3>'
+        + '<span class="cat-counter">' + items.length + ' opciones</span>'
+    const rule = getCatRule(cat);
+    const selCount = items.filter(p => selection[p.id] > 0).length;
+    if (rule === 'single') {
+        html += '<div style="padding:0.6rem 1rem;border-radius:8px;font-size:0.82rem;font-weight:600;margin-bottom:1rem;'  
+            + (selCount === 1 ? 'background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0">' 
+            + '<i class="bi bi-check-circle-fill"></i> Perfecto — 1 opción seleccionada' 
+            : selCount === 0 ? 'background:#fef3c7;color:#92400e;border:1px solid #fcd34d">' 
+            + '<i class="bi bi-info-circle-fill"></i> Elige exactamente 1 opción de esta sección' 
+            : 'background:#fef2f2;color:#991b1b;border:1px solid #fca5a5">' 
+            + '<i class="bi bi-exclamation-triangle-fill"></i> Solo puedes elegir 1 opción — tienes ' + selCount) + '</div>';
+    } else if (rule === 'required') {
+        html += '<div style="padding:0.6rem 1rem;border-radius:8px;font-size:0.82rem;font-weight:600;margin-bottom:1rem;' 
+            + (selCount >= 1 ? 'background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0">' 
+            + '<i class="bi bi-check-circle-fill"></i> ' + selCount + ' seleccionado' + (selCount>1?'s':'') 
+            : 'background:#fef3c7;color:#92400e;border:1px solid #fcd34d">' 
+            + '<i class="bi bi-info-circle-fill"></i> Selecciona al menos 1 opción') + '</div>';
+    }
+
+    html += '</div><div class="prod-grid">';
+
+    items.forEach(p => {
+        const q = selection[p.id] || 0;
+        const toggle = !isQtyProduct(p.unit);
+        html += '<div class="prod-row' + (q>0?' selected':'') + '" id="pr-' + p.id + '" data-id="' + p.id + '">'
+            + '<div class="prod-info">'
+            + '<div class="prod-name">' + esc(p.name) + '</div>'
+            + '<div class="prod-desc">' + esc(p.description || '') + '</div>'
+            + '</div>'
+            + '<div class="prod-price-col">'
+            + '<div class="prod-price">' + money(p.price) + '</div>'
+            + '<div class="prod-unit">' + esc(p.unit || 'ud.') + '</div>'
+            + '</div>';
+        if (toggle) {
+            html += '<div class="prod-toggle">'
+                + '<button class="' + (q>0?'active':'') + '" onclick="toggleProduct(' + p.id + ')">'
+                + (q>0 ? '<i class="bi bi-check-lg"></i> Seleccionado' : '+ Añadir')
+                + '</button>'
+                + '</div>';
+        } else {
+            html += '<div class="prod-qty">'
+                + '<button onclick="changeQty(' + p.id + ',-1)">\u2212</button>'
+                + '<input type="number" id="qty-' + p.id + '" value="' + q + '" min="0" max="999" onchange="setQty(' + p.id + ', this.value)">'
+                + '<button onclick="changeQty(' + p.id + ',1)">+</button>'
+                + '</div>'
+                + '<div class="prod-subtotal" id="sub-' + p.id + '">' + (q>0 ? money(p.price*q) : '') + '</div>';
+        }
+        html += '</div>';
+    });
+    html += '</div>';
+
+    document.getElementById('catContent').innerHTML = html;
+
+    // Update nav
+    document.getElementById('btnCatPrev').style.visibility = currentCat > 0 ? 'visible' : 'hidden';
+    const isLast = currentCat >= catList.length - 1;
+    const btnNext = document.getElementById('btnCatNext');
+    if (isLast) {
+        btnNext.innerHTML = '<i class="bi bi-check-circle"></i> Listo';
+        btnNext.onclick = function(){ goStep(2); };
+    } else {
+        btnNext.innerHTML = 'Siguiente: ' + esc(catList[currentCat+1]) + ' <i class="bi bi-arrow-right"></i>';
+        btnNext.onclick = function(){ nextCategory(); };
+    }
+    document.getElementById('catProgress').textContent = (currentCat+1) + ' de ' + catList.length;
+}
+
+function goCategory(n) {
+    if (n < 0 || n >= catList.length) return;
+    currentCat = n;
+    renderCatSidebar();
+    renderCatContent();
+    document.getElementById('catContent').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function nextCategory() {
+    if (currentCat < catList.length - 1) goCategory(currentCat + 1);
+}
+
+function prevCategory() {
+    if (currentCat > 0) goCategory(currentCat - 1);
+}
+
+function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+}
+/* ═════ QUANTITY LOGIC ═════ */
+function toggleProduct(id) {
+    const cur = selection[id] || 0;
+    setQty(id, cur > 0 ? 0 : 1);
+}
+
+function changeQty(id, delta) {
+    const input = document.getElementById('qty-' + id);
+    if (!input) return;
+    let v = Math.max(0, Math.min(999, (parseInt(input.value) || 0) + delta));
+    input.value = v;
+    setQty(id, v);
+}
+
+function setQty(id, val) {
+    let v = Math.max(0, Math.min(999, parseInt(val) || 0));
+    // Enforce single-select rule
+    if (v > 0) {
+        const prod = catalog.find(x => x.id === id);
+        if (prod && getCatRule(prod.category) === 'single') {
+            // Remove all other selections in this category
+            catalog.filter(x => x.category === prod.category && x.id !== id)
+                .forEach(x => { delete selection[x.id]; });
+            v = 1; // force quantity to 1 for single-select
+        }
+    }
+    const input = document.getElementById('qty-' + id);
+    if (input) input.value = v;
+    if (v > 0) selection[id] = v;
+    else delete selection[id];
+
+    // visual feedback
+    const row = document.getElementById('pr-' + id);
+    if (row) row.classList.toggle('selected', v > 0);
+    const p = catalog.find(x => x.id === id);
+    const sub = document.getElementById('sub-' + id);
+    if (sub) sub.textContent = v > 0 && p ? money(p.price * v) : '—';
+
+    updateSummary();
+    if(typeof renderCatContent==='function')renderCatContent();
+}
+
+/* ═════ SUMMARY ═════ */
+function updateSummary() {
+    const ids = Object.keys(selection).map(Number);
+    const container = document.getElementById('summaryLines');
+    const totalsDiv = document.getElementById('summaryTotals');
+    const btn = document.getElementById('btnToStep2');
+
+    if (ids.length === 0) {
+        container.innerHTML = '<div class="summary-empty"><i class="bi bi-cart3" style="font-size:1.5rem;display:block;margin-bottom:0.5rem"></i>Haz clic en + para añadir lo que necesites</div>';
+        totalsDiv.style.display = 'none';
+        btn.disabled = true;
+        if(typeof renderCatSidebar==='function')renderCatSidebar();
+        return;
+    }
+
+    btn.disabled = false;
+    if(typeof renderCatSidebar==='function')renderCatSidebar();
+    let monthly = 0, setup = 0;
+    let html = '';
+    ids.forEach(id => {
+        const p = catalog.find(x => x.id === id);
+        if (!p) return;
+        const qty = selection[id];
+        const sub = p.price * qty;
+        if (isRecurring(p.unit)) monthly += sub;
+        else setup += sub;
+        html += `<div class="summary-line">
+            <span class="sl-name">${esc(p.name)}${qty > 1 ? ' ×' + qty : ''}</span>
+            <span class="sl-price">${money(sub)}</span>
+        </div>`;
+    });
+    container.innerHTML = html;
+    totalsDiv.style.display = 'block';
+    document.getElementById('sumMonthly').textContent = money(monthly);
+    document.getElementById('sumSetup').textContent = money(setup) + (setup > 0 ? '' : '');
+    document.getElementById('sumTotal').textContent = money(monthly + setup);
+}
+
+/* ═════ GENERATE BUDGET ═════ */
+function generateBudget() {
+    // Clear previous validation
+    document.querySelectorAll('.form-group.invalid').forEach(g => g.classList.remove('invalid'));
+    document.querySelectorAll('.style-section.invalid-section').forEach(s => s.classList.remove('invalid-section'));
+
+    const name = document.getElementById('cf-name').value.trim();
+    const company = document.getElementById('cf-company').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+
+    // Validate all required text/email/tel/select fields
+    const requiredFields = [
+        { id: 'cf-name', msg: 'Introduce tu nombre' },
+        { id: 'cf-cargo', msg: 'Indica tu cargo' },
+        { id: 'cf-email', msg: 'Introduce tu email' },
+        { id: 'cf-phone', msg: 'Indica un teléfono' },
+        { id: 'cf-company', msg: 'Indica la razón social' },
+        { id: 'cf-nombre-comercial', msg: 'Indica el nombre comercial' },
+        { id: 'cf-nif', msg: 'Introduce el NIF/CIF' },
+        { id: 'cf-sector', msg: 'Indica el sector' },
+        { id: 'cf-address', msg: 'Introduce la dirección' },
+        { id: 'cf-cp', msg: 'Introduce el código postal' },
+        { id: 'cf-city', msg: 'Introduce la ciudad' },
+        { id: 'cf-province', msg: 'Introduce la provincia' },
+        { id: 'cf-project-desc', msg: 'Describe tu proyecto' },
+        { id: 'cf-has-logo', msg: 'Selecciona una opción' },
+    ];
+
+    let firstInvalid = null;
+    requiredFields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (!el) return;
+        const val = el.value.trim();
+        const group = el.closest('.form-group');
+        if (!val) {
+            if (group) group.classList.add('invalid');
+            if (!firstInvalid) firstInvalid = el;
+        }
+    });
+
+    // Email format check
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        const el = document.getElementById('cf-email');
+        const group = el.closest('.form-group');
+        if (group) group.classList.add('invalid');
+        if (!firstInvalid) firstInvalid = el;
+    }
+
+    // Visual style: require at least one color and one style chip
+    const selectedColors = [...document.querySelectorAll('.color-opt.selected')].map(el => el.dataset.color);
+    const selectedStyles = [...document.querySelectorAll('.style-chip.selected')].map(el => el.textContent);
+    const styleSection = document.querySelector('.style-section');
+    if (selectedColors.length === 0 || selectedStyles.length === 0) {
+        if (styleSection) styleSection.classList.add('invalid-section');
+        if (!firstInvalid) firstInvalid = styleSection;
+    }
+
+    if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (firstInvalid.focus) firstInvalid.focus();
+        return;
+    }
+
+    const phone = document.getElementById('cf-phone').value.trim();
+    const cargo = document.getElementById('cf-cargo').value.trim();
+    const nombreComercial = document.getElementById('cf-nombre-comercial').value.trim();
+    const nif = document.getElementById('cf-nif').value.trim();
+    const sector = document.getElementById('cf-sector').value.trim();
+    const address = document.getElementById('cf-address').value.trim();
+    const cp = document.getElementById('cf-cp').value.trim();
+    const city = document.getElementById('cf-city').value.trim();
+    const province = document.getElementById('cf-province').value.trim();
+    const fullAddress = [address, cp, city, province].filter(Boolean).join(', ');
+    const projectDesc = document.getElementById('cf-project-desc').value.trim();
+    const notes = document.getElementById('cf-notes').value.trim();
+
+    // Visual style (reuse selectedColors / selectedStyles from validation above)
+    const hasLogo = document.getElementById('cf-has-logo').value;
+    const styleRef = document.getElementById('cf-style-ref').value.trim();
+    const estiloVisual = [
+        selectedColors.length ? 'Colores: ' + selectedColors.join(', ') : '',
+        selectedStyles.length ? 'Estilo: ' + selectedStyles.join(', ') : '',
+        hasLogo || '',
+        styleRef ? 'Referencia: ' + styleRef : ''
+    ].filter(Boolean).join(' · ');
+
+    const now = new Date();
+    const budgetNum = 'PRE-' + now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(Math.floor(Math.random()*9000)+1000);
+    const validUntil = new Date(now.getTime() + 30*24*60*60*1000);
+
+    // Group selected items by category
+    const ids = Object.keys(selection).map(Number);
+    const grouped = {};
+    let totalMonthly = 0, totalSetup = 0, totalAnual = 0;
+
+    ids.forEach(id => {
+        const p = catalog.find(x => x.id === id);
+        if (!p) return;
+        const qty = selection[id];
+        const sub = p.price * qty;
+        const cat = p.category || 'Otros';
+        if (!grouped[cat]) grouped[cat] = [];
+        grouped[cat].push({ ...p, qty, subtotal: sub });
+        if (isRecurring(p.unit)) totalMonthly += sub;
+        else if ((p.unit||'').toLowerCase().includes('año')) totalAnual += sub;
+        else totalSetup += sub;
+    });
+
+    const grandTotal = totalMonthly + totalSetup + totalAnual;
+
+    // Build items table
+    let tableRows = '';
+    let itemNum = 0;
+    CAT_ORDER.concat(Object.keys(grouped).filter(c => !CAT_ORDER.includes(c))).forEach(cat => {
+        if (!grouped[cat]) return;
+        tableRows += `<tr class="cat-row"><td colspan="4"><i class="bi ${CAT_ICON[cat]||'bi-box'}" style="margin-right:0.4rem"></i>${esc(cat)}</td></tr>`;
+        grouped[cat].forEach(p => {
+            itemNum++;
+            tableRows += `<tr>
+                <td>${itemNum}. ${esc(p.name)}<br><span style="font-size:0.75rem;color:var(--text-light)">${esc(p.sku||'')} — ${esc(p.description||'')}</span></td>
+                <td style="text-align:center">${p.qty}</td>
+                <td>${money(p.price)}/${esc(p.unit||'ud.')}</td>
+                <td>${money(p.subtotal)}</td>
+            </tr>`;
+        });
+    });
+
+    // Work order phases
+    const phases = buildWorkOrderPhases(grouped);
+
+    // Build work-order items table (all selected products with full detail)
+    let woTableRows = '';
+    let woNum = 0;
+    CAT_ORDER.concat(Object.keys(grouped).filter(c => !CAT_ORDER.includes(c))).forEach(cat => {
+        if (!grouped[cat]) return;
+        woTableRows += `<tr class="cat-row"><td colspan="5"><i class="bi ${CAT_ICON[cat]||'bi-box'}" style="margin-right:0.4rem"></i>${esc(cat)}</td></tr>`;
+        grouped[cat].forEach(p => {
+            woNum++;
+            woTableRows += `<tr>
+                <td style="white-space:nowrap;font-weight:600">${woNum}</td>
+                <td><strong>${esc(p.name)}</strong><br><span style="font-size:0.75rem;color:var(--text-light)">${esc(p.sku||'')}</span></td>
+                <td style="font-size:0.82rem">${esc(p.description||'—')}</td>
+                <td style="text-align:center">${p.qty} ${esc(p.unit||'ud.')}</td>
+                <td style="text-align:center"><span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:20px;font-size:0.72rem;font-weight:600;background:rgba(102,126,234,0.1);color:var(--primary)">Pendiente</span></td>
+            </tr>`;
+        });
+    });
+
+    const orderNum = budgetNum.replace('PRE-', 'OT-');
+
+    // Shared client block builder
+    const clientBlock = `
+        <div class="client-box">
+            <strong>Datos del cliente</strong>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem;margin-top:0.5rem">
+                <div><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Nombre:</strong> ${esc(name)}${cargo ? ' — ' + esc(cargo) : ''}</div>
+                <div><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Empresa:</strong> ${esc(company)}${nombreComercial ? ' (' + esc(nombreComercial) + ')' : ''}</div>
+                <div><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Email:</strong> ${esc(email)}</div>
+                <div><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Teléfono:</strong> ${esc(phone || '—')}</div>
+                ${nif ? `<div><strong style="font-size:0.75rem;color:var(--text-light);display:inline">NIF/CIF:</strong> ${esc(nif)}</div>` : ''}
+                ${sector ? `<div><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Sector:</strong> ${esc(sector)}</div>` : ''}
+                ${fullAddress ? `<div style="grid-column:1/-1"><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Dirección fiscal:</strong> ${esc(fullAddress)}</div>` : ''}
+            </div>
+            ${projectDesc ? `<div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid #e5e7eb"><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Descripción del proyecto:</strong> ${esc(projectDesc)}</div>` : ''}
+            ${estiloVisual ? `<div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid #e5e7eb"><strong style="font-size:0.75rem;color:var(--text-light);display:inline"><i class="bi bi-palette-fill" style="margin-right:0.3rem"></i>Estilo visual:</strong> ${esc(estiloVisual)}</div>` : ''}
+            ${notes ? `<div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid #e5e7eb"><strong style="font-size:0.75rem;color:var(--text-light);display:inline">Notas:</strong> ${esc(notes)}</div>` : ''}
+        </div>`;
+
+    const footer = (docLabel, docNum) => `
+        <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #e5e7eb;font-size:0.8rem;color:var(--text-light);text-align:center">
+            <strong>Integra Tech Consulting S.L.</strong> — info@integratech.es — 900 123 456<br>
+            ${docLabel} ${esc(docNum)} · Generado el ${now.toLocaleDateString('es-ES')} a las ${now.toLocaleTimeString('es-ES', {hour:'2-digit',minute:'2-digit'})}
+        </div>`;
+
+    // ─── DOCUMENTO 1: PRESUPUESTO ───
+    const presupuestoHTML = `
+    <div class="doc-print-bar">
+        <button class="btn btn-primary" onclick="printDoc('panelPresupuesto')"><i class="bi bi-printer"></i> Imprimir Presupuesto</button>
+    </div>
+    <div class="budget-doc">
+        <div class="budget-doc-header">
+            <div class="brand"><div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div> Integra Tech Consulting</div>
+            <div class="meta">
+                <strong>${esc(budgetNum)}</strong>
+                <span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:20px;font-size:0.72rem;font-weight:600;background:rgba(102,126,234,0.1);color:var(--primary);margin-bottom:0.3rem">PRESUPUESTO</span><br>
+                Fecha: ${now.toLocaleDateString('es-ES')}<br>
+                Válido hasta: ${validUntil.toLocaleDateString('es-ES')}
+            </div>
+        </div>
+
+        ${clientBlock}
+
+        <h3 style="font-size:1rem;margin-bottom:0.75rem"><i class="bi bi-list-check" style="color:var(--primary)"></i> Esto es lo que incluye</h3>
+        <table class="budget-table">
+            <thead><tr><th>Qué es</th><th style="text-align:center">Cant.</th><th style="text-align:right">Precio</th><th style="text-align:right">Subtotal</th></tr></thead>
+            <tbody>${tableRows}</tbody>
+        </table>
+
+        <div class="budget-totals">
+            ${totalMonthly > 0 ? `<div class="row"><span class="label">Lo que pagarás cada mes:</span><span class="val">${money(totalMonthly)}/mes</span></div>` : ''}
+            ${totalAnual > 0 ? `<div class="row"><span class="label">Lo que pagarás cada año:</span><span class="val">${money(totalAnual)}/año</span></div>` : ''}
+            ${totalSetup > 0 ? `<div class="row"><span class="label">Pago único (una sola vez):</span><span class="val">${money(totalSetup)}</span></div>` : ''}
+            <div class="row"><span class="label">Base imponible:</span><span class="val">${money(grandTotal)}</span></div>
+            <div class="row"><span class="label">IVA (21%):</span><span class="val">${money(grandTotal * 0.21)}</span></div>
+            <div class="row total"><span class="label">TOTAL:</span><span class="val">${money(grandTotal * 1.21)}</span></div>
+        </div>
+
+        ${totalMonthly > 0 ? `<div style="background:rgba(102,126,234,0.05);border:1px solid rgba(102,126,234,0.15);border-radius:var(--radius);padding:1rem;margin-bottom:1.5rem;font-size:0.85rem">
+            <strong style="color:var(--primary)"><i class="bi bi-info-circle-fill"></i> Resumen de tu cuota mensual</strong><br>
+            Cada mes pagarás: <strong>${money(totalMonthly)}</strong>/mes (con IVA: ${money(totalMonthly * 1.21)})<br>
+            Eso al año serían: <strong>${money(totalMonthly * 12)}</strong> (con IVA: ${money(totalMonthly * 12 * 1.21)})
+        </div>` : ''}
+
+        <div style="background:var(--bg);border-radius:var(--radius);padding:1rem;font-size:0.82rem;color:var(--text-secondary)">
+            <strong>Condiciones:</strong> Este presupuesto es válido durante 30 días. Se paga por transferencia bancaria. Los servicios mensuales se cobran cada mes. 
+            Todos los precios están en euros y no incluyen IVA salvo que se indique lo contrario.
+        </div>
+
+        ${footer('Presupuesto', budgetNum)}
+    </div>`;
+
+    // ─── DOCUMENTO 2: ORDEN DE TRABAJO ───
+    const ordenHTML = `
+    <div class="doc-print-bar">
+        <button class="btn btn-primary" onclick="printDoc('panelOrden')"><i class="bi bi-printer"></i> Imprimir Orden de Trabajo</button>
+    </div>
+    <div class="budget-doc">
+        <div class="budget-doc-header">
+            <div class="brand"><div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div> Integra Tech Consulting</div>
+            <div class="meta">
+                <strong>${esc(orderNum)}</strong>
+                <span style="display:inline-block;padding:0.15rem 0.6rem;border-radius:20px;font-size:0.72rem;font-weight:600;background:rgba(16,185,129,0.1);color:var(--success);margin-bottom:0.3rem">ORDEN DE TRABAJO</span><br>
+                Fecha: ${now.toLocaleDateString('es-ES')}<br>
+                Ref. presupuesto: ${esc(budgetNum)}
+            </div>
+        </div>
+
+        ${clientBlock}
+
+        <h3 style="font-size:1rem;margin-bottom:0.75rem"><i class="bi bi-box-seam" style="color:var(--primary)"></i> Lo que incluye tu proyecto</h3>
+        <table class="wo-items-table">
+            <thead><tr><th>#</th><th>Artículo</th><th>Descripción</th><th style="text-align:center">Cantidad</th><th style="text-align:center">Estado</th></tr></thead>
+            <tbody>${woTableRows}</tbody>
+        </table>
+
+        <div style="margin-top:2rem">
+            <h3 style="font-size:1rem;margin-bottom:0.75rem"><i class="bi bi-clipboard-check-fill" style="color:var(--primary)"></i> Así lo haremos, paso a paso</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.25rem">
+                Estos son los pasos que seguiremos para poner todo en marcha. Los plazos son aproximados.
+            </p>
+            <div class="wo-phases">
+                ${phases.map((ph, i) => `
+                <div class="wo-phase">
+                    <div class="wo-phase-num">${i+1}</div>
+                    <div class="wo-phase-info">
+                        <h5>${esc(ph.title)}</h5>
+                        <p>${esc(ph.description)}</p>
+                        ${ph.duration ? `<span style="font-size:0.75rem;color:var(--primary);font-weight:600"><i class="bi bi-clock"></i> ${esc(ph.duration)}</span>` : ''}
+                    </div>
+                </div>`).join('')}
+            </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;padding-top:1.5rem;border-top:2px dashed #e5e7eb">
+            <div style="text-align:center;padding-top:3rem;border-top:1px solid #ccc">
+                <p style="font-size:0.8rem;color:var(--text-light);margin:0"><strong>Firma del cliente</strong><br>${esc(name)} — ${esc(company)}</p>
+            </div>
+            <div style="text-align:center;padding-top:3rem;border-top:1px solid #ccc">
+                <p style="font-size:0.8rem;color:var(--text-light);margin:0"><strong>Firma Integra Tech</strong><br>Departamento Técnico</p>
+            </div>
+        </div>
+
+        ${footer('Orden de Trabajo', orderNum)}
+    </div>`;
+
+    document.getElementById('panelPresupuesto').innerHTML = presupuestoHTML;
+    document.getElementById('panelOrden').innerHTML = ordenHTML;
+    showStep3();
+}
+
+/* ═════ WORK ORDER PHASES ═════ */
+function buildWorkOrderPhases(grouped) {
+    const phases = [];
+
+    phases.push({
+        title: 'Nos reunimos contigo',
+        description: 'Hablamos para entender bien qué necesitas, planificamos los pasos y ponemos fechas.',
+        duration: '1-2 días'
+    });
+
+    if (grouped['Planes ERP'] || grouped['Módulos ERP']) {
+        const mods = (grouped['Módulos ERP'] || []).map(m => m.name.replace('Módulo ','')).join(', ');
+        phases.push({
+            title: 'Preparamos tu ERP',
+            description: 'Creamos tu espacio en el sistema, activamos tu plan' + (mods ? ' y los módulos que has elegido: ' + mods : '') + '. Metemos los datos de tu empresa, logo y configuración de impuestos.',
+            duration: '1-3 días'
+        });
+    }
+
+    if (grouped['Usuarios y Accesos']) {
+        phases.push({
+            title: 'Creamos las cuentas de tu equipo',
+            description: 'Damos de alta a tus usuarios, asignamos quién puede ver y hacer qué, y configuramos la seguridad de acceso.',
+            duration: '1 día'
+        });
+    }
+
+    if (grouped['Cloud IONOS']) {
+        phases.push({
+            title: 'Montamos tus servidores',
+            description: 'Ponemos en marcha los servidores, la base de datos, las copias de seguridad, el cortafuegos y la monitorización en la nube.',
+            duration: '2-5 días'
+        });
+    }
+
+    if (grouped['Dominios y Email']) {
+        phases.push({
+            title: 'Configuramos tu dominio y email',
+            description: 'Registramos o transferimos tu dominio, activamos el certificado de seguridad web y creamos tus buzones de correo.',
+            duration: '1-2 días'
+        });
+    }
+
+    if (grouped['Integraciones']) {
+        const ints = grouped['Integraciones'].map(i => i.name.replace('Integración ','')).join(', ');
+        phases.push({
+            title: 'Conectamos con tus otras herramientas',
+            description: 'Configuramos las conexiones con: ' + ints + '. Probamos que todo funcione bien y los datos se pasen correctamente.',
+            duration: '3-7 días'
+        });
+    }
+
+    if (grouped['Personalización']) {
+        phases.push({
+            title: 'Adaptamos todo a tu medida',
+            description: 'Configuramos los campos a medida, plantillas, paneles de control, procesos automáticos y el aspecto visual con tu marca.',
+            duration: '3-10 días'
+        });
+    }
+
+    if (grouped['Implementación']) {
+        phases.push({
+            title: 'Traemos tus datos actuales',
+            description: 'Importamos los datos que ya tienes (clientes, productos, facturas, etc.) al nuevo sistema y comprobamos que todo esté correcto.',
+            duration: '2-5 días'
+        });
+    }
+
+    if (grouped['Licencias Software']) {
+        phases.push({
+            title: 'Activamos tus programas',
+            description: 'Damos de alta las licencias de los programas contratados, creamos las cuentas y las repartimos entre tus usuarios.',
+            duration: '1-2 días'
+        });
+    }
+
+    if (grouped['Desarrollo'] || grouped['Desarrollo Web']) {
+        phases.push({
+            title: 'Desarrollamos lo que necesitas',
+            description: 'Creamos las funcionalidades a medida y/o tu página web según lo acordado. Incluye pruebas y tu revisión.',
+            duration: 'Según el proyecto'
+        });
+    }
+
+    phases.push({
+        title: 'Lo probamos todo contigo',
+        description: 'Hacemos pruebas completas del sistema y te lo enseñamos para que confirmes que todo funciona como esperabas.',
+        duration: '2-3 días'
+    });
+
+    if (grouped['Formación']) {
+        const sessions = grouped['Formación'].map(f => f.name).join(', ');
+        phases.push({
+            title: 'Enseñamos a tu equipo',
+            description: 'Formación contratada: ' + sessions + '. Os damos documentación y acceso a vídeos y guías de ayuda.',
+            duration: '1-3 días'
+        });
+    }
+
+    phases.push({
+        title: '¡A funcionar!',
+        description: 'Ponemos todo en marcha. Estaremos contigo las primeras semanas para resolver cualquier duda o ajuste que haga falta.',
+        duration: '1 día + acompañamiento'
+    });
+
+    return phases;
+}
+
+/* ═════ DOCUMENT TABS ═════ */
+function switchDoc(which) {
+    document.querySelectorAll('.doc-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('active'));
+    if (which === 'presupuesto') {
+        document.querySelector('.doc-tab:nth-child(1)').classList.add('active');
+        document.getElementById('panelPresupuesto').classList.add('active');
+    } else {
+        document.querySelector('.doc-tab:nth-child(2)').classList.add('active');
+        document.getElementById('panelOrden').classList.add('active');
+    }
+}
+
+function printDoc(panelId) {
+    document.querySelectorAll('.doc-panel').forEach(p => p.classList.remove('printing'));
+    document.getElementById(panelId).classList.add('printing');
+    window.print();
+    setTimeout(() => document.getElementById(panelId).classList.remove('printing'), 500);
+}
+
+/* ═════ SEND BUDGET REQUEST ═════ */
+async function sendBudgetRequest() {
+    const btn = document.querySelector('[onclick="sendBudgetRequest()"]');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="bi bi-arrow-repeat" style="animation:spin 1s linear infinite"></i> Enviando...';
+    try {
+        const ids = Object.keys(selection).map(Number);
+        const items = ids.map(id => {
+            const p = catalog.find(x => x.id === id);
+            return p ? { id: p.id, sku: p.sku, name: p.name, category: p.category, price: p.price, unit: p.unit, qty: selection[id], subtotal: p.price * selection[id] } : null;
+        }).filter(Boolean);
+        const subtotal = items.reduce((s, i) => s + i.subtotal, 0);
+        const iva = subtotal * 0.21;
+        const budgetNum = document.querySelector('.budget-doc .meta strong')?.textContent || 'PRE-' + Date.now();
+        const payload = {
+            budget_number: budgetNum,
+            nombre: document.getElementById('cf-name').value.trim(),
+            empresa: document.getElementById('cf-company').value.trim(),
+            email: document.getElementById('cf-email').value.trim(),
+            telefono: document.getElementById('cf-phone').value.trim(),
+            cargo: document.getElementById('cf-cargo').value.trim(),
+            nombre_comercial: document.getElementById('cf-nombre-comercial').value.trim(),
+            nif_cif: document.getElementById('cf-nif').value.trim(),
+            sector: document.getElementById('cf-sector').value.trim(),
+            direccion: document.getElementById('cf-address').value.trim(),
+            codigo_postal: document.getElementById('cf-cp').value.trim(),
+            ciudad: document.getElementById('cf-city').value.trim(),
+            provincia: document.getElementById('cf-province').value.trim(),
+            notas: document.getElementById('cf-notes').value.trim(),
+            descripcion_proyecto: document.getElementById('cf-project-desc').value.trim(),
+            estilo_visual: [
+                [...document.querySelectorAll('.color-opt.selected')].map(el => el.dataset.color).join(', '),
+                [...document.querySelectorAll('.style-chip.selected')].map(el => el.textContent).join(', '),
+                document.getElementById('cf-has-logo').value,
+                document.getElementById('cf-style-ref').value.trim() ? 'Ref: ' + document.getElementById('cf-style-ref').value.trim() : ''
+            ].filter(Boolean).join(' · '),
+            items, subtotal, iva, total: subtotal + iva,
+            tipo_negocio: selectedBizType || '',
+            preset_elegido: selectedPreset ? selectedPreset.name : 'Personalizado',
+            servicios_web: collectServices(),
+            precios_web: collectPricing()
+        };
+        const res = await fetch(API_BASE + '/budget-request', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.detail || 'Error al enviar');
+        }
+        btn.innerHTML = '<i class="bi bi-check-circle-fill"></i> Solicitud enviada';
+        btn.style.background = 'var(--success)';
+        btn.style.color = '#fff';
+    } catch (e) {
+        btn.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> Error: ' + e.message;
+        btn.style.background = 'var(--danger)';
+        btn.style.color = '#fff';
+        btn.disabled = false;
+        setTimeout(() => {
+            btn.innerHTML = '<i class="bi bi-send-fill"></i> Enviar solicitud';
+            btn.style.background = '';
+            btn.style.color = '';
+        }, 4000);
+    }
+}
+
+/* ── Spinner keyframe ── */
+const styleTag = document.createElement('style');
+styleTag.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+document.head.appendChild(styleTag);
+
+/* ═════ VISUAL STYLE HELPERS ═════ */
+function toggleColor(el) {
+    el.classList.toggle('selected');
+    const sec = el.closest('.style-section');
+    if (sec) sec.classList.remove('invalid-section');
+}
+
+function toggleChip(el) {
+    el.classList.toggle('selected');
+    const sec = el.closest('.style-section');
+    if (sec) sec.classList.remove('invalid-section');
+}
+
+/* Clear validation on input */
+document.addEventListener('input', function(e) {
+    const group = e.target.closest('.form-group');
+    if (group && group.classList.contains('invalid') && e.target.value.trim()) {
+        group.classList.remove('invalid');
+    }
+});
+document.addEventListener('change', function(e) {
+    const group = e.target.closest('.form-group');
+    if (group && group.classList.contains('invalid') && e.target.value.trim()) {
+        group.classList.remove('invalid');
+    }
+});
+
+/* ── Init ── */
+loadCatalog();
+</script>
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/itc-chat-widget.js"></script>
+</body>
+</html>

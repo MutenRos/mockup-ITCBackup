@@ -1,359 +1,582 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Integra Tech Consulting - Desarrollo de páginas web con sistemas de gestión integrados para tu negocio">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Integra Tech Consulting | Soluciones Web Profesionales</title>
-    <link rel="stylesheet" href="styles.css?v=9">
+    <title>Integra Tech Consulting — Gestión Empresarial para Autónomos y PYMEs</title>
+    <meta name="description" content="Software ERP online para autónomos y PYMEs en España. Gestiona clientes, facturas, proyectos, almacén, producción y más desde un solo lugar. Prueba gratis 14 días.">
+    <meta name="keywords" content="ERP, software de gestión, autónomos, PYMEs, facturación, CRM, gestión empresarial, España">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://erp.integratech.es/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Integra Tech Consulting — Gestión Empresarial Inteligente">
+    <meta property="og:description" content="20 módulos integrados para gestionar todo tu negocio. Clientes, facturas, almacén, producción, logística y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://erp.integratech.es/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/comercial.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <span class="logo-text">Integra Tech</span>
-                    <span class="logo-consulting">Consulting</span>
+
+<!-- ═══════ Navbar ═══════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+            <span>Integra Tech Consulting</span>
+        </a>
+        <div class="nav-links">
+            <a href="funcionalidades.html">Funcionalidades</a>
+            <a href="precios.html">Precios</a>
+            <a href="presupuesto.html">Presupuesto</a>
+            <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="nav-cta">
+            <a href="erp/login.html" class="btn btn-secondary">Iniciar sesión</a>
+            <a href="prueba-gratis.html" class="btn btn-primary">Prueba gratis</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú"><i class="bi bi-list"></i></button>
+    </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="presupuesto.html">Presupuesto</a>
+    <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="erp/login.html">Iniciar sesión</a>
+    <a href="prueba-gratis.html" style="color:var(--primary);font-weight:600">Prueba gratis →</a>
+</div>
+
+
+<!-- ═══════ Hero ═══════ -->
+<section class="hero hero-dark">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="container">
+        <div class="hero-content anim-up">
+            <div class="tag tag-primary" style="margin-bottom:1.5rem">
+                <i class="bi bi-stars"></i> Software ERP 100% online
+            </div>
+            <h1 style="margin-bottom:1rem">
+                Tu negocio, <span class="gradient-text">bajo control total</span>
+            </h1>
+            <p style="font-size:1.15rem;color:var(--text-secondary);line-height:1.75;max-width:520px;margin-bottom:2rem">
+                El ERP pensado para autónomos y PYMEs en España. Gestiona clientes, facturas, proyectos, almacén, producción y equipo — todo integrado, sin complicaciones.
+            </p>
+            <div class="hero-actions" style="display:flex;gap:1rem;flex-wrap:wrap">
+                <a href="prueba-gratis.html" class="btn btn-primary btn-lg"><i class="bi bi-rocket-takeoff"></i> Prueba gratis 14 días</a>
+                <a href="funcionalidades.html" class="btn btn-secondary btn-lg"><i class="bi bi-play-circle"></i> Ver funcionalidades</a>
+            </div>
+            <div class="hero-trust" style="display:flex;align-items:center;gap:1.5rem;margin-top:1.75rem;flex-wrap:wrap">
+                <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--text-light)">
+                    <i class="bi bi-check-circle-fill" style="color:var(--success)"></i> Sin tarjeta de crédito
+                </span>
+                <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--text-light)">
+                    <i class="bi bi-check-circle-fill" style="color:var(--success)"></i> Setup en 5 minutos
+                </span>
+                <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--text-light)">
+                    <i class="bi bi-check-circle-fill" style="color:var(--success)"></i> Soporte incluido
+                </span>
+            </div>
+        </div>
+        <div class="hero-visual anim-up-d2">
+            <div class="mockup-window">
+                <div class="mockup-titlebar">
+                    <div class="mockup-dot r"></div>
+                    <div class="mockup-dot y"></div>
+                    <div class="mockup-dot g"></div>
+                    <span style="flex:1;text-align:center;font-size:0.7rem;color:var(--text-light)">erp.integratech.es</span>
                 </div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="suite.html">Gestor</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="erp/login.html" class="btn-nav">Acceso</a></li>
+                <div class="mockup-content">
+                    <div class="mockup-sidebar">
+                        <div class="mockup-sidebar-item active"><i class="bi bi-grid-1x2-fill"></i> Dashboard</div>
+                        <div class="mockup-sidebar-item"><i class="bi bi-people-fill"></i> Clientes</div>
+                        <div class="mockup-sidebar-item"><i class="bi bi-kanban-fill"></i> Proyectos</div>
+                        <div class="mockup-sidebar-item"><i class="bi bi-cash-stack"></i> Finanzas</div>
+                        <div class="mockup-sidebar-item"><i class="bi bi-gear-wide-connected"></i> Producción</div>
+                        <div class="mockup-sidebar-item"><i class="bi bi-building"></i> Almacén</div>
+                        <div class="mockup-sidebar-item"><i class="bi bi-truck"></i> Logística</div>
+                        <div class="mockup-sidebar-item"><i class="bi bi-headset"></i> Soporte</div>
+                    </div>
+                    <div class="mockup-main">
+                        <div class="mockup-kpi-row">
+                            <div class="mockup-kpi"><div class="v">€47K</div><div class="l">Ingresos</div></div>
+                            <div class="mockup-kpi"><div class="v">86</div><div class="l">Clientes</div></div>
+                            <div class="mockup-kpi"><div class="v">12</div><div class="l">Proyectos</div></div>
+                        </div>
+                        <div class="mockup-chart" id="heroChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Trust Bar ═══════ -->
+<div class="trust-bar">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap">
+        <div class="trust-item"><i class="bi bi-shield-lock-fill"></i> Datos en la UE</div>
+        <div class="trust-item"><i class="bi bi-patch-check-fill"></i> Cumplimiento RGPD</div>
+        <div class="trust-item"><i class="bi bi-lock-fill"></i> Cifrado SSL/TLS</div>
+        <div class="trust-item"><i class="bi bi-cloud-check-fill"></i> 99.9% Uptime</div>
+        <div class="trust-item"><i class="bi bi-file-earmark-text-fill"></i> Conforme con la AEAT</div>
+    </div>
+</div>
+
+<!-- ═══════ Problema / Solución ═══════ -->
+<section class="section" style="background:var(--white)">
+    <div class="container">
+        <div class="section-header">
+            <h2>¿Cansado de gestionar tu negocio con hojas de cálculo?</h2>
+            <p>La mayoría de autónomos y PYMEs pierden horas cada semana buscando datos en Excel, emails y papeles sueltos. Integra Tech Consulting lo centraliza todo.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card" style="border-top:3px solid var(--danger)">
+                <div class="card-icon" style="background:rgba(239,68,68,0.08);color:var(--danger)"><i class="bi bi-x-octagon-fill"></i></div>
+                <h4>Sin ERP</h4>
+                <p>Datos dispersos en Excel, WhatsApp y carpetas. Facturas a mano, stock descontrolado, sin visión real del negocio.</p>
+            </div>
+            <div class="card" style="border-top:3px solid var(--warning)">
+                <div class="card-icon" style="background:rgba(245,158,11,0.08);color:var(--warning)"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                <h4>ERPs Complejos</h4>
+                <p>SAP, Odoo, Sage... Demasiado complejos, caros y pensados para grandes empresas. Necesitas 3 meses solo para implantarlo.</p>
+            </div>
+            <div class="card" style="border-top:3px solid var(--success)">
+                <div class="card-icon" style="background:rgba(16,185,129,0.08);color:var(--success)"><i class="bi bi-check-circle-fill"></i></div>
+                <h4>Integra Tech Consulting</h4>
+                <p>Simple, rápido y completo. Lo que necesitas para gestionar tu negocio desde el día 1 — sin formación, sin consultores.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Módulos Principales ═══════ -->
+<section class="section" id="modulos" style="background:var(--bg)">
+    <div class="container">
+        <div class="section-header">
+            <h2>20 módulos para gestionar <span class="gradient-text">todo tu negocio</span></h2>
+            <p>Desde la captación del cliente hasta la entrega final — cada proceso cubierto y conectado</p>
+        </div>
+        <div class="grid-4" id="modulesGrid"></div>
+        <div style="text-align:center;margin-top:2.5rem">
+            <a href="funcionalidades.html" class="btn btn-outline btn-lg"><i class="bi bi-arrow-right"></i> Ver todos los módulos en detalle</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Stats Band ═══════ -->
+<div class="stats-band">
+    <div class="container">
+        <div><div class="stat-number">20</div><div class="stat-label">Módulos integrados</div></div>
+        <div><div class="stat-number">134</div><div class="stat-label">Productos y servicios</div></div>
+        <div><div class="stat-number">100%</div><div class="stat-label">Online — sin instalar nada</div></div>
+        <div><div class="stat-number">24/7</div><div class="stat-label">Acceso desde cualquier lugar</div></div>
+    </div>
+
+</div>
+
+<!-- ═══════ Servicios Profesionales ═══════ -->
+<section class="section" id="servicios" style="background:var(--white)">
+    <div class="container">
+        <div class="section-header">
+            <div class="tag tag-primary"><i class="bi bi-briefcase-fill"></i> Servicios profesionales</div>
+            <h2>Mucho más que un ERP: <span class="gradient-text">servicios a medida</span></h2>
+            <p>Además de los 20 módulos, ofrecemos todo lo que tu negocio necesita para digitalizarse por completo</p>
+        </div>
+        <div class="grid-3" id="servicesGrid"></div>
+        <div style="text-align:center;margin-top:2.5rem">
+            <a href="presupuesto.html" class="btn btn-primary btn-lg"><i class="bi bi-calculator"></i> Solicitar presupuesto personalizado</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Beneficios clave ═══════ -->
+<section class="section" style="background:var(--white)">
+    <div class="container">
+        <div class="section-header">
+            <h2>¿Por qué elegir Integra Tech Consulting?</h2>
+            <p>Diseñado desde cero para las necesidades reales de autónomos y PYMEs en España</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon" style="background:rgba(102,126,234,0.08);color:var(--primary)"><i class="bi bi-lightning-charge-fill"></i></div>
+                <h4>Operativo en minutos</h4>
+                <p>Sin instalaciones, sin servidores, sin IT. Crea tu cuenta y empieza a trabajar. Interfaz intuitiva que cualquiera entiende.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(16,185,129,0.08);color:var(--success)"><i class="bi bi-currency-euro"></i></div>
+                <h4>Precio justo</h4>
+                <p>Desde 29€/mes para autónomos. Sin costes ocultos, sin permanencia. Pagas solo por lo que usas.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(118,75,162,0.08);color:var(--secondary)"><i class="bi bi-puzzle-fill"></i></div>
+                <h4>Todo conectado</h4>
+                <p>Clientes vinculados a proyectos, proyectos a facturas, facturas a finanzas. Un cambio se refleja en todo el sistema.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(245,158,11,0.08);color:var(--warning)"><i class="bi bi-phone-fill"></i></div>
+                <h4>Desde cualquier dispositivo</h4>
+                <p>Escritorio, tablet o móvil. La misma experiencia completa en cualquier pantalla, en cualquier momento.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(59,130,246,0.08);color:var(--info)"><i class="bi bi-shield-fill-check"></i></div>
+                <h4>Seguro y conforme</h4>
+                <p>Cifrado de extremo a extremo, datos en la UE, cumplimiento RGPD. Autenticación segura y log de auditoría completo.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(239,68,68,0.08);color:var(--danger)"><i class="bi bi-headset"></i></div>
+                <h4>Soporte humano</h4>
+                <p>Hablas con personas reales en español. Sin chatbots, sin tickets eternos. Resolvemos tus dudas en el día.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Testimonios ═══════ -->
+<section class="section" style="background:var(--bg)">
+    <div class="container">
+        <div class="section-header">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <p>Empresas reales que han simplificado su gestión con Integra Tech Consulting</p>
+        </div>
+        <div class="grid-3">
+            <div class="testimonial">
+                <p class="testimonial-text">Antes llevaba todo en Excel y perdía medio día buscando facturas. Ahora lo tengo todo en un clic. La facturación me ha ahorrado horas cada semana.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MR</div>
+                    <div>
+                        <div class="testimonial-name">María R.</div>
+                        <div class="testimonial-role">Autónoma — Diseño Gráfico</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">Probamos Odoo y era demasiado para nosotros. Con Integra Tech Consulting en 2 días ya teníamos todo funcionando: clientes, proyectos y facturación.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JL</div>
+                    <div>
+                        <div class="testimonial-name">Javier L.</div>
+                        <div class="testimonial-role">CEO — Ingeniería Técnica JLM</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">El módulo de almacén y producción nos ha cambiado la vida. Sabemos el stock en tiempo real y las órdenes de producción se crean en segundos.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AP</div>
+                    <div>
+                        <div class="testimonial-name">Ana P.</div>
+                        <div class="testimonial-role">Directora de Operaciones — PackServ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Precios Resumen ═══════ -->
+<section class="section" style="background:var(--white)">
+    <div class="container">
+        <div class="section-header">
+            <h2>Planes que se adaptan a ti</h2>
+            <p>Sin permanencia, sin sorpresas. Cambia o cancela cuando quieras.</p>
+        </div>
+        <div class="grid-3">
+            <div class="pricing-card">
+                <div class="pricing-name">Autónomo</div>
+                <div class="pricing-desc">Para profesionales independientes</div>
+                <div class="pricing-price">
+                    <span class="currency">€</span><span class="amount">29</span><span class="period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg"></i> 1 usuario</li>
+                    <li><i class="bi bi-check-lg"></i> Clientes, facturas y proyectos</li>
+                    <li><i class="bi bi-check-lg"></i> Agenda y documentos</li>
+                    <li><i class="bi bi-check-lg"></i> Soporte por email</li>
                 </ul>
-                <div class="hamburger" id="hamburger" role="button" aria-label="Abrir menú de navegación" aria-expanded="false" tabindex="0">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <a href="precios.html" class="btn btn-secondary">Ver detalles</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Más popular</div>
+                <div class="pricing-name">PYME</div>
+                <div class="pricing-desc">Para equipos en crecimiento</div>
+                <div class="pricing-price">
+                    <span class="currency">€</span><span class="amount">79</span><span class="period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg"></i> Hasta 10 usuarios</li>
+                    <li><i class="bi bi-check-lg"></i> Los 20 módulos completos</li>
+                    <li><i class="bi bi-check-lg"></i> Almacén y producción</li>
+                    <li><i class="bi bi-check-lg"></i> Soporte prioritario</li>
+                </ul>
+                <a href="precios.html" class="btn btn-primary">Empezar ahora</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-name">Empresa</div>
+                <div class="pricing-desc">Para operaciones avanzadas</div>
+                <div class="pricing-price">
+                    <span class="currency">€</span><span class="amount">149</span><span class="period">/mes</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="bi bi-check-lg"></i> Usuarios ilimitados</li>
+                    <li><i class="bi bi-check-lg"></i> Multi-almacén y logística</li>
+                    <li><i class="bi bi-check-lg"></i> API y personalización</li>
+                    <li><i class="bi bi-check-lg"></i> Soporte dedicado</li>
+                </ul>
+                <a href="precios.html" class="btn btn-secondary">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="section" style="background:var(--bg)">
+    <div class="container" style="max-width:750px">
+        <div class="section-header">
+            <h2>Preguntas frecuentes</h2>
+        </div>
+        <div id="faqContainer">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Necesito instalar algo en mi ordenador?</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="faq-answer"><p>No. Integra Tech Consulting funciona 100% en tu navegador web. Solo necesitas conexión a internet. Funciona en Chrome, Firefox, Safari y Edge.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Puedo probarlo antes de pagar?</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="faq-answer"><p>Sí. Ofrecemos 14 días de prueba gratuita con acceso completo a todas las funcionalidades. No necesitas tarjeta de crédito para empezar.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Mis datos están seguros?</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="faq-answer"><p>Absolutamente. Usamos cifrado SSL/TLS, los datos se almacenan en servidores dentro de la UE, cumplimos con el RGPD y realizamos copias de seguridad diarias automáticas.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Puedo migrar mis datos desde Excel u otro sistema?</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="faq-answer"><p>Sí. Puedes importar clientes, productos y facturas desde archivos CSV/Excel. Además, nuestro equipo te ayuda con la migración sin coste adicional en los planes PYME y Empresa.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Hay permanencia o compromiso?</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="faq-answer"><p>No. Puedes cancelar tu suscripción en cualquier momento. Facturación mensual sin permanencia. Si cancelas, puedes exportar todos tus datos.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>¿Funciona para mi sector?</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="faq-answer"><p>Integra Tech Consulting está diseñado para ser flexible. Funciona para servicios profesionales, comercio, manufactura, ingeniería, construcción, consultoría y más. Si gestionas clientes, proyectos o inventario, es para ti.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Sobre el Proyecto ═══════ -->
+<section class="section" style="background:var(--white)">
+    <div class="container">
+        <div class="section-header">
+            <div class="tag tag-primary"><i class="bi bi-people-fill"></i> Nuestro proyecto</div>
+            <h2>Quiénes somos y por qué hacemos esto</h2>
+            <p>La historia de un equipo que cree que la tecnología debería estar al alcance de todos los negocios</p>
+        </div>
+        <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:2rem">
+            <div style="background:var(--bg);border-radius:var(--radius-xl);padding:2.5rem;border:1px solid #e5e7eb">
+                <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem"><i class="bi bi-lightbulb-fill" style="color:var(--primary)"></i> La idea</h3>
+                <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem">
+                    Integra Tech Consulting nació de una frustración real: ver cómo autónomos y pequeñas empresas perdían horas cada semana peleándose con herramientas que no se hablan entre sí. Un Excel por aquí, un email por allá, facturas en papel, datos desperdigados. Decidimos construir una plataforma que lo unificara todo — gestión, facturación, proyectos, almacén, producción — de forma simple y a un precio justo.
+                </p>
+            </div>
+            <div style="background:var(--bg);border-radius:var(--radius-xl);padding:2.5rem;border:1px solid #e5e7eb">
+                <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem"><i class="bi bi-gear-fill" style="color:var(--primary)"></i> Cómo lo hacemos</h3>
+                <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem">
+                    Somos un equipo pequeño pero comprometido. Desarrollamos con tecnología moderna — Python, FastAPI, inteligencia artificial — y desplegamos sobre infraestructura propia en Europa. Cada línea de código la escribimos pensando en el usuario final: el que tiene un negocio y quiere dedicar su tiempo a lo que importa, no a pelear con software. Además, utilizamos agentes de IA autónomos que nos ayudan a automatizar procesos, generar código y acelerar la entrega de cada proyecto.
+                </p>
+            </div>
+            <div style="background:var(--bg);border-radius:var(--radius-xl);padding:2.5rem;border:1px solid #e5e7eb">
+                <h3 style="font-size:1.15rem;font-weight:800;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem"><i class="bi bi-heart-fill" style="color:var(--danger)"></i> Apoya el proyecto</h3>
+                <p style="color:var(--text-secondary);line-height:1.8;font-size:0.95rem;margin-bottom:1.5rem">
+                    Integra Tech Consulting es un proyecto independiente. No tenemos grandes inversores ni rondas de financiación — solo un equipo con ganas de crear algo útil. Si crees en lo que hacemos y quieres que sigamos construyendo herramientas accesibles para pequeños negocios, puedes apoyarnos con una contribución. Cada aportación nos ayuda a seguir mejorando, a mantener los servidores y a dedicar más tiempo al desarrollo.
+                </p>
+                <div style="text-align:center">
+                    <a href="https://paypal.me/MutenRos" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="font-size:1rem;padding:0.9rem 2.5rem;gap:0.6rem">
+                        <i class="bi bi-suit-heart-fill"></i> Apoyar el proyecto
+                    </a>
+                    <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--text-light)">Contribución voluntaria vía PayPal — cualquier cantidad ayuda</p>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-eyebrow">Integra Tech Consulting v2.0</div>
-                <h1 class="hero-title">Ingeniería web para <br><span class="gradient-text">negocios escalables</span></h1>
-                <p class="hero-subtitle">Desarrollamos infraestructura digital de alto rendimiento. Sistemas de gestión integrados, diseño AAA y arquitectura preparada para crecer.</p>
-                
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Iniciar Proyecto</a>
-                    <a href="#servicios" class="btn btn-secondary">Explorar Servicios</a>
-                    <a href="suite.html" class="btn btn-secondary">Abrir Gestor Empresarial</a>
-                </div>
+<!-- ═══════ CTA Final ═══════ -->
+<section class="cta-section">
+    <h2>¿Listo para simplificar tu negocio?</h2>
+    <p>Únete a cientos de autónomos y PYMEs que ya gestionan su empresa con Integra Tech Consulting</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="prueba-gratis.html" class="btn btn-white btn-lg"><i class="bi bi-rocket-takeoff"></i> Empieza gratis — 14 días</a>
+        <a href="contacto.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.3)"><i class="bi bi-telephone-fill"></i> Hablar con ventas</a>
+    </div>
+</section>
 
-                <div class="hero-metrics">
-                    <div class="metric">
-                        <span class="metric-value">100%</span>
-                        <span class="metric-label">Uptime Garantizado</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">&lt;100ms</span>
-                        <span class="metric-label">Latencia Global</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">24/7</span>
-                        <span class="metric-label">Soporte Ingeniero</span>
-                    </div>
-                </div>
+<!-- ═══════ Footer ═══════ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">
+                <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+                Integra Tech Consulting
+            </div>
+            <p class="footer-desc">Software de gestión empresarial pensado para autónomos y PYMEs. Simple, completo y asequible.</p>
+            <div class="footer-social">
+                <a href="index.html#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="index.html#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="index.html#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
             </div>
         </div>
-    </section>
-
-    <!-- Trust Bar -->
-    <section class="trust">
-        <div class="container">
-            <p class="trust-label">Impulsando la transformación digital en</p>
-            <div class="trust-logos">
-                <span class="trust-chip">LOGÍSTICA</span>
-                <span class="trust-chip">RETAIL</span>
-                <span class="trust-chip">SERVICIOS</span>
-                <span class="trust-chip">INDUSTRIA 4.0</span>
-                <span class="trust-chip">STARTUPS</span>
-            </div>
+        <div>
+            <h5>Producto</h5>
+            <ul>
+                <li><a href="funcionalidades.html">Funcionalidades</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="erp/login.html">Acceder al ERP</a></li>
+            </ul>
         </div>
-    </section>
-
-    <!-- Servicios Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Stack Tecnológico</h2>
-                <p class="section-subtitle">Soluciones construidas sobre estándares modernos</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></div>
-                    <h3>Frontend Performance</h3>
-                    <p>Interfaces reactivas que cargan instantáneamente. Optimizadas para Core Web Vitals y conversión.</p>
-                    <ul class="service-features">
-                        <li>Next.js / React</li>
-                        <li>Edge Caching</li>
-                        <li>SEO Técnico Avanzado</li>
-                    </ul>
-                </div>
-                <div class="service-card featured">
-                    <div class="featured-badge">Core</div>
-                    <div class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
-                    <h3>Sistemas Integrados</h3>
-                    <p>El corazón operativo de tu negocio. Gestión de reservas, inventario y clientes en un solo lugar.</p>
-                    <ul class="service-features">
-                        <li>Dashboard Administrativo</li>
-                        <li>Automatización de Flujos</li>
-                        <li>API REST / GraphQL</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="bi bi-shield-lock" aria-hidden="true"></i></div>
-                    <h3>Infraestructura Segura</h3>
-                    <p>Despliegues automatizados, copias de seguridad y protección contra ataques DDoS.</p>
-                    <ul class="service-features">
-                        <li>Certificados SSL/TLS</li>
-                        <li>Firewall de Aplicación</li>
-                        <li>Monitorización 24/7</li>
-                    </ul>
-                </div>
-            </div>
+        <div>
+            <h5>Empresa</h5>
+            <ul>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="agente-gratis.html">Agente IA</a></li>
+            </ul>
         </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Metodología de Ingeniería</h2>
-                <p class="section-subtitle">Un proceso estructurado para resultados predecibles</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-step">01</div>
-                    <h3>Arquitectura & Diseño</h3>
-                    <p>Definimos la estructura técnica y visual. Sin sorpresas ni deuda técnica futura.</p>
-                    <ul>
-                        <li>Blueprint Técnico</li>
-                        <li>Wireframes UX/UI</li>
-                        <li>Selección de Stack</li>
-                    </ul>
-                </div>
-                <div class="process-card">
-                    <div class="process-step">02</div>
-                    <h3>Desarrollo Iterativo</h3>
-                    <p>Construcción modular con entregas continuas. Ves el progreso semana a semana.</p>
-                    <ul>
-                        <li>Sprints de 1 semana</li>
-                        <li>Code Reviews</li>
-                        <li>CI/CD Pipeline</li>
-                    </ul>
-                </div>
-                <div class="process-card">
-                    <div class="process-step">03</div>
-                    <h3>Despliegue & Escala</h3>
-                    <p>Lanzamiento a producción con monitorización activa y plan de escalabilidad.</p>
-                    <ul>
-                        <li>Load Testing</li>
-                        <li>Configuración CDN</li>
-                        <li>SLA Garantizado</li>
-                    </ul>
-                </div>
-            </div>
+        <div>
+            <h5>Legal</h5>
+            <ul>
+                <li><a href="aviso-legal.html">Aviso legal</a></li>
+                <li><a href="privacidad.html">Política de privacidad</a></li>
+                <li><a href="terminos.html">Términos de uso</a></li>
+                <li><a href="cookies.html">Política de cookies</a></li>
+            </ul>
         </div>
-    </section>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Integra Tech Consulting S.L. — CIF: B-67890123 — <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" style="color:var(--text-light)">Resolución de litigios en línea (ODR)</a></span>
+        <span>Hecho con <i class="bi bi-heart-fill" style="color:var(--danger);font-size:0.7rem"></i> en España</span>
+    </div>
+</footer>
 
-    <!-- About Section -->
-    <section id="nosotros" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">Ingeniería con Propósito</h2>
-                    <p>En <strong>Integra Tech Consulting</strong>, no somos una agencia de diseño tradicional. Somos ingenieros de software enfocados en resolver problemas complejos de negocio.</p>
-                    <p>Nuestra filosofía es simple: la tecnología debe ser un acelerador, no un obstáculo. Construimos sistemas robustos que permiten a las empresas operar de manera más eficiente y escalar sin fricción técnica.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Código Propio</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Deuda Técnica</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Escalabilidad</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="bi bi-rulers" aria-hidden="true"></i></div>
-                        <div>
-                            <h4>Arquitectura Limpia</h4>
-                            <p>Código mantenible y documentado bajo estándares de la industria.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="bi bi-lightning-charge" aria-hidden="true"></i></div>
-                        <div>
-                            <h4>Performance First</h4>
-                            <p>Cada milisegundo cuenta. Optimizamos cada recurso.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
-                        <div>
-                            <h4>Seguridad por Diseño</h4>
-                            <p>Protección de datos y cumplimiento normativo desde el día 1.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<script>
+// ── Navbar scroll ──
+window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ── Mobile menu ──
+document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navMobile').classList.toggle('open');
+});
+
+// ── Hero chart ──
+const chartEl = document.getElementById('heroChart');
+const bars = [35, 55, 42, 70, 50, 85, 62, 75, 88, 45, 68, 92];
+chartEl.innerHTML = bars.map((h, i) =>
+    `<div class="mockup-chart-bar" style="height:${h}%;background:${i % 2 ? '#764ba2' : '#667eea'};opacity:${0.5 + h/200}"></div>`
+).join('');
+
+// ── Modules grid ──
+const modules = [
+    {icon:'bi-people-fill', label:'Clientes y CRM', bg:'#3b82f6'},
+    {icon:'bi-receipt-cutoff', label:'Facturación', bg:'#f59e0b'},
+    {icon:'bi-kanban-fill', label:'Proyectos', bg:'#10b981'},
+    {icon:'bi-cash-stack', label:'Finanzas', bg:'#667eea'},
+    {icon:'bi-box-seam-fill', label:'Productos', bg:'#764ba2'},
+    {icon:'bi-building', label:'Almacén', bg:'#3b82f6'},
+    {icon:'bi-gear-wide-connected', label:'Producción', bg:'#ef4444'},
+    {icon:'bi-truck', label:'Logística', bg:'#f59e0b'},
+    {icon:'bi-diagram-3-fill', label:'Proveedores', bg:'#10b981'},
+    {icon:'bi-cart4', label:'Compras', bg:'#667eea'},
+    {icon:'bi-person-badge-fill', label:'Empleados', bg:'#764ba2'},
+    {icon:'bi-calendar-event-fill', label:'Agenda', bg:'#3b82f6'},
+    {icon:'bi-headset', label:'Soporte', bg:'#ef4444'},
+    {icon:'bi-megaphone-fill', label:'Marketing', bg:'#f59e0b'},
+    {icon:'bi-graph-up-arrow', label:'Analítica', bg:'#10b981'},
+    {icon:'bi-cpu-fill', label:'Oficina Técnica', bg:'#667eea'},
+    {icon:'bi-tools', label:'Field Service', bg:'#764ba2'},
+    {icon:'bi-envelope-fill', label:'Mensajería', bg:'#3b82f6'},
+    {icon:'bi-folder2-open', label:'Documentos', bg:'#ef4444'},
+    {icon:'bi-gear-fill', label:'Configuración', bg:'#9ca3af'},
+];
+document.getElementById('modulesGrid').innerHTML = modules.map(m => `
+    <div class="card" style="padding:1.25rem;text-align:center;cursor:default">
+        <div style="width:44px;height:44px;border-radius:10px;background:${m.bg}12;color:${m.bg};display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:0.6rem">
+            <i class="bi ${m.icon}"></i>
         </div>
-    </section>
+        <h4 style="font-size:0.88rem;font-weight:600">${m.label}</h4>
+    </div>
+`).join('');
 
-    <!-- CTA Banner -->
-    <section class="cta-banner">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-text">
-                    <p class="cta-eyebrow">Ready for Production?</p>
-                    <h3>Lleva tu infraestructura digital al siguiente nivel hoy mismo.</h3>
-                </div>
-                <div class="cta-actions">
-                    <a href="#contacto" class="btn btn-primary">Agendar Consultoría</a>
-                    <a href="#servicios" class="btn btn-secondary">Ver Stack</a>
-                </div>
-            </div>
-        </div>
-    </section>
+// ── Services grid ──
+const services = [
+    {icon:'bi-cloud-fill', label:'Cloud e Infraestructura', desc:'Servidores, bases de datos, cortafuegos, CDN y monitorización 24/7 en IONOS.', bg:'#3b82f6'},
+    {icon:'bi-envelope-fill', label:'Dominios y Email', desc:'Dominios .es/.com/.eu, email profesional, certificados SSL y listas de correo.', bg:'#667eea'},
+    {icon:'bi-key-fill', label:'Licencias de Software', desc:'Microsoft 365, Google Workspace, Jira, 1Password, ESET y Acronis.', bg:'#764ba2'},
+    {icon:'bi-plug-fill', label:'Integraciones', desc:'Stripe, Redsys, SII, VeriFactu, Zapier, bancos, transportistas y más.', bg:'#10b981'},
+    {icon:'bi-globe2', label:'Desarrollo Web', desc:'Landing pages, webs corporativas, tiendas online y mantenimiento mensual.', bg:'#f59e0b'},
+    {icon:'bi-lightbulb-fill', label:'Consultoría', desc:'RGPD, auditorías de seguridad, revisión de procesos y consultoría por hora.', bg:'#ef4444'},
+    {icon:'bi-rocket-takeoff-fill', label:'Implementación', desc:'Puesta en marcha, migración de datos y configuración inicial asistida.', bg:'#3b82f6'},
+    {icon:'bi-mortarboard-fill', label:'Formación', desc:'Sesiones individuales, grupales, para administradores y vídeos a medida.', bg:'#764ba2'},
+    {icon:'bi-palette-fill', label:'Personalización', desc:'Campos a medida, plantillas, informes, procesos automáticos y marca blanca.', bg:'#667eea'},
+    {icon:'bi-hdd-fill', label:'Almacenamiento', desc:'Desde 5GB incluidos hasta +100GB, copias de seguridad y descarga de datos.', bg:'#10b981'},
+    {icon:'bi-person-badge-fill', label:'Usuarios y Accesos', desc:'Packs de usuarios, SSO, verificación en dos pasos y acceso API.', bg:'#f59e0b'},
+    {icon:'bi-headset', label:'Soporte Técnico', desc:'Soporte básico, prioritario, urgente 24/7 y gestor de cuenta personal.', bg:'#ef4444'},
+];
+document.getElementById('servicesGrid').innerHTML = services.map(s => `
+    <div class="card">
+        <div class="card-icon" style="background:${s.bg}14;color:${s.bg}"><i class="bi ${s.icon}"></i></div>
+        <h4>${s.label}</h4>
+        <p>${s.desc}</p>
+    </div>
+`).join('');
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Hablemos de Ingeniería</h2>
-                <p class="section-subtitle">Cuéntanos tu desafío técnico y diseñaremos la solución</p>
-            </div>
-            <div class="contact-content">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" id="nombre" name="nombre" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="empresa">Organización</label>
-                            <input type="text" id="empresa" name="empresa" placeholder="Acme Corp">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Corporativo</label>
-                            <input type="email" id="email" name="email" required placeholder="john@acme.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono (Opcional)</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="+34 ..." pattern="[+]?[0-9\s()-]{6,15}" title="Introduce un número de teléfono válido">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje">Detalles del Proyecto</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Describe brevemente los requerimientos técnicos..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-submit" aria-label="Enviar solicitud de contacto">Enviar Solicitud</button>
-                    <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
-                </form>
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="bi bi-envelope" aria-hidden="true"></i></div>
-                        <h4>Contacto Directo</h4>
-                        <p>hello@integratech.consulting</p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
-                        <h4>Oficinas</h4>
-                        <p>Madrid Tech Hub, España</p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="bi bi-clock-history" aria-hidden="true"></i></div>
-                        <h4>Respuesta</h4>
-                        <p>&lt; 24 horas laborables</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+// ── FAQ toggle ──
+function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+}
 
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Preguntas Frecuentes</h2>
-                <p class="section-subtitle">Claridad técnica y comercial desde el inicio</p>
-            </div>
-            <div class="faq-grid">
-                <details class="faq-item" open>
-                    <summary>¿Qué stack tecnológico utilizan?</summary>
-                    <p>Principalmente Next.js (React) para frontend, Node.js/Python para backend, y PostgreSQL/Supabase para bases de datos. Adaptamos la arquitectura según el proyecto.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Cómo manejan la propiedad del código?</summary>
-                    <p>El código es 100% propiedad del cliente una vez finalizado el pago. Entregamos repositorios Git completos y documentación técnica.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Ofrecen SLA de mantenimiento?</summary>
-                    <p>Sí, tenemos planes de soporte Tier 1, 2 y 3 con tiempos de respuesta garantizados y monitoreo proactivo de infraestructura.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>¿Se integran con sistemas legacy?</summary>
-                    <p>Somos expertos en integración. Podemos conectar tu nueva web con ERPs antiguos, CRMs o cualquier API REST/SOAP existente.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-text">Integra Tech</span>
-                        <span class="logo-consulting">Consulting</span>
-                    </div>
-                    <p>Soluciones web inteligentes para tu negocio</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Servicios</h4>
-                        <ul>
-                            <li><a href="#servicios">Desarrollo Web</a></li>
-                            <li><a href="#servicios">Sistemas de Gestión</a></li>
-                            <li><a href="#servicios">Mantenimiento</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Empresa</h4>
-                        <ul>
-                            <li><a href="#nosotros">Sobre Nosotros</a></li>
-                            <li><a href="#contacto">Contacto</a></li>
-                            <li><a href="erp/login.html" style="opacity: 0.9; font-size: 0.9rem;">Acceso</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Integra Tech Consulting. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+});
+</script>
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/itc-chat-widget.js"></script>
 </body>
 </html>

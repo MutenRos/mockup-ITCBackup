@@ -1,0 +1,618 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionalidades — Integra Tech Consulting | 20 Módulos de Gestión</title>
+    <meta name="description" content="Descubre los 20 módulos de Integra Tech Consulting: CRM, facturación, proyectos, almacén, producción, logística, marketing, RRHH y más. Todo integrado.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/comercial.css">
+    <style>
+        .module-section{padding:4rem 0;border-bottom:1px solid #e5e7eb}
+        .module-section:last-child{border-bottom:none}
+        .module-row{display:flex;align-items:center;gap:3.5rem}
+        .module-row.reverse{flex-direction:row-reverse}
+        .module-info{flex:1}
+        .module-visual{flex:1;display:flex;justify-content:center}
+        .module-info .tag{margin-bottom:1rem}
+        .module-info h3{font-size:1.6rem;margin-bottom:0.6rem}
+        .module-info p{color:var(--text-secondary);font-size:1rem;line-height:1.75;margin-bottom:1.25rem}
+        .module-features{display:flex;flex-direction:column;gap:0.5rem}
+        .module-features li{
+            display:flex;align-items:flex-start;gap:0.6rem;
+            font-size:0.92rem;color:var(--text-secondary);line-height:1.6;
+        }
+        .module-features li i{color:var(--success);margin-top:0.25rem;flex-shrink:0}
+        .module-preview{
+            background:var(--white);border:1px solid #e5e7eb;border-radius:var(--radius-xl);
+            padding:1.75rem;box-shadow:var(--shadow);max-width:420px;width:100%;
+        }
+        .preview-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+        .preview-header h5{font-size:0.95rem;font-weight:700}
+        .preview-stat{
+            display:flex;align-items:center;gap:0.4rem;
+            font-size:0.78rem;font-weight:600;padding:0.25rem 0.6rem;
+            border-radius:var(--radius-full);background:rgba(16,185,129,0.08);color:var(--success);
+        }
+        .preview-row{
+            display:flex;align-items:center;gap:0.75rem;
+            padding:0.65rem 0;border-bottom:1px solid #f3f4f6;
+        }
+        .preview-row:last-child{border-bottom:none}
+        .preview-dot{
+            width:8px;height:8px;border-radius:50%;flex-shrink:0;
+        }
+        .preview-name{flex:1;font-size:0.85rem;font-weight:500}
+        .preview-badge{
+            font-size:0.72rem;font-weight:600;padding:0.15rem 0.5rem;
+            border-radius:var(--radius-full);
+        }
+        .preview-val{font-size:0.85rem;font-weight:700;color:var(--text)}
+        @media(max-width:768px){
+            .module-row,.module-row.reverse{flex-direction:column}
+            .module-visual{max-width:100%}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════ Navbar ═══════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+            <span>Integra Tech Consulting</span>
+        </a>
+        <div class="nav-links">
+            <a href="funcionalidades.html" class="active">Funcionalidades</a>
+            <a href="precios.html">Precios</a>
+            <a href="presupuesto.html">Presupuesto</a>
+            <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <div class="nav-cta">
+            <a href="erp/login.html" class="btn btn-secondary">Iniciar sesión</a>
+            <a href="prueba-gratis.html" class="btn btn-primary">Prueba gratis</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menú"><i class="bi bi-list"></i></button>
+    </div>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="funcionalidades.html" class="active">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="presupuesto.html">Presupuesto</a>
+    <a href="chat.html">Habla con el equipo</a>
+    <a href="agente-gratis.html">Agente IA</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="erp/login.html">Iniciar sesión</a>
+    <a href="prueba-gratis.html" style="color:var(--primary);font-weight:600">Prueba gratis →</a>
+</div>
+
+
+<!-- ═══════ Hero ═══════ -->
+<section class="section" style="padding-top:calc(var(--nav-height) + 4rem);background:linear-gradient(160deg,#f8f9ff 0%,#ede9fe 100%)">
+    <div class="container" style="text-align:center">
+        <div class="tag tag-primary" style="margin-bottom:1.25rem"><i class="bi bi-grid-3x3-gap-fill"></i> 20 módulos integrados</div>
+        <h1>Todo lo que necesitas para gestionar tu empresa</h1>
+        <p style="color:var(--text-secondary);font-size:1.15rem;max-width:600px;margin:1rem auto 2rem">
+            Cada módulo está conectado con los demás. Un cambio en un sitio se refleja en todo el sistema — sin duplicar datos, sin errores.
+        </p>
+        <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap">
+            <a href="funcionalidades.html#crm" class="btn btn-secondary" style="font-size:0.85rem">CRM</a>
+            <a href="funcionalidades.html#facturacion" class="btn btn-secondary" style="font-size:0.85rem">Facturación</a>
+            <a href="funcionalidades.html#proyectos" class="btn btn-secondary" style="font-size:0.85rem">Proyectos</a>
+            <a href="funcionalidades.html#almacen" class="btn btn-secondary" style="font-size:0.85rem">Almacén</a>
+            <a href="funcionalidades.html#produccion" class="btn btn-secondary" style="font-size:0.85rem">Producción</a>
+            <a href="funcionalidades.html#logistica" class="btn btn-secondary" style="font-size:0.85rem">Logística</a>
+            <a href="funcionalidades.html#rrhh" class="btn btn-secondary" style="font-size:0.85rem">RRHH</a>
+            <a href="funcionalidades.html#marketing" class="btn btn-secondary" style="font-size:0.85rem">Marketing</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Modules Detail ═══════ -->
+<section class="section" style="background:var(--white)">
+    <div class="container">
+
+        <!-- CRM / Clientes -->
+        <div class="module-section" id="crm">
+            <div class="module-row">
+                <div class="module-info">
+                    <div class="tag tag-primary"><i class="bi bi-people-fill"></i> CRM</div>
+                    <h3>Clientes y relaciones comerciales</h3>
+                    <p>Centraliza toda la información de tus clientes: contactos, historial de proyectos, facturas y notas. Nunca pierdas el hilo de una relación comercial.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Ficha completa de cliente con datos de contacto</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Historial de proyectos y facturación por cliente</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Segmentación por sector, estado y volumen</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Pipeline de valor por cliente activo</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Notas y seguimiento de comunicaciones</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-people-fill" style="color:var(--info)"></i> Clientes</h5>
+                            <div class="preview-stat"><i class="bi bi-arrow-up-short"></i> 86 activos</div>
+                        </div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--info)"></div><div class="preview-name">TechSolutions S.L.</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Activo</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--success)"></div><div class="preview-name">Construcciones Ibéricas</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Activo</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--warning)"></div><div class="preview-name">Distribuciones López</div><div class="preview-badge" style="background:rgba(245,158,11,0.08);color:var(--warning)">Potencial</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--primary)"></div><div class="preview-name">Ingeniería Martín</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Activo</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Facturación -->
+        <div class="module-section" id="facturacion">
+            <div class="module-row reverse">
+                <div class="module-info">
+                    <div class="tag" style="background:rgba(245,158,11,0.1);color:var(--warning)"><i class="bi bi-receipt-cutoff"></i> Facturación</div>
+                    <h3>Facturación profesional en segundos</h3>
+                    <p>Crea facturas con numeración automática, líneas de detalle, IVA calculado y seguimiento de estado. Sabe quién te debe y cuánto, en tiempo real.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Numeración automática (INV-2026-001)</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Líneas de factura con cantidad, precio y total</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Cálculo automático de IVA (21%)</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Estados: Pendiente, Pagada, Vencida</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Vinculación directa con cliente</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-receipt-cutoff" style="color:var(--warning)"></i> Factura INV-2026-012</h5>
+                        </div>
+                        <div class="preview-row"><div class="preview-name" style="color:var(--text-light)">Cliente</div><div class="preview-val">TechSolutions S.L.</div></div>
+                        <div class="preview-row"><div class="preview-name" style="color:var(--text-light)">Subtotal</div><div class="preview-val">€2.400,00</div></div>
+                        <div class="preview-row"><div class="preview-name" style="color:var(--text-light)">IVA (21%)</div><div class="preview-val">€504,00</div></div>
+                        <div class="preview-row" style="border-top:2px solid #e5e7eb;padding-top:0.75rem"><div class="preview-name" style="font-weight:700;color:var(--text)">Total</div><div class="preview-val" style="font-size:1.1rem;color:var(--success)">€2.904,00</div></div>
+                        <div style="margin-top:0.75rem;text-align:center"><span class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success);font-size:0.82rem;padding:0.3rem 0.8rem"><i class="bi bi-check-circle-fill"></i> Pagada</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyectos -->
+        <div class="module-section" id="proyectos">
+            <div class="module-row">
+                <div class="module-info">
+                    <div class="tag" style="background:rgba(16,185,129,0.1);color:var(--success)"><i class="bi bi-kanban-fill"></i> Proyectos</div>
+                    <h3>Control total de tus proyectos</h3>
+                    <p>Gestiona proyectos con estado, progreso, presupuesto y fechas de entrega. Vincula cada proyecto a su cliente y monitoriza el valor del pipeline.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Estados personalizables (Pendiente, En Desarrollo, Completado)</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Barra de progreso visual</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Presupuesto y valor económico por proyecto</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Fecha de entrega y prioridad</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Vinculación automática con cliente</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-kanban-fill" style="color:var(--success)"></i> Proyectos</h5>
+                            <div class="preview-stat">12 activos</div>
+                        </div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--info)"></div><div class="preview-name">Web corporativa ACME</div><div class="preview-badge" style="background:rgba(59,130,246,0.08);color:var(--info)">En desarrollo</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--success)"></div><div class="preview-name">App móvil logística</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Completado</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--warning)"></div><div class="preview-name">Migración ERP cliente</div><div class="preview-badge" style="background:rgba(245,158,11,0.08);color:var(--warning)">Pendiente</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--primary)"></div><div class="preview-name">Auditoría seguridad</div><div class="preview-badge" style="background:rgba(102,126,234,0.08);color:var(--primary)">Revisión</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Almacén -->
+        <div class="module-section" id="almacen">
+            <div class="module-row reverse">
+                <div class="module-info">
+                    <div class="tag" style="background:rgba(118,75,162,0.1);color:var(--secondary)"><i class="bi bi-building"></i> Almacén</div>
+                    <h3>Inventario y almacenes bajo control</h3>
+                    <p>Gestiona múltiples almacenes con capacidad, ocupación y movimientos de entrada/salida. Sabe exactamente qué tienes y dónde.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Múltiples almacenes con código y ubicación</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Movimientos de entrada y salida con referencia</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Capacidad y porcentaje de ocupación</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Control de stock mínimo por producto</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Trazabilidad completa de movimientos</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-building" style="color:var(--secondary)"></i> Almacenes</h5>
+                        </div>
+                        <div class="preview-row"><div class="preview-name">Almacén Central</div><div class="preview-val">72% ocupado</div></div>
+                        <div style="height:8px;background:#e5e7eb;border-radius:4px;margin:-0.25rem 0 0.75rem"><div style="height:100%;width:72%;background:var(--primary);border-radius:4px"></div></div>
+                        <div class="preview-row"><div class="preview-name">Almacén Norte</div><div class="preview-val">45% ocupado</div></div>
+                        <div style="height:8px;background:#e5e7eb;border-radius:4px;margin:-0.25rem 0 0.75rem"><div style="height:100%;width:45%;background:var(--success);border-radius:4px"></div></div>
+                        <div class="preview-row"><div class="preview-name">Almacén Sur</div><div class="preview-val">89% ocupado</div></div>
+                        <div style="height:8px;background:#e5e7eb;border-radius:4px;margin:-0.25rem 0 0"><div style="height:100%;width:89%;background:var(--warning);border-radius:4px"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producción -->
+        <div class="module-section" id="produccion">
+            <div class="module-row">
+                <div class="module-info">
+                    <div class="tag" style="background:rgba(239,68,68,0.1);color:var(--danger)"><i class="bi bi-gear-wide-connected"></i> Producción</div>
+                    <h3>Órdenes de producción eficientes</h3>
+                    <p>Planifica y gestiona la producción con órdenes, prioridades y asignación de personal. Desde la planificación hasta la entrega.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Órdenes con código, producto y cantidad</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Estados: Planificado, En Proceso, Completado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Prioridad y fechas de inicio/fin</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Asignación a responsable</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Seguimiento en dashboard analítico</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-gear-wide-connected" style="color:var(--danger)"></i> Órdenes</h5>
+                            <div class="preview-stat">5 en proceso</div>
+                        </div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--info)"></div><div class="preview-name">OP-001 Paneles LED</div><div class="preview-badge" style="background:rgba(59,130,246,0.08);color:var(--info)">En proceso</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--warning)"></div><div class="preview-name">OP-002 Carcasas</div><div class="preview-badge" style="background:rgba(245,158,11,0.08);color:var(--warning)">Planificado</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--success)"></div><div class="preview-name">OP-003 Módulos RF</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Completado</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logística -->
+        <div class="module-section" id="logistica">
+            <div class="module-row reverse">
+                <div class="module-info">
+                    <div class="tag" style="background:rgba(245,158,11,0.1);color:var(--warning)"><i class="bi bi-truck"></i> Logística</div>
+                    <h3>Envíos y distribución</h3>
+                    <p>Controla envíos desde el almacén hasta el cliente. Carriers, tracking, peso, coste y estados de entrega — todo centralizado.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Envíos con origen, destino y transportista</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Número de tracking por envío</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Peso, coste y fecha estimada de entrega</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Estados: Preparando, En tránsito, Entregado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Métricas de envíos en dashboard</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-truck" style="color:var(--warning)"></i> Envíos</h5>
+                        </div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--success)"></div><div class="preview-name">ENV-048 → Barcelona</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Entregado</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--info)"></div><div class="preview-name">ENV-049 → Madrid</div><div class="preview-badge" style="background:rgba(59,130,246,0.08);color:var(--info)">En tránsito</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--warning)"></div><div class="preview-name">ENV-050 → Sevilla</div><div class="preview-badge" style="background:rgba(245,158,11,0.08);color:var(--warning)">Preparando</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RRHH -->
+        <div class="module-section" id="rrhh">
+            <div class="module-row">
+                <div class="module-info">
+                    <div class="tag" style="background:rgba(118,75,162,0.1);color:var(--secondary)"><i class="bi bi-person-badge-fill"></i> RRHH</div>
+                    <h3>Gestión de equipo y empleados</h3>
+                    <p>Directorio de empleados con departamento, cargo, salario y estado. La base para asignar tareas, proyectos y responsabilidades.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Ficha de empleado completa</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Departamento y cargo</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Fecha de incorporación y estado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Asignación a proyectos y tareas de campo</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-person-badge-fill" style="color:var(--secondary)"></i> Equipo</h5>
+                            <div class="preview-stat">24 empleados</div>
+                        </div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--primary)"></div><div class="preview-name">Laura Gómez — Desarrollo</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Activo</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--success)"></div><div class="preview-name">Carlos Ruiz — Ventas</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Activo</div></div>
+                        <div class="preview-row"><div class="preview-dot" style="background:var(--warning)"></div><div class="preview-name">Elena Moreno — Soporte</div><div class="preview-badge" style="background:rgba(16,185,129,0.08);color:var(--success)">Activo</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketing -->
+        <div class="module-section" id="marketing">
+            <div class="module-row reverse">
+                <div class="module-info">
+                    <div class="tag" style="background:rgba(239,68,68,0.1);color:var(--danger)"><i class="bi bi-megaphone-fill"></i> Marketing</div>
+                    <h3>Campañas y captación de clientes</h3>
+                    <p>Planifica campañas de marketing con presupuesto, canal, audiencia y seguimiento de gasto. Mide el retorno de cada acción comercial.</p>
+                    <ul class="module-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Campañas por tipo: Email, Social, Eventos, SEO</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Presupuesto asignado vs. gasto real</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Audiencia objetivo y descripción</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Estados: Borrador, Activa, Pausada, Completada</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Métricas integradas en analítica</li>
+                    </ul>
+                </div>
+                <div class="module-visual">
+                    <div class="module-preview">
+                        <div class="preview-header">
+                            <h5><i class="bi bi-megaphone-fill" style="color:var(--danger)"></i> Campañas</h5>
+                        </div>
+                        <div class="preview-row"><div class="preview-name" style="color:var(--text-light)">Activas</div><div class="preview-val">3</div></div>
+                        <div class="preview-row"><div class="preview-name" style="color:var(--text-light)">Presupuesto total</div><div class="preview-val">€8.500</div></div>
+                        <div class="preview-row"><div class="preview-name" style="color:var(--text-light)">Gastado</div><div class="preview-val">€3.200</div></div>
+                        <div style="height:8px;background:#e5e7eb;border-radius:4px;margin-top:0.5rem"><div style="height:100%;width:37%;background:var(--primary);border-radius:4px"></div></div>
+                        <div style="text-align:center;margin-top:0.5rem;font-size:0.78rem;color:var(--text-light)">37% del presupuesto consumido</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════ More modules grid ═══════ -->
+<section class="section" style="background:var(--bg)">
+    <div class="container">
+        <div class="section-header">
+            <h2>Y muchos más módulos incluidos</h2>
+            <p>Cada módulo trabaja en conexión con los demás para darte una visión completa</p>
+        </div>
+        <div class="grid-auto">
+            <div class="card">
+                <div class="card-icon" style="background:rgba(102,126,234,0.08);color:var(--primary)"><i class="bi bi-cash-stack"></i></div>
+                <h4>Finanzas</h4>
+                <p>Resumen financiero con MRR, margen, cobros pendientes y facturación mensual por estado.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(16,185,129,0.08);color:var(--success)"><i class="bi bi-cart4"></i></div>
+                <h4>Compras</h4>
+                <p>Órdenes de compra con líneas, proveedores, totales con IVA y numeración automática.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(245,158,11,0.08);color:var(--warning)"><i class="bi bi-diagram-3-fill"></i></div>
+                <h4>Proveedores</h4>
+                <p>Directorio de proveedores con valoración, condiciones de pago y categorización.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(59,130,246,0.08);color:var(--info)"><i class="bi bi-headset"></i></div>
+                <h4>Soporte / Tickets</h4>
+                <p>Sistema de tickets con prioridad, categoría, asignación y tiempos de resolución.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(118,75,162,0.08);color:var(--secondary)"><i class="bi bi-tools"></i></div>
+                <h4>Field Service</h4>
+                <p>Tareas de campo con técnico asignado, ubicación, prioridad y estado.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(239,68,68,0.08);color:var(--danger)"><i class="bi bi-cpu-fill"></i></div>
+                <h4>Oficina Técnica</h4>
+                <p>Proyectos técnicos con fases, ingeniero asignado, presupuesto y seguimiento.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(102,126,234,0.08);color:var(--primary)"><i class="bi bi-calendar-event-fill"></i></div>
+                <h4>Agenda</h4>
+                <p>Eventos, reuniones y entregas programadas. Calendario compartido del equipo.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(16,185,129,0.08);color:var(--success)"><i class="bi bi-envelope-fill"></i></div>
+                <h4>Mensajería</h4>
+                <p>Comunicación interna entre miembros del equipo con bandeja de entrada/salida.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(245,158,11,0.08);color:var(--warning)"><i class="bi bi-folder2-open"></i></div>
+                <h4>Documentos</h4>
+                <p>Repositorio documental con categorías, versiones, tags y responsable.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(59,130,246,0.08);color:var(--info)"><i class="bi bi-graph-up-arrow"></i></div>
+                <h4>Analítica</h4>
+                <p>Dashboard con KPIs globales: ingresos, tickets, producción, marketing y más.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(118,75,162,0.08);color:var(--secondary)"><i class="bi bi-grid-1x2-fill"></i></div>
+                <h4>Dashboard</h4>
+                <p>Vista general con métricas clave, eventos recientes y proyectos activos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(156,163,175,0.15);color:var(--text-light)"><i class="bi bi-gear-fill"></i></div>
+                <h4>Configuración</h4>
+                <p>Usuarios, roles, seguridad, preferencias del sistema y datos de la empresa.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ Servicios Profesionales ═══════ -->
+<section class="section" style="background:var(--white)">
+    <div class="container">
+        <div class="section-header">
+            <div class="tag tag-primary"><i class="bi bi-briefcase-fill"></i> Servicios profesionales</div>
+            <h2>Todo lo que necesitas para digitalizar tu negocio</h2>
+            <p>Además de los módulos ERP, ofrecemos servicios de infraestructura, desarrollo, consultoría y formación</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon" style="background:rgba(59,130,246,0.08);color:var(--info)"><i class="bi bi-cloud-fill"></i></div>
+                <h4>Cloud e Infraestructura</h4>
+                <p>Servidores dedicados, bases de datos gestionadas, cortafuegos, CDN, monitorización 24/7 y copias de seguridad en la nube — todo en IONOS con infraestructura europea.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Servidores desde 2 hasta 12 núcleos</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Almacenamiento en la nube hasta 1TB</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Copias de seguridad automáticas</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Repartidor de carga y alta disponibilidad</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(102,126,234,0.08);color:var(--primary)"><i class="bi bi-envelope-fill"></i></div>
+                <h4>Dominios y Email Profesional</h4>
+                <p>Registra tu dominio .es, .com o .eu y configura correo profesional con tu marca. Incluimos certificados SSL y listas de correo para equipos.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Dominios .es, .com, .eu</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Email profesional hasta 100GB</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Certificados SSL incluidos</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Migración de dominio existente</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(118,75,162,0.08);color:var(--secondary)"><i class="bi bi-key-fill"></i></div>
+                <h4>Licencias de Software</h4>
+                <p>Gestionamos y proporcionamos licencias de las herramientas que tu equipo necesita: office, seguridad, gestión de proyectos y contraseñas.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Microsoft 365 / Google Workspace</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Jira, Confluence (Atlassian)</li>
+                    <li><i class="bi bi-check-circle-fill"></i> ESET Antivirus, Acronis Backup</li>
+                    <li><i class="bi bi-check-circle-fill"></i> 1Password para equipos</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(16,185,129,0.08);color:var(--success)"><i class="bi bi-plug-fill"></i></div>
+                <h4>Integraciones</h4>
+                <p>Conecta el ERP con tus herramientas favoritas: pasarelas de pago, Hacienda, bancos, transportistas, correo y miles de apps vía Zapier.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Stripe, Redsys (TPV Virtual)</li>
+                    <li><i class="bi bi-check-circle-fill"></i> SII Hacienda y VeriFactu 2026</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Conexión bancaria, Slack, Teams</li>
+                    <li><i class="bi bi-check-circle-fill"></i> +5000 apps vía Zapier</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(245,158,11,0.08);color:var(--warning)"><i class="bi bi-globe2"></i></div>
+                <h4>Desarrollo Web</h4>
+                <p>Diseñamos y desarrollamos tu presencia online: desde landing pages hasta tiendas online completas, con mantenimiento mensual incluido.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Landing pages desde 600€</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Webs corporativas desde 1.500€</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Tiendas online desde 4.500€</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Mantenimiento mensual 89€/mes</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(239,68,68,0.08);color:var(--danger)"><i class="bi bi-lightbulb-fill"></i></div>
+                <h4>Consultoría</h4>
+                <p>Nuestros consultores te ayudan a optimizar procesos, cumplir con normativas y mejorar la seguridad de tu organización.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Consultoría por hora o jornada</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Adaptación RGPD</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Revisión de procesos empresariales</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Auditoría de seguridad</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(59,130,246,0.08);color:var(--info)"><i class="bi bi-rocket-takeoff-fill"></i></div>
+                <h4>Implementación y Migración</h4>
+                <p>Te acompañamos desde el primer día: puesta en marcha, migración de datos desde tu sistema anterior y configuración personalizada.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Puesta en marcha básica, estándar o profesional</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Migración de datos (CSV, Excel, otro ERP)</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Configuración personalizada</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Migración especial por hora</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(118,75,162,0.08);color:var(--secondary)"><i class="bi bi-mortarboard-fill"></i></div>
+                <h4>Formación</h4>
+                <p>Sesiones de formación adaptadas a tu equipo para que saquéis el máximo partido al ERP desde el primer día.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Formación individual 1 a 1</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Formación en grupo (hasta 10 personas)</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Formación para administradores</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Vídeos tutoriales a medida</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon" style="background:rgba(16,185,129,0.08);color:var(--success)"><i class="bi bi-palette-fill"></i></div>
+                <h4>Personalización</h4>
+                <p>Adapta el ERP a tu imagen y flujos de trabajo: campos personalizados, plantillas, informes y procesos automáticos.</p>
+                <ul class="module-features" style="margin-top:0.75rem">
+                    <li><i class="bi bi-check-circle-fill"></i> Campos a medida (packs de 10 o 50)</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Plantillas de factura con tu marca</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Informes y dashboards personalizados</li>
+                    <li><i class="bi bi-check-circle-fill"></i> Tu marca en todo el ERP (marca blanca)</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem">
+            <a href="presupuesto.html" class="btn btn-primary btn-lg"><i class="bi bi-calculator"></i> Configurar y solicitar presupuesto</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section">
+    <h2>¿Quieres verlo en acción?</h2>
+    <p>Prueba Integra Tech Consulting gratis durante 14 días. Sin tarjeta de crédito, sin compromiso.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="contacto.html" class="btn btn-white btn-lg"><i class="bi bi-rocket-takeoff"></i> Empezar gratis</a>
+        <a href="precios.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.3)"><i class="bi bi-tag-fill"></i> Ver precios</a>
+    </div>
+</section>
+
+<!-- ═══════ Footer ═══════ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">
+                <div class="nav-brand-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+                Integra Tech Consulting
+            </div>
+            <p class="footer-desc">Software de gestión empresarial pensado para autónomos y PYMEs. Simple, completo y asequible.</p>
+            <div class="footer-social">
+                <a href="funcionalidades.html#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="funcionalidades.html#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="funcionalidades.html#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+        <div>
+            <h5>Producto</h5>
+            <ul>
+                <li><a href="funcionalidades.html">Funcionalidades</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="erp/login.html">Acceder al ERP</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Empresa</h5>
+            <ul>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="agente-gratis.html">Agente IA</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Legal</h5>
+            <ul>
+                <li><a href="aviso-legal.html">Aviso legal</a></li>
+                <li><a href="privacidad.html">Política de privacidad</a></li>
+                <li><a href="terminos.html">Términos de uso</a></li>
+                <li><a href="cookies.html">Política de cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Integra Tech Consulting S.L. — CIF: B-67890123 — <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" style="color:var(--text-light)">Resolución de litigios en línea (ODR)</a></span>
+        <span>Hecho con <i class="bi bi-heart-fill" style="color:var(--danger);font-size:0.7rem"></i> en España</span>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20));
+document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navMobile').classList.toggle('open'));
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+});
+</script>
+<script src="js/cookie-banner.js" defer></script>
+<script src="js/itc-chat-widget.js"></script>
+</body>
+</html>
